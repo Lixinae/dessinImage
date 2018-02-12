@@ -15,20 +15,37 @@ public:
 
     ~EstUn() override = default;
 
+    /**
+     *
+     * @return Une string avec le type
+     */
     string toString() const override {
         return "EST UN " + string(typeid(*ftemoin).name());
     }
 
+    /**
+     *
+     * @param f
+     * @return
+     */
     bool verif(const Figure *f) const override {
         return typeid(*ftemoin) == typeid(*f);
     }
 
+    /**
+     *
+     * @param other
+     * @return
+     */
     EstUn &operator=(const EstUn &other) {
         ftemoin = other.ftemoin;
         return *this;
     }
 
 private :
+    /**
+     * Figure temoin
+     */
     const Figure *ftemoin;
 };
 
