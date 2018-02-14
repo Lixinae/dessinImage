@@ -18,6 +18,7 @@ include_directories(
         include/
         /usr/include/
         third-party/random-1.1.0/include
+        third-party/json3.0/include
 )
 
 add_subdirectory(third-party/random-1.1.0/)
