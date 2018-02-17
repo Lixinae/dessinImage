@@ -36,8 +36,8 @@ namespace figure {
 		_rayon *= k;
 	}
 
-	void Cercle::dessiner(ostream &os) const {
-		os << *this << endl;;
+	void Cercle::dessiner(const Dessin &dessin) const {
+		dessin.dessineCercle(_centre, _rayon);
 	}
     
     void Cercle::deplacer(const Point &p) {

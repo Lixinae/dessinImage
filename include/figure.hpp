@@ -6,6 +6,7 @@
 #include "point.hpp"
 #include <memory>
 #include <cmath>
+#include "dessin.hpp"
 
 #define PI acos(-1)
 namespace figure {
@@ -53,10 +54,10 @@ public:
 	virtual void homothetie(float k) = 0;
 
    /**
-    * Dessine la figure
-    * \param os : flux
+    * Dessine la figure dans la classe de dessin en argument
+    * \param dessin : classe de dessin
     */
-    virtual void dessiner(ostream &os = cout) const = 0; //TODO rm os
+    virtual void dessiner(const Dessin &dessin) const = 0;
 
    /**
     * Affiche la figure dans un flux
