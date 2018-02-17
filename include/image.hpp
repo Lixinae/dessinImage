@@ -8,61 +8,24 @@
 
 namespace figure {
 
-/**
- * Politique uniforme d'allocation m�moire
- * Toutes les figures sont allou�es dynamiquement
- * Une image les m�morise via un tableau de pointeurs de figures
- */
 class Image : public Figure {
-
-private:
-    /**
-     * Origine de la figure
-     */
-    Point _origine;
-
-    /**
-    * Conteneur de figures allou�es dynamiquement
-    */
-    std::set<std::shared_ptr<Figure>> m_setFigure;
-    std::vector<std::shared_ptr<Figure>> m_vectorFigure;
 
 public:
 
     static Image temoin;
 
-    Image() : _origine(Point(0, 0)), m_setFigure(), m_vectorFigure() {};
+	//TODO
+    /*explicit*/ Image();
+    /*explicit*/ Image(const Point &a);
+    /*explicit*/ Image(const Image &image);
 
-    Image(const Point &a) : _origine(a), m_setFigure(), m_vectorFigure() {}
+    std::shared_ptr<Figure> copy() const override;
 
-    /**
-     * contructeur de copie profonde
-     */
-    Image(const Image &image);
+    const std::shared_ptr<Figure> getFigure(int index) const;
 
-    virtual std::shared_ptr<Figure> copy() const;
+    int getNombre() const;
 
-    virtual ~Image() {
-        m_setFigure.clear();
-        //m_vectorFigure.clear();
-    }
-
-    const std::shared_ptr<Figure> getFigure(int index) const {
-        auto it = m_setFigure.begin();
-        std::advance(it, index);
-        auto val = *it;
-        return val;
-//        return m_vectorFigure[index];
-    }
-
-    int getNombre() const {
-        return m_setFigure.size();
-//        return m_vectorFigure.size();
-    }
-
-    Point getOrigine() const {
-        return _origine;
-    }
+    Point getOrigine() const;
 
     void ajouter(const Figure &f);
 
@@ -74,6 +37,13 @@ public:
 
     void afficher(ostream &os = cout) const override;
 
+private:
+
+    Point _origine;
+
+    std::set<std::shared_ptr<Figure>> _figures;
+    
+    static void afficherAux(ostream &os, const Image &image, int niveau);
 
 };
 

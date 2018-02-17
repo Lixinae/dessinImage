@@ -1,40 +1,43 @@
-/**
- * auteurs          : Michel Landschoot
- * mail             : direction@landsnet.com
- * date de cr�ation : 2013-12-21
- * description      : impl�m�ntation d'une classe d�crivant une Image dans une hi�rachie de figures
- */
-
 #include "image.hpp"
+
+#include <algorithm>
 
 namespace figure {
 
-static void afficherAux(ostream &os, const Image &image, int niveau);
-
-/**
- * L'image t�moin est une variable de classe
- */
 Image Image::temoin = Image();
 
+Image::Image() : Image(Point()) {
+	
+};
 
-Image::Image(const Image &image) : _origine(image._origine), m_setFigure(image.m_setFigure),
-                                   m_vectorFigure(image.m_vectorFigure) {
+Image::Image(const Point &a) : _origine(a), _figures() {
+	
 }
 
-/**
- * Fonction virtuelle de copie
- */
+Image::Image(const Image &image) : _origine(image._origine), _figures(image._figures) {
+
+}
+
 shared_ptr<Figure> Image::copy() const {
     auto res = std::shared_ptr<Image>(new Image(this->_origine));
-//    res->m_vectorFigure = this->m_vectorFigure;
-    res->m_setFigure = this->m_setFigure;
+    res->_figures = this->_figures;
     return res;
 }
 
+const std::shared_ptr<Figure> Image::getFigure(int index) const {
+	auto it = std::cbegin(_figures);
+	std::advance(it, index);
+	return *it;
+}
 
-/**
- * ajout d' une figure � une image
- */
+int Image::getNombre() const {
+	return _figures.size();
+}
+
+Point Image::getOrigine() const {
+	return _origine;
+}
+
 void Image::ajouter(const Figure &f) {
     if (f == *this)
         return;
@@ -46,62 +49,50 @@ void Image::ajouter(const Figure &f) {
         en C++: du const_cast
         _tableau[_nombre++] = const_cast<Figure *> (&f);
     */
-    m_setFigure.insert(f.copy());
-//    m_vectorFigure.push_back(f.copy());
+    _figures.insert(f.copy());
 
 }
 
-/**
- * D�placement-translation de valeur le point p
- * toutes les figures de l'image sont �galement d�plac�es
- */
 void Image::deplacer(const Point &p) {
     _origine += p;
-    for (auto fig:m_setFigure) {
-        fig->deplacer(p);
-    }
+    std::for_each(
+		std::cbegin(_figures),
+		std::cend(_figures), 
+		[p](const auto & figure){figure->deplacer(p);}
+	);
 }
 
-/**
- * Le dessin se limite � un affichage
- */
 void Image::dessiner(ostream &os) const {
     os << *this << endl;
 }
 
 double Image::surface() const {
-    double res = 0;
-    for (auto fig:m_setFigure) {
-        res += fig->surface();
-    }
-    return res;
+    double res = std::accumulate(
+		std::cbegin(_figures),
+		std::cend(_figures), 
+		0,
+		[](auto acc, const auto & figure) {return acc + figure->surface();}
+	);
+	return res;
 }
 
 void Image::afficher(ostream &os) const {
     afficherAux(os, *this, 0);
 }
 
-static void afficherAux(ostream &os, const Image &image, int niveau) {
-    int j;
-    for (j = 0; j < niveau; j++) {
-        os << "\t";
-    }
-    os << "BEGIN IMAGE : " << image.getOrigine() << " " << image.getNombre() << " figures " << endl;
-    for (int i = 0; i < image.getNombre(); i++) {
-        const auto *imageIn = dynamic_cast<const Image *> (image.getFigure(i).get());
+void Image::afficherAux(ostream &os, const Image &image, int niveau) {
+	string shift(niveau, '\t');
+    os << shift << "BEGIN IMAGE : " << image._origine << " " << image._figures.size() << " figures " << endl;
+    for (const auto & figure : image._figures) {
+        const auto *imageIn = dynamic_cast<const Image *>(figure.get());
         if (imageIn != nullptr) {
             afficherAux(os, *imageIn, niveau + 1);
         } else {
-            for (j = 0; j < niveau; j++) {
-                os << "\t";
-            }
-            image.getFigure(i)->afficher(os);
+			os << shift;
+            figure->afficher(os);
         }
     }
-    for (j = 0; j < niveau; j++) {
-        os << "\t";
-    }
-    os << "END IMAGE" << endl;
+    os << shift << "END IMAGE" << endl;
 }
 
 }
