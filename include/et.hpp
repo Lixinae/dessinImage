@@ -6,25 +6,18 @@
 class Et : public Condition {
 
 public:
-    Et(const Et &other) : _c1(other._c1), _c2(other._c2) {}
+    Et(const Et &other);
 
-    Et(Condition *c1, Condition *c2) : _c1(c1), _c2(c2) {}
+    Et(Condition *c1, Condition *c2);
 
     ~Et() override = default;
 
-    string toString() const override {
-        return _c1->toString() + " ET " + _c2->toString();
-    }
+    string toString() const override;
 
-    bool verif(const Figure *f) const override {
-        return (_c1->verif(f)) && (_c2->verif(f));
-    }
+    bool verif(const Figure *f) const override;
 
-    Et &operator=(const Et &other) {
-        _c1 = other._c1;
-        _c2 = other._c2;
-        return *this;
-    }
+
+    Et &operator=(const Et &other);
 
 private:
     Condition *_c1;

@@ -12,19 +12,19 @@ namespace figure {
     public:
         static Triangle temoin;
 
-        explicit Triangle(const Point &point1 = Point(0, 1), const Point &point2 = Point(-1, 0),
-                          const Point &point3 = Point(0, 1));
+        explicit Triangle();
+
+        explicit Triangle(const Point &point1, const Point &point2, const Point &point3);
 
         shared_ptr<Figure> copy() const override;
 
         void deplacer(const Point &trans) override;
 
-
         /**
- * Realise une translation sur la figure
- * \param x : valeur de la translation en abscisse
- * \param y : valeur de la translation en ordonnnee
- */
+         * Realise une translation sur la figure
+         * \param x : valeur de la translation en abscisse
+         * \param y : valeur de la translation en ordonnnee
+         */
         void translation(int x, int y) override;
 
         /**

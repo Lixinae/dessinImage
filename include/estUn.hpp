@@ -9,7 +9,7 @@
 class EstUn : public Condition {
 
 public:
-    EstUn(const EstUn &other) : ftemoin(other.ftemoin) {}
+    EstUn(const EstUn &other);
 
     explicit EstUn(const Figure *f) : ftemoin(f) {}
 
@@ -19,29 +19,21 @@ public:
      *
      * @return Une string avec le type
      */
-    string toString() const override {
-        return "EST UN " + string(typeid(*ftemoin).name());
-    }
+    string toString() const override;
 
     /**
      *
      * @param f
      * @return
      */
-    bool verif(const Figure *f) const override {
-        return typeid(*ftemoin) == typeid(*f);
-    }
+    bool verif(const Figure *f) const override;
 
     /**
      *
      * @param other
      * @return
      */
-    EstUn &operator=(const EstUn &other) {
-        ftemoin = other.ftemoin;
-        return *this;
-    }
-
+    EstUn &operator=(const EstUn &other);
 private :
     /**
      * Figure temoin

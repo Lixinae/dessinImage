@@ -11,8 +11,7 @@ extern string intToString(int n);
 class EstPetite : public Condition {
 
 public:
-    explicit EstPetite(double seuil) : _seuil(seuil) {
-    }
+    explicit EstPetite(double seuil);
 
     ~EstPetite() override = default;
 
@@ -20,13 +19,9 @@ public:
 //        return _seuil;
 //    }
 
-    string toString() const override {
-        return string("La surface EST PLUS PETITE QUE ") + "" + intToString(static_cast<int>(_seuil));
-    }
+    string toString() const override;
 
-    bool verif(const Figure *f) const override {
-        return f->surface() < this->_seuil;
-    }
+    bool verif(const Figure *f) const override;
 
 private:
     double _seuil;
