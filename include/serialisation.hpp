@@ -1,7 +1,7 @@
 #ifndef SERIALISATION_H
 #define SERIALISATION_H
 
-#include "figure.hpp"
+#include "figure/figure.hpp"
 
 namespace figure {
 
@@ -28,7 +28,7 @@ public:
    /**
     * Detruit la classe de serialisation
     */
-    virtual ~Serialisation() {};
+   virtual ~Serialisation() = default;;
 
 };
 

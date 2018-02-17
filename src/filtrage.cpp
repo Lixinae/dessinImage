@@ -8,9 +8,9 @@
 #include <algorithm>
 #include <iostream>
 #include "filtrage.hpp"
-#include "image.hpp"
-#include "ligne.hpp"
-#include "cercle.hpp"
+#include "figure/image.hpp"
+#include "figure/ligne.hpp"
+#include "figure/cercle.hpp"
 #include <random>
 #include <effolkronium/random.hpp>
 

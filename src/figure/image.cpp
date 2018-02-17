@@ -1,4 +1,4 @@
-#include "image.hpp"
+#include "figure/image.hpp"
 
 #include <algorithm>
 

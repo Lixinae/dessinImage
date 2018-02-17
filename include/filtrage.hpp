@@ -6,8 +6,8 @@
 #include <cstdlib>     /* srand, rand */
 #include <ctime>       /* time */
 #include <list>
-#include "figure.hpp"
-#include "condition.hpp"
+#include "figure/figure.hpp"
+#include "condition/condition.hpp"
 
 using namespace std;
 using namespace condition;

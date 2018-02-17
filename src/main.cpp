@@ -1,16 +1,12 @@
 #include <sstream>
 #include <list>
 #include <algorithm>
-#include <image.hpp>
-#include <ligne.hpp>
-#include <cercle.hpp>
-#include <condition.hpp>
-#include <estPetite.hpp>
-#include <estUn.hpp>
-#include <et.hpp>
-#include <non.hpp>
+#include <figure/image.hpp>
+#include <figure/ligne.hpp>
+#include <condition/condition.hpp>
+#include <condition/estPetite.hpp>
+#include <condition/estUn.hpp>
 #include <filtrage.hpp>
-#include <serialisation.hpp>
 
 using namespace std;
 using namespace figure;

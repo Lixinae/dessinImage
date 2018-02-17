@@ -3,10 +3,10 @@
 
 #include "serialisation.hpp"
 #include <json.hpp>
-#include "ligne.hpp"
-#include "cercle.hpp"
-#include "image.hpp"
-#include "triangle.hpp"
+#include "figure/ligne.hpp"
+#include "figure/cercle.hpp"
+#include "figure/image.hpp"
+#include "figure/triangle.hpp"
 
 namespace figure {
 

@@ -1,6 +1,5 @@
-#include "ligne.hpp"
+#include "figure/ligne.hpp"
 
-#include <cmath>
 #include "matrice2D.hpp"
 
 namespace figure {

@@ -1,7 +1,7 @@
 #ifndef DESSINIMAGE_TRIANGLE_HPP
 #define DESSINIMAGE_TRIANGLE_HPP
 
-#include "figure.hpp"
+#include "figure/figure.hpp"
 
 namespace figure {
 	
