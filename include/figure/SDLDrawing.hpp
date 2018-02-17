@@ -11,10 +11,11 @@
 namespace figure {
     class SDLDrawing : public Dessin {
     private:
+        int m_width, m_height;
         SDL_Window *m_window;
 
         //The surface contained by the window
-        SDL_Surface *m_screenSurface;
+        SDL_Renderer *m_renderer;
     public:
 
         SDLDrawing(int width, int height);
