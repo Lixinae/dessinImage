@@ -1,4 +1,4 @@
-#include <SDLDrawing.hpp>
+#include <figure/SDLDrawing.hpp>
 
 
 namespace figure {
