@@ -34,10 +34,6 @@ namespace figure {
         return _figures.size();
     }
 
-    Point Image::getOrigine() const {
-        return _origine;
-    }
-
     void Image::ajouter(const Figure &f) {
         if (f == *this)
             return;
@@ -50,37 +46,38 @@ namespace figure {
             _tableau[_nombre++] = const_cast<Figure *> (&f);
         */
         _figures.insert(f.copy());
-
-void Image::translation(int x, int y) {
-	//TODO
-	 std::for_each(
-		std::cbegin(_figures),
-		std::cend(_figures), 
-		[x,y](const auto & figure){figure->translation(x,y);}
-	);
-}
-
-void Image::rotation(float theta) {
-	//TODO
-	std::for_each(
-		std::cbegin(_figures),
-		std::cend(_figures), 
-		[theta](const auto & figure){figure->rotation(theta);}
-	);
-}
+	}
 	
-void Image::homothetie(float k) {
-	//TODO
-	std::for_each(
-		std::cbegin(_figures),
-		std::cend(_figures), 
-		[k](const auto & figure){figure->homothetie(k);}
-	);
-}
+	void Image::translation(int x, int y) {
+		//TODO
+		 std::for_each(
+			std::cbegin(_figures),
+			std::cend(_figures), 
+			[x,y](const auto & figure){figure->translation(x,y);}
+		);
+	}
 
-void Image::dessiner(ostream &os) const {
-    os << *this << endl;
-}
+	void Image::rotation(float theta) {
+		//TODO
+		std::for_each(
+			std::cbegin(_figures),
+			std::cend(_figures), 
+			[theta](const auto & figure){figure->rotation(theta);}
+		);
+	}
+		
+	void Image::homothetie(float k) {
+		//TODO
+		std::for_each(
+			std::cbegin(_figures),
+			std::cend(_figures), 
+			[k](const auto & figure){figure->homothetie(k);}
+		);
+	}
+
+	void Image::dessiner(ostream &os) const {
+		os << *this << endl;
+	}
 
     void Image::deplacer(const Point &p) {
         _origine += p;
@@ -89,10 +86,6 @@ void Image::dessiner(ostream &os) const {
                 std::cend(_figures),
                 [p](const auto &figure) { figure->deplacer(p); }
         );
-    }
-
-    void Image::dessiner(ostream &os) const {
-        os << *this << endl;
     }
 
     double Image::surface() const {
@@ -133,8 +126,5 @@ void Image::dessiner(ostream &os) const {
         }
         os << shift << "END IMAGE" << endl;
     }
-
-
-
 
 }
