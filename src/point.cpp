@@ -2,42 +2,35 @@
 
 namespace figure {
 
-Point::Point(int a, int b) : x(a), y(b) {
+Point::Point(int x, int y) : _x(x), _y(y) {
 	
 }
 
+Point::Point() : Point(0,0) {
+	
+};
+
 int Point::Point::getX() const {
-    return x;
+    return _x;
 }
 
 int Point::Point::getY() const {
-    return x;
+    return _y;
 }
 
 
 Point Point::operator+(const Point &p) const {
-    return Point(x + p.x, y + p.y);
+    return Point(_x + p._x, _y + p._y);
 }
 
 Point &Point::operator+=(const Point &p) {
-    x += p.x;
-    y += p.y;
-    return *this;
-}
-
-Point &Point::operator=(const Point &p) {
-    if (this == &p)
-        return *this;
-
-    x = p.x;
-    y = p.y;
-
+    _x += p._x;
+    _y += p._y;
     return *this;
 }
 
 ostream &operator<<(ostream &os, const Point &p) {
-    os << '(' << p.x << ',' << p.y << ')';
-    return os;
+    return (os << '(' << p._x << ',' << p._y << ')');
 }
 
 }
