@@ -3,6 +3,7 @@
 
 #include "serialisation.hpp"
 #include <json.hpp>
+#include <figure/rectangle.hpp>
 #include "figure/ligne.hpp"
 #include "figure/cercle.hpp"
 #include "figure/image.hpp"
@@ -46,6 +47,8 @@ namespace figure {
         json figureVersJson(const Image &figure) const;
 
         json figureVersJson(const Triangle &figure) const;
+
+        json figureVersJson(const Rectangle &figure) const;
 
         json pointVersJson(const Point &point) const;
 

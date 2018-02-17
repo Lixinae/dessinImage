@@ -58,7 +58,13 @@ namespace figure {
 
         void afficher(ostream &os = cout) const override;
 
-        friend ostream &operator<<(ostream &os, const Rectangle &rectangle);
+        const Point &get_upperLeft() const;
+
+        const Point &get_upperRight() const;
+
+        const Point &get_lowerLeft() const;
+
+        const Point &get_lowerRight() const;
 
     private:
 

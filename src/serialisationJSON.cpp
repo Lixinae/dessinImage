@@ -33,6 +33,14 @@ namespace figure {
                     jsonVersPoint(jsonFigure["nom"]["args"]["point3"])
             );
         }
+        if (type == Rectangle::temoin.nom()) {
+            return new Rectangle(
+                    jsonVersPoint(jsonFigure["nom"]["args"]["upperLeft"]),
+                    jsonVersPoint(jsonFigure["nom"]["args"]["upperLeft"]),
+                    jsonVersPoint(jsonFigure["nom"]["args"]["lowerLeft"]),
+                    jsonVersPoint(jsonFigure["nom"]["args"]["lowerRight"])
+            );
+        }
         if (type == Cercle::temoin.nom()) {
             return new Cercle(
                     jsonVersPoint(jsonFigure["args"]["centre"]),
@@ -62,6 +70,9 @@ namespace figure {
         }
         if (figure.nom() == Triangle::temoin.nom()) {
             return figureVersJson(dynamic_cast<const Triangle &>(figure));
+        }
+        if (figure.nom() == Rectangle::temoin.nom()) {
+            return figureVersJson(dynamic_cast<const Rectangle &>(figure));
         }
         if (figure.nom() == Image::temoin.nom()) {
             return figureVersJson(dynamic_cast<const Image &>(figure));
@@ -112,6 +123,16 @@ namespace figure {
         jsonPoint["x"] = point.getX();
         jsonPoint["y"] = point.getY();
         return jsonPoint;
+    }
+
+    json SerialisationJSON::figureVersJson(const Rectangle &figure) const {
+        json jsonFigure;
+        jsonFigure["nom"] = Rectangle::temoin.nom();
+        jsonFigure["nom"]["args"]["upperLeft"] = pointVersJson(figure.get_upperLeft());
+        jsonFigure["nom"]["args"]["upperRight"] = pointVersJson(figure.get_upperRight());
+        jsonFigure["nom"]["args"]["lowerLeft"] = pointVersJson(figure.get_lowerLeft());
+        jsonFigure["nom"]["args"]["lowerRight"] = pointVersJson(figure.get_lowerRight());
+        return jsonFigure;
     }
 
 }

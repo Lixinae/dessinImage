@@ -63,11 +63,13 @@ namespace figure {
     }
 
     void Triangle::homothetie(float k) {
-        // todo
+        Matrice2D transformation = Matrice2D::homothetie(k);
+        _point1 = transformation * _point1;
+        _point2 = transformation * _point2;
+        _point3 = transformation * _point3;
     }
 
     void Triangle::rotation(float theta) {
-        // todo
         Matrice2D transformation = Matrice2D::rotation(theta);
         _point1 = transformation * _point1;
         _point2 = transformation * _point2;
