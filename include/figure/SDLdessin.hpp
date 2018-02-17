@@ -9,16 +9,20 @@
 #include <SDL.h>
 
 namespace figure {
-    class SDLDrawing : public Dessin {
+    class SDLdessin : public Dessin {
     private:
-        int m_width, m_height;
-        SDL_Window *m_window;
+        int m_width = 800, m_height = 600;
+        SDL_Window *m_window = nullptr;
 
         //The surface contained by the window
-        SDL_Renderer *m_renderer;
-    public:
+        SDL_Renderer *m_renderer = nullptr;
 
-        SDLDrawing(int width, int height);
+        SDLdessin(const SDLdessin &);
+
+        SDLdessin &operator=(const SDLdessin &);
+    public:
+        SDLdessin(int width, int height);
+
 
         /**
          * Initialise la classe de dessin
@@ -30,26 +34,30 @@ namespace figure {
          * \param p1 : premiere point definissant la ligne
          * \param p2 : deuxieme point definissant la ligne
          */
-        void dessineLigne(const Point &p1, const Point &p2);
+        void dessineLigne(const Point &p1, const Point &p2) const override;
 
         /**
          * Dessine un cercle
          * \param centre : centre du cercle
          * \param rayon : rayon du cercle
          */
-        void dessineCercle(const Point &centre, float rayon);
+        void dessineCercle(const Point &centre, float rayon) const override;
 
 
         /**
          * Dessine un polygone
          * \param points : points definissant le contour du polygone
          */
-        void dessinePolygone(const vector<Point> &points);
+        void dessinePolygone(const vector<Point> &points) const override;
 
+        /**
+        * Met la fenetre en attente d'un evenement pour la maintenir ouverte
+        */
+        void attendClick() const;
         /**
          * Detruit la classe de dessin
          */
-        ~SDLDrawing() {
+        ~SDLdessin() {
             SDL_DestroyWindow(m_window);
         };
     };

@@ -6,9 +6,8 @@
 #include "point.hpp"
 #include <memory>
 #include <cmath>
-#include "matrice2D.hpp"
 #include "dessin.hpp"
-
+#include <matrice2D.hpp>
 constexpr double PI = acos(-1);
 
 namespace figure {
