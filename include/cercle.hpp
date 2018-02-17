@@ -14,8 +14,29 @@ namespace figure {
         explicit Cercle();
 
         explicit Cercle(const Point &centre);
+      
+       explicit Cercle(const Point &center, int rayon);
 
-        explicit Cercle(const Point &center, int rayon);
+    void deplacer(const Point &trans) override;
+    
+    /**
+	 * Realise une translation sur le cercle
+	 * \param x : valeur de la translation en abscisse
+	 * \param y : valeur de la translation en ordonnnee
+	 */
+	void translation(int x, int y) override;
+	
+    /**
+	 * Realise une rotation sur le cercle
+	 * \param thetat : valeur de l'angle de rotation en radian
+	 */
+	void rotation(float theta) override;
+	
+    /**
+	 * Realise une homothetie sur le cercle
+	 * \param k : valeur de l'homothetie
+	 */
+	void homothetie(float k) override;
 
         shared_ptr<Figure> copy() const override;
 
