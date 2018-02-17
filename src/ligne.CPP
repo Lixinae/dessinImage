@@ -50,6 +50,17 @@ double Ligne::surface() const {
     return distance * epaisseur;
 }
 
+double Ligne::perimetre() const {
+    double distance = sqrt((_origine.getX() - _extremite.getX()) * (_origine.getX() - _extremite.getX())
+                           + (_origine.getY() - _extremite.getY()) * (_origine.getY() - _extremite.getY()));
+
+    const double epaisseur = 1.0;
+
+    return 2*distance+2*epaisseur;
+}
+
 void Ligne::afficher(ostream &os) const {
     os << "ligne (" << _origine << ", " << _extremite << ")" << endl;
 }
+
+

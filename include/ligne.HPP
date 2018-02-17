@@ -21,6 +21,7 @@ public:
     void dessiner(ostream &os = cout) const override;
 
     double surface() const override;
+    double perimetre() const override;
 
     void afficher(ostream &os = cout) const override;
 

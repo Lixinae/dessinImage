@@ -5,6 +5,9 @@
 #include <iostream>
 #include "point.hpp"
 #include <memory>
+#include <cmath>
+
+#define PI acos(-1)
 
 using namespace std;
 
@@ -28,6 +31,8 @@ public:
     virtual void afficher(ostream &os) const = 0;
 
     virtual double surface() const = 0;
+
+    virtual double perimetre() const = 0;
 
     bool operator==(const Figure &f) const {
         return (this == &f);

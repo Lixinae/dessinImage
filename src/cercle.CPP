@@ -35,10 +35,14 @@ void Cercle::dessiner(ostream &os) const {
 }
 
 double Cercle::surface() const {
-    return 3.1416 * _rayon * _rayon;
+    return PI * _rayon * _rayon;
 }
 
 void Cercle::afficher(ostream &os) const {
     os << "cercle : (" << _centre << ", " << _rayon << ")" << endl;
+}
+
+double Cercle::perimetre() const {
+    return 2 * PI * _rayon;
 }
 

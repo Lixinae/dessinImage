@@ -75,9 +75,18 @@ double Image::surface() const {
     return res;
 }
 
+double Image::perimetre() const {
+    double res = 0;
+    for (auto fig:m_setFigure) {
+        res += fig->perimetre();
+    }
+    return res;
+}
 void Image::afficher(ostream &os) const {
     afficherAux(os, *this, 0);
 }
+
+
 
 static void afficherAux(ostream &os, const Image &image, int niveau) {
     int j;

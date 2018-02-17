@@ -70,8 +70,9 @@ public:
 
     double surface() const override;
 
-    void afficher(ostream &os = cout) const override;
+    double perimetre() const override;
 
+    void afficher(ostream &os = cout) const override;
 
 };
 
