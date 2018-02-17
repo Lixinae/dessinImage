@@ -40,7 +40,11 @@ namespace figure {
 
 		shared_ptr<Figure> copy() const override;
 
-		void dessiner(ostream &os = cout) const override;
+       /**
+		* Dessine le cercle dans la classe de dessin en argument
+		* \param dessin : classe de dessin
+		*/
+		void dessiner(const Dessin &dessin) const override;
 
 		double surface() const override;
 

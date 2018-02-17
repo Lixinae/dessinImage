@@ -36,8 +36,8 @@ namespace figure {
         _extremite += p;
     }
 
-    void Ligne::dessiner(ostream &os) const {
-        os << *this << endl;;
+    void Ligne::dessiner(const Dessin &dessin) const {
+        dessin.dessineLigne(_origine, _extremite);
     }
 
     double Ligne::surface() const {
