@@ -14,11 +14,11 @@ namespace figure {
 
         shared_ptr<Figure> copy() const override;
 
-		/**
-		 * Renvoie le nom utilise pour identifier un triangle
-		 * \return le nom utilise pour identifier un triangle
-		 */
-		string nom() const override;
+        /**
+         * Renvoie le nom utilise pour identifier un triangle
+         * \return le nom utilise pour identifier un triangle
+         */
+        string nom() const override;
 
         void deplacer(const Point &trans) override;
 
