@@ -329,13 +329,13 @@ void testCreerFigures() {
     for_each(figures.begin(), figures.end(), affiche);
 
     vector<Condition *> conditions = {
-        new EstPetite(300),
-        new EstUn(&Cercle::temoin),
-        new EstUn(&Ligne::temoin),
-        new EstUn(&Image::temoin),
-        new Non(new EstUn(&Cercle::temoin)),
-        new Non(new EstUn(&Ligne::temoin)),
-        new Et(new EstUn(&Cercle::temoin), new EstPetite(300))
+            new EstPetite(300),
+            new EstUn(&Cercle::temoin),
+            new EstUn(&Ligne::temoin),
+            new EstUn(&Image::temoin),
+            new Non(new EstUn(&Cercle::temoin)),
+            new Non(new EstUn(&Ligne::temoin)),
+            new Et(new EstUn(&Cercle::temoin), new EstPetite(300))
     };
 
     for (auto cond:conditions) {

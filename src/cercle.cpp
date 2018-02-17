@@ -4,9 +4,7 @@ namespace figure {
 
     Cercle Cercle::temoin = Cercle(Point(0, 0), 0);
 
-    Cercle::Cercle() : Cercle(Point(0, 0), 0) {
-
-    }
+    Cercle::Cercle() = default;
 
     Cercle::Cercle(const Point &centre) : Cercle(centre, 0) {
 

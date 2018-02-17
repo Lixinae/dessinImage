@@ -29,7 +29,7 @@ static bool supprimerSiProfondAux(list<const Figure *> &figures, list<const Figu
  */
 Figure *Filtrage::getUneFigure(int x, int y) {
 
-	int n = Random::get(0, 2); // Integer
+    int n = Random::get(0, 2); // Integer
     int rand2k = Random::get(0, 1999);
     switch (n) {
         case 0:
