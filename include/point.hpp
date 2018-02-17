@@ -1,4 +1,3 @@
-
 #ifndef POINT_H
 #define POINT_H
 
@@ -7,7 +6,9 @@
 using namespace std;
 
 class Point {
+
 public:
+
     explicit Point(int a = 0, int b = 0);
 
     int getX() const;
@@ -29,6 +30,7 @@ public:
 private:
     int x;
     int y;
+
 };
 
 #endif
