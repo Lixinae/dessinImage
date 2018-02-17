@@ -3,7 +3,6 @@
 //
 
 #include <triangle.hpp>
-#include <cmath>
 
 namespace figure {
     Triangle::Triangle(const Point &point1, const Point &point2, const Point &point3) : _point1(point1),
@@ -14,23 +13,27 @@ namespace figure {
 
     }
 
-    void Triangle::dessiner(ostream &os) const {
-        os << *this << endl;;
-    }
-
     double Triangle::surface() const {
-        // TODo
-        // base * hauteur / 2
-        return 0;
+
+        auto a = sqrt(pow(_point1.getX() - _point2.getX(), 2)
+                      + pow(_point1.getY() - _point2.getY(), 2));
+        auto b = sqrt(pow(_point2.getX() - _point3.getX(), 2)
+                      + pow(_point2.getY() - _point3.getY(), 2));
+        auto c = sqrt(pow(_point1.getX() - _point3.getX(), 2)
+                      + pow(_point1.getY() - _point3.getY(), 2));
+        auto s = (1 / 2) * (a + b + c);
+
+        // Formule de heron
+        return sqrt(s * (s - a) * (s - b) * (s - c));
     }
 
     double Triangle::perimetre() const {
-        double distance1 = sqrt(pow(_point1.getX() - _point2.getX(), 2)
-                                + pow(_point1.getY() - _point2.getY(), 2));
-        double distance2 = sqrt(pow(_point2.getX() - _point3.getX(), 2)
-                                + pow(_point2.getY() - _point3.getY(), 2));
-        double distance3 = sqrt(pow(_point1.getX() - _point3.getX(), 2)
-                                + pow(_point1.getY() - _point3.getY(), 2));
+        auto distance1 = sqrt(pow(_point1.getX() - _point2.getX(), 2)
+                              + pow(_point1.getY() - _point2.getY(), 2));
+        auto distance2 = sqrt(pow(_point2.getX() - _point3.getX(), 2)
+                              + pow(_point2.getY() - _point3.getY(), 2));
+        auto distance3 = sqrt(pow(_point1.getX() - _point3.getX(), 2)
+                              + pow(_point1.getY() - _point3.getY(), 2));
         return distance1 + distance2 + distance3;
     }
 
@@ -40,5 +43,21 @@ namespace figure {
 
     shared_ptr<Figure> Triangle::copy() const {
         return std::make_shared<Triangle>(this->_point1, this->_point2, this->_point3);
+    }
+
+    void Triangle::dessiner(const Dessin &dessin) const {
+        dessin.dessinePolygone(vector<Point>{_point1, _point2, _point3});
+    }
+
+    void Triangle::homothetie(float k) {
+        // todo
+    }
+
+    void Triangle::rotation(float theta) {
+        // todo
+    }
+
+    void Triangle::translation(int x, int y) {
+        // todo
     }
 }
