@@ -1,4 +1,3 @@
-
 #ifndef LIGNE_H
 #define LIGNE_H
 
@@ -12,8 +11,7 @@ public:
 
     static Ligne temoin;
 
-    Ligne(const Point &a, const Point &b)
-            : _origine(a), _extremite(b) {}
+    explicit Ligne(const Point &a, const Point &b);
 
     std::shared_ptr<Figure> copy() const override;
 
@@ -28,8 +26,10 @@ public:
     void afficher(ostream &os = cout) const override;
 
 private:
+
     Point _origine;
     Point _extremite;
+
 };
 
 }
