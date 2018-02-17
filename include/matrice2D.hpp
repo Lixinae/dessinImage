@@ -13,7 +13,11 @@ namespace figure { //TODO namespace calcul
 
         static Matrice2D translation(float x, float y);
 
+        static Matrice2D rotation(float theta);
+
         static Matrice2D rotation(float theta, float x, float y);
+
+        static Matrice2D homothetie(float k);
 
         static Matrice2D homothetie(float k, float x, float y);
 

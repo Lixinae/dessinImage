@@ -1,6 +1,7 @@
 #ifndef DESSINIMAGE_TRIANGLE_HPP
 #define DESSINIMAGE_TRIANGLE_HPP
 
+#include <matrice2D.hpp>
 #include "figure/figure.hpp"
 
 namespace figure {
@@ -25,6 +26,11 @@ namespace figure {
 
         void deplacer(const Point &trans) override;
 
+        /**
+         * Realise une transformation decrite par une matrice sur le triangle
+         * \param matrice : tranformation a appliquer
+         */
+        void tranformation(const Matrice2D &matrice);
         /**
 		 * Realise une translation sur la figure
 		 * \param x : valeur de la translation en abscisse

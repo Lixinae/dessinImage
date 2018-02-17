@@ -6,6 +6,7 @@
 #include "figure.hpp"
 #include <set>
 #include <numeric>
+#include <matrice2D.hpp>
 
 namespace figure {
 
@@ -40,17 +41,24 @@ namespace figure {
 		 * \return figure a l'indice en argument
 		 */
 		const shared_ptr<Figure> getFigure(int index) const; //TODO change into Figure *
-	
-        std::shared_ptr<Figure> copy() const override;
-        
-        /**
-		 * Renvoie le nom utilise pour identifier une image
-		 * \return le nom utilise pour identifier une image
-		 */
+
+		////todo
+		std::shared_ptr<Figure> copy() const override;
+
+		/**
+         * Renvoie le nom utilise pour identifier une image
+         * \return le nom utilise pour identifier une image
+         */
 		string nom() const override;
 
 
 		void deplacer(const Point &trans) override;
+
+		/**
+        * Realise une transformation decrite par une matrice sur l'image
+        * \param matrice : tranformation a appliquer
+        */
+		void tranformation(const Matrice2D &matrice);
     
 		/**
 		 * Realise une translation sur l'image

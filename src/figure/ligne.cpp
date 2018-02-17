@@ -1,7 +1,5 @@
 #include "figure/ligne.hpp"
 
-#include "matrice2D.hpp"
-
 namespace figure {
 
     Ligne Ligne::temoin = Ligne(Point(0, 0), Point(1, 1));
@@ -26,17 +24,22 @@ namespace figure {
 		return "ligne";
 	}
 
-	void Ligne::translation(int x, int y) {
-		Matrice2D transformation = Matrice2D::translation(x,y);
-		_origine = transformation * _origine;
-		_extremite = transformation * _extremite;
-	}
 
-	void Ligne::rotation(float theta) {
-		Matrice2D transformation = Matrice2D::rotation(theta);
-		_origine = transformation * _origine;
-		_extremite = transformation * _extremite;
-	}
+    void Ligne::tranformation(const Matrice2D &matrice) {
+        //TODO
+    }
+
+    void Ligne::translation(int x, int y) {
+        Matrice2D transformation = Matrice2D::translation(x, y);
+        _origine = transformation * _origine;
+        _extremite = transformation * _extremite;
+    }
+
+    void Ligne::rotation(float theta) {
+        Matrice2D transformation = Matrice2D::rotation(theta, 0, 0); //TODO
+        _origine = transformation * _origine;
+        _extremite = transformation * _extremite;
+    }
 		
 	void Ligne::homothetie(float /*k*/) { //TODO homothetie sur ligne ?
 		//TODO

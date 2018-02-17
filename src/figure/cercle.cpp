@@ -1,5 +1,4 @@
 #include "figure/cercle.hpp"
-#include "matrice2D.hpp"
 
 namespace figure {
 
@@ -35,18 +34,21 @@ namespace figure {
     }
 
 
+    void Cercle::tranformation(const Matrice2D &matrice) {
+        //TODO
+    }
+
     void Cercle::translation(int x, int y) {
         Matrice2D transformation = Matrice2D::translation(x, y);
         _centre = transformation * _centre;
     }
 
-    //TODO rotation d'un cercle ? -> Laisser vide
-    void Cercle::rotation(float theta) {
+    void Cercle::rotation(float theta) { //TODO rotation d'un cercle ?
 
     }
 
     void Cercle::homothetie(float k) {
-        Matrice2D transformation = Matrice2D::homothetie(k);
+        Matrice2D transformation = Matrice2D::homothetie(k, 0, 0); //TODO
         _centre = transformation * _centre;
         _rayon *= k;
     }

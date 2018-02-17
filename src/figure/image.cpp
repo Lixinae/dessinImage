@@ -56,6 +56,10 @@ namespace figure {
         _figures.insert(f.copy());
 	}
 
+    void Image::tranformation(const Matrice2D &matrice) {
+        //TODO
+    }
+
 	void Image::translation(int x, int y) {
 		//TODO
 		std::for_each(

@@ -1,6 +1,7 @@
 #ifndef LIGNE_H
 #define LIGNE_H
 
+#include <matrice2D.hpp>
 #include "figure.hpp"
 
 namespace figure {
@@ -33,7 +34,13 @@ namespace figure {
 		 */
 		string nom() const override;
 
-   void deplacer(const Point &trans) override;
+		void deplacer(const Point &trans) override;
+
+		/**
+        * Realise une transformation decrite par une matrice sur la ligne
+        * \param matrice : tranformation a appliquer
+        */
+		void tranformation(const Matrice2D &matrice);
 
 		/**
 		 * Realise une translation sur la ligne
