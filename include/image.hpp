@@ -24,7 +24,7 @@ namespace figure {
 
         std::shared_ptr<Figure> copy() const override;
 
-        const shared_ptr<Figure> getFigure(int index) const;
+        const shared_ptr<Figure> getFigure(int index) const; //TODO change into Figure *
 
         int getNombre() const;
 
@@ -51,7 +51,11 @@ namespace figure {
 
 		void ajouter(const Figure &f);
 
-		void dessiner(ostream &os = cout) const override;
+	   /**
+		* Dessine l'image dans la classe de dessin en argument
+		* \param dessin : classe de dessin
+		*/
+		void dessiner(const Dessin &dessin) const override;
 
 		double surface() const override;
 

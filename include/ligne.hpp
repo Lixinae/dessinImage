@@ -19,30 +19,34 @@ namespace figure {
 
         void deplacer(const Point &trans) override;
 
-	/**
-	 * Realise une translation sur la ligne
-	 * \param x : valeur de la translation en abscisse
-	 * \param y : valeur de la translation en ordonnnee
-	 */
-	void translation(int x, int y) override;
-	
-    /**
-	 * Realise une rotation sur la ligne
-	 * \param thetat : valeur de l'angle de rotation en radian
-	 */
-	void rotation(float theta) override;
-	
-    /**
-	 * Realise une homothetie sur la ligne
-	 * \param k : valeur de l'homothetie
-	 */
-	void homothetie(float k) override;
+		/**
+		 * Realise une translation sur la ligne
+		 * \param x : valeur de la translation en abscisse
+		 * \param y : valeur de la translation en ordonnnee
+		 */
+		void translation(int x, int y) override;
+		
+		/**
+		 * Realise une rotation sur la ligne
+		 * \param thetat : valeur de l'angle de rotation en radian
+		 */
+		void rotation(float theta) override;
+		
+		/**
+		 * Realise une homothetie sur la ligne
+		 * \param k : valeur de l'homothetie
+		 */
+		void homothetie(float k) override;
 
-    void dessiner(ostream &os = cout) const override;
+       /**
+        * Dessine la ligne dans la classe de dessin en argument
+        * \param dessin : classe de dessin
+        */
+		void dessiner(const Dessin &dessin) const override;
 
-        double surface() const override;
+		double surface() const override;
 
-        double perimetre() const override;
+		double perimetre() const override;
 
         void afficher(ostream &os = cout) const override;
 

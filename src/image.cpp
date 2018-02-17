@@ -50,7 +50,7 @@ namespace figure {
 	
 	void Image::translation(int x, int y) {
 		//TODO
-		 std::for_each(
+		std::for_each(
 			std::cbegin(_figures),
 			std::cend(_figures), 
 			[x,y](const auto & figure){figure->translation(x,y);}
@@ -75,8 +75,12 @@ namespace figure {
 		);
 	}
 
-	void Image::dessiner(ostream &os) const {
-		os << *this << endl;
+	void Image::dessiner(const Dessin &dessin) const {
+		std::for_each(
+			std::cbegin(_figures),
+			std::cend(_figures), 
+			[&dessin](const auto & figure){figure->dessiner(dessin);}
+		);
 	}
 
     void Image::deplacer(const Point &p) {
