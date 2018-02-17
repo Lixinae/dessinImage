@@ -15,24 +15,43 @@ namespace figure {
 
         explicit Cercle(const Point &centre);
 
-        explicit Cercle(const Point &center, int rayon);
+		explicit Cercle(const Point &center, int rayon);
 
-        shared_ptr<Figure> copy() const override;
+		void deplacer(const Point &trans) override;
 
-        void deplacer(const Point &trans) override;
+		/**
+		 * Realise une translation sur le cercle
+		 * \param x : valeur de la translation en abscisse
+		 * \param y : valeur de la translation en ordonnnee
+		 */
+		void translation(int x, int y) override;
 
-        void dessiner(ostream &os = cout) const override;
+		/**
+		 * Realise une rotation sur le cercle
+		 * \param thetat : valeur de l'angle de rotation en radian
+		 */
+		void rotation(float theta) override;
 
-        double surface() const override;
+		/**
+		 * Realise une homothetie sur le cercle
+		 * \param k : valeur de l'homothetie
+		 */
+		void homothetie(float k) override;
 
-        double perimetre() const override;
+		shared_ptr<Figure> copy() const override;
 
-        void afficher(ostream &os = cout) const override;
+		void dessiner(ostream &os = cout) const override;
 
-    private:
+		double surface() const override;
 
-        Point _centre;
-        int _rayon;
+		double perimetre() const override;
+
+		void afficher(ostream &os = cout) const override;
+
+		private:
+
+			Point _centre;
+			int _rayon;
 
     };
 

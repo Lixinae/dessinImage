@@ -10,76 +10,94 @@
 #define PI acos(-1)
 namespace figure {
 
-    using namespace std;
+using namespace std;
 
-    class Figure {
+class Figure {
 
-    public:
+public:
 
-        /**
-         * Realise une copie profonde de la figure
-         * \return une copie profonde de la figure
-         */
-        virtual shared_ptr<Figure> copy() const = 0;
+   /**
+	* Realise une copie profonde de la figure
+	* \return une copie profonde de la figure
+	*/
+    virtual shared_ptr<Figure> copy() const = 0;
 
         /**
          * Detruit la figure
          */
         virtual ~Figure() = default;;
 
-        /**
-         * Deplace la figure
-         * \param trans : translation
-         */
-        virtual void deplacer(const Point &trans) = 0; // TODO operation(matrice2d)
+   /**
+    * Deplace la figure
+    * \param trans : translation
+    */
+    virtual void deplacer(const Point &trans) = 0; // TODO operation(matrice2d)
 
-        /**
-         * Dessine la figure
-         * \param os : flux
-         */
-        virtual void dessiner(ostream &os = cout) const = 0; //TODO rm os
+    /**
+	 * Realise une translation sur la figure
+	 * \param x : valeur de la translation en abscisse
+	 * \param y : valeur de la translation en ordonnnee
+	 */
+	virtual void translation(int x, int y) = 0;
 
-        /**
-         * Affiche la figure dans un flux
-         * \param os : le flux
-         * \return le flux
-         */
-        virtual void afficher(ostream &os) const = 0;
+    /**
+	 * Realise une rotation sur la figure
+	 * \param thetat : valeur de l'angle de rotation en radian
+	 */
+	virtual void rotation(float theta) = 0;
 
-        /**
-         * Calcule la surface de la figure
-         * \return la surface de la figure
-         */
-        virtual double surface() const = 0; //TODO rm -> perimetre aire
+    /**
+	 * Realise une homothetie sur la figure
+	 * \param k : valeur de l'homothetie
+	 */
+	virtual void homothetie(float k) = 0;
 
-        /**
-        * Calcule le perimetre de la figure
-        * \return le perimetre de la figure
-        */
-        virtual double perimetre() const = 0; //TODO rm -> perimetre aire
+   /**
+    * Dessine la figure
+    * \param os : flux
+    */
+    virtual void dessiner(ostream &os = cout) const = 0; //TODO rm os
 
-        /**
-        * Teste l'egalite de deux figures
-        * \param f : figure a tester
-        * \return true si les figures sont les memes, faux sinon
-        */
-        bool operator==(const Figure &f) const {
-            return (this == &f); //TODO egalite memoire ?
-        }
+   /**
+    * Affiche la figure dans un flux
+    * \param os : le flux
+    * \return le flux
+    */
+    virtual void afficher(ostream &os) const = 0;
 
-        /**
-         * Ecrit une figure dans un flux
-         * \param os : le flux
-         * \param figure : la figure a ecrire
-         * \return le flux
-         */
-        friend ostream &operator<<(ostream &os, const Figure &figure) {
-            figure.afficher(os);
-            return os;
-        }
+   /**
+    * Calcule la surface de la figure
+    * \return la surface de la figure
+    */
+    virtual double surface() const = 0; //TODO rm -> perimetre aire
 
-    };
+   /**
+	* Calcule le perimetre de la figure
+	* \return le perimetre de la figure
+	*/
+	virtual double perimetre() const = 0; //TODO rm -> perimetre aire
 
+   /**
+    * Teste l'egalite de deux figures
+    * \param f : figure a tester
+    * \return true si les figures sont les memes, faux sinon
+    */
+    bool operator==(const Figure &f) const {
+        return (this == &f); //TODO egalite memoire ?
+    }
+
+   /**
+    * Ecrit une figure dans un flux
+    * \param os : le flux
+    * \param figure : la figure a ecrire
+    * \return le flux
+    */
+    friend ostream &operator<<(ostream &os, const Figure &figure) {
+        figure.afficher(os);
+        return os;
+    }
+
+};
 }
 
 #endif

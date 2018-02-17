@@ -1,6 +1,7 @@
 #include "ligne.hpp"
 
 #include <cmath>
+#include "matrice2D.hpp"
 
 namespace figure {
 
@@ -14,6 +15,22 @@ namespace figure {
         return std::make_shared<Ligne>(this->_origine, this->_extremite);
     }
 
+	void Ligne::translation(int x, int y) {
+		Matrice2D transformation = Matrice2D::translation(x,y);
+		_origine = transformation * _origine;
+		_extremite = transformation * _extremite;
+	}
+
+	void Ligne::rotation(float theta) {
+		Matrice2D transformation = Matrice2D::rotation(theta);
+		_origine = transformation * _origine;
+		_extremite = transformation * _extremite;
+	}
+		
+	void Ligne::homothetie(float /*k*/) { //TODO homothetie sur ligne ?
+		//TODO
+	}
+	
     void Ligne::deplacer(const Point &p) {
         _origine += p;
         _extremite += p;
