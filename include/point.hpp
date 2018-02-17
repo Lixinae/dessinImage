@@ -40,14 +40,14 @@ public:
     * \param p : le point a additionner
     * \return le point resultant de l'addition
     */
-    Point operator+(const Point &p) const;
+    Point operator+(const Point &p) const; //TODO rm
 
    /**
     * Realise l'incrementation terme a terme d'un point
     * \param p : valeur du point a ajouter
     * \return une reference vers l'instance du point
     */
-    Point &operator+=(const Point &p);
+    Point &operator+=(const Point &p); //TODO rm
 
    /**
     * Ecrit un point dans un flux

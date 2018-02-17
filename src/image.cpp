@@ -62,6 +62,33 @@ void Image::deplacer(const Point &p) {
 	);
 }
 
+void Image::translation(int x, int y) {
+	//TODO
+	 std::for_each(
+		std::cbegin(_figures),
+		std::cend(_figures), 
+		[x,y](const auto & figure){figure->translation(x,y);}
+	);
+}
+
+void Image::rotation(float theta) {
+	//TODO
+	std::for_each(
+		std::cbegin(_figures),
+		std::cend(_figures), 
+		[theta](const auto & figure){figure->rotation(theta);}
+	);
+}
+	
+void Image::homothetie(float k) {
+	//TODO
+	std::for_each(
+		std::cbegin(_figures),
+		std::cend(_figures), 
+		[k](const auto & figure){figure->homothetie(k);}
+	);
+}
+
 void Image::dessiner(ostream &os) const {
     os << *this << endl;
 }

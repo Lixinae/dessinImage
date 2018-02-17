@@ -16,8 +16,8 @@ Matrice2D::Matrice2D(
 
 Matrice2D Matrice2D::translation(int x, int y) {
 	return Matrice2D(
-		0, 0, x,
-		0, 0, y,
+		1, 0, x,
+		0, 1, y,
 		0, 0, 1
 	);
 }
@@ -32,7 +32,7 @@ Matrice2D Matrice2D::rotation(float theta) {
 	);
 }
 
-Matrice2D Matrice2D::homothetie(int k) {
+Matrice2D Matrice2D::homothetie(float k) {
 	return Matrice2D(
 		k, 0, 0,
 		0, k, 0,
@@ -40,21 +40,27 @@ Matrice2D Matrice2D::homothetie(int k) {
 	);
 }
 
-Matrice2D Matrice2D::operator* (const Matrice2D &other) {
-	float m11 = _m11*other._m11 + _m12*other._m21 + _m13*other._m31;
-	float m12 = _m11*other._m12 + _m12*other._m22 + _m13*other._m32;
-	float m13 = _m11*other._m13 + _m12*other._m23 + _m13*other._m33;
-	float m21 = _m21*other._m11 + _m22*other._m21 + _m23*other._m31;
-	float m22 = _m21*other._m12 + _m22*other._m22 + _m23*other._m32;
-	float m23 = _m21*other._m13 + _m22*other._m23 + _m23*other._m33;
-	float m31 = _m31*other._m11 + _m32*other._m21 + _m33*other._m31;
-	float m32 = _m31*other._m12 + _m32*other._m22 + _m33*other._m32;
-	float m33 = _m31*other._m13 + _m32*other._m23 + _m33*other._m33;
+Matrice2D operator* (const Matrice2D &a, const Matrice2D &b) {
+	float m11 = a._m11*b._m11 + a._m12*b._m21 + a._m13*b._m31;
+	float m12 = a._m11*b._m12 + a._m12*b._m22 + a._m13*b._m32;
+	float m13 = a._m11*b._m13 + a._m12*b._m23 + a._m13*b._m33;
+	float m21 = a._m21*b._m11 + a._m22*b._m21 + a._m23*b._m31;
+	float m22 = a._m21*b._m12 + a._m22*b._m22 + a._m23*b._m32;
+	float m23 = a._m21*b._m13 + a._m22*b._m23 + a._m23*b._m33;
+	float m31 = a._m31*b._m11 + a._m32*b._m21 + a._m33*b._m31;
+	float m32 = a._m31*b._m12 + a._m32*b._m22 + a._m33*b._m32;
+	float m33 = a._m31*b._m13 + a._m32*b._m23 + a._m33*b._m33;
 	return Matrice2D(
 		m11, m12, m13,
 		m21, m22, m23,
 		m31, m32, m33
 	);
+}
+
+Point operator* (const Matrice2D &a, const Point &b) {
+	float x = a._m11*b.getX() + a._m12*b.getY() + a._m13;
+	float y = a._m21*b.getX() + a._m22*b.getY() + a._m23;
+	return Point(x,y);
 }
 
 }

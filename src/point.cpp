@@ -19,11 +19,11 @@ int Point::Point::getY() const {
 }
 
 
-Point Point::operator+(const Point &p) const {
+Point Point::operator+(const Point &p) const { //TODO rm
     return Point(_x + p._x, _y + p._y);
 }
 
-Point &Point::operator+=(const Point &p) {
+Point &Point::operator+=(const Point &p) {//TODO rm
     _x += p._x;
     _y += p._y;
     return *this;

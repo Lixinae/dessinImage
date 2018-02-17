@@ -1,7 +1,7 @@
-#ifndef POINT_H
-#define POINT_H
+#ifndef MATRICE2D_H
+#define MATRICE2D_H
 
-#include <iostream>
+#include "point.hpp"
 
 namespace figure {
 
@@ -11,11 +11,12 @@ class Matrice2D {
 
 public:
 
-	Matrice2D translation(int x, int y);
-	Matrice2D rotation(float theta);
-	Matrice2D homothetie(int k);
+	static Matrice2D translation(int x, int y);
+	static Matrice2D rotation(float theta);
+	static Matrice2D homothetie(float k);
 
-	Matrice2D operator* (const Matrice2D &other);
+	friend Matrice2D operator* (const Matrice2D &a, const Matrice2D &b);
+	friend Point operator* (const Matrice2D &a, const Point &b);
 
 private:
 
@@ -23,7 +24,7 @@ private:
 	float _m21, _m22, _m23;
 	float _m31, _m32, _m33;
 
-	Matrice2D(
+	explicit Matrice2D(
 		float m11, float m12, float m13,
 		float m21, float m22, float m23,
 		float m31, float m32, float m33
