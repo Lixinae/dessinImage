@@ -6,6 +6,8 @@
 #include "figure.hpp"
 #include <set>
 
+namespace figure {
+
 /**
  * Politique uniforme d'allocation m�moire
  * Toutes les figures sont allou�es dynamiquement
@@ -74,5 +76,7 @@ public:
 
 
 };
+
+}
 
 #endif

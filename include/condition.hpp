@@ -5,6 +5,8 @@
 #include <list>
 #include "figure.hpp"
 
+using namespace figure;
+
 class Condition {
 public:
     virtual bool verif(const Figure *f) const = 0;

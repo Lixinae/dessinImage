@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+namespace figure {
+
 using namespace std;
 
 class Point {
@@ -15,10 +17,6 @@ public:
 
     int getY() const;
 
-//    void setX(int a);
-
-//    void setY(int b);
-
     Point operator+(const Point &p) const;
 
     Point &operator+=(const Point &p);
@@ -28,9 +26,12 @@ public:
     friend ostream &operator<<(ostream &os, const Point &p);
 
 private:
+
     int x;
     int y;
 
 };
+
+}
 
 #endif

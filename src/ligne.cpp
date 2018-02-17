@@ -5,8 +5,11 @@
  * description      : impl�m�ntation d'une classe d�crivant une ligne dans une hi�rachie de figures
  */
 
-#include <cmath>
 #include "ligne.hpp"
+#include <cmath>
+
+namespace figure {
+
 
 /**
  * La ligne t�moin est une variable de classe
@@ -52,4 +55,6 @@ double Ligne::surface() const {
 
 void Ligne::afficher(ostream &os) const {
     os << "ligne (" << _origine << ", " << _extremite << ")" << endl;
+}
+
 }

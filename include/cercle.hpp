@@ -3,6 +3,8 @@
 
 #include "figure.hpp"
 
+namespace figure {
+
 using namespace std;
 
 class Cercle : public Figure {
@@ -28,5 +30,7 @@ private:
     Point _centre;
     int _rayon;
 };
+
+}
 
 #endif

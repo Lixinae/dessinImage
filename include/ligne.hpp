@@ -4,9 +4,12 @@
 
 #include "figure.hpp"
 
+namespace figure {
+
 class Ligne : public Figure {
 
 public:
+
     static Ligne temoin;
 
     Ligne(const Point &a, const Point &b)
@@ -28,6 +31,8 @@ private:
     Point _origine;
     Point _extremite;
 };
+
+}
 
 #endif
 

@@ -7,6 +7,8 @@
 
 #include "image.hpp"
 
+namespace figure {
+
 static void afficherAux(ostream &os, const Image &image, int niveau);
 
 /**
@@ -100,4 +102,6 @@ static void afficherAux(ostream &os, const Image &image, int niveau) {
         os << "\t";
     }
     os << "END IMAGE" << endl;
+}
+
 }

@@ -1,26 +1,14 @@
-/**
- * auteurs          : Michel Landschoot
- * mail             : direction@landsnet.com
- * date de cr�ation : 2013-12-21
- * description      : impl�m�ntation d'une classe d�crivant un point
- */
-
 #include "point.hpp"
 
+namespace figure {
+
 Point::Point(int a, int b) : x(a), y(b) {
+	
 }
 
 int Point::Point::getX() const {
     return x;
 }
-
-//void Point::Point::setX(int a) {
-//    x = a;
-//}
-//
-//void Point::Point::setY(int b) {
-//    y = b;
-//}
 
 int Point::Point::getY() const {
     return x;
@@ -52,3 +40,4 @@ ostream &operator<<(ostream &os, const Point &p) {
     return os;
 }
 
+}

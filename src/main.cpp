@@ -12,6 +12,7 @@
 #include <filtrage.hpp>
 
 using namespace std;
+using namespace figure;
 
 /**
  * Un foncteur du conteneur de figures

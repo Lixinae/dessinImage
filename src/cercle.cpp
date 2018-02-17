@@ -7,6 +7,8 @@
 
 #include "cercle.hpp"
 
+namespace figure {
+
 /**
  * Le cercle t?moin est une variable de classe
  */
@@ -42,3 +44,4 @@ void Cercle::afficher(ostream &os) const {
     os << "cercle : (" << _centre << ", " << _rayon << ")" << endl;
 }
 
+}

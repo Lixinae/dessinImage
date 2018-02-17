@@ -6,6 +6,8 @@
 #include "point.hpp"
 #include <memory>
 
+namespace figure {
+
 using namespace std;
 
 // classe abstraite de base
@@ -39,5 +41,6 @@ public:
     }
 };
 
+}
 
 #endif
