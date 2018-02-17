@@ -1,26 +1,48 @@
 #include <sstream>
-#include <list>
-#include <algorithm>
 #include <figure/image.hpp>
-#include <figure/ligne.hpp>
 #include <condition/condition.hpp>
-#include <condition/estPetite.hpp>
-#include <condition/estUn.hpp>
-#include <filtrage.hpp>
+#include <SDL/SDL.h>
 
 using namespace std;
 using namespace figure;
 using namespace condition;
 
-int main() {
-	
-	Figure *f = new Ligne(Point(),Point());
-	Ligne *l = new Ligne(Point(),Point());
-	
-	EstPetite ll(2);
-	
-	std::cerr << (typeid(f) == typeid(l)) << std::endl;
-	
-    return 0;
 
+void mainFunction() {
+    if (SDL_Init(SDL_INIT_VIDEO) == -1) {
+        cerr << "Erreur d'initialisation de la SDL" << endl;
+        exit(EXIT_FAILURE);
+    }
+    SDL_SetVideoMode(800, 600, 32, SDL_HWSURFACE | SDL_RESIZABLE | SDL_DOUBLEBUF);
+
+    SDL_Event event{};
+
+
+    auto continu = true;
+    while (continu) {
+        SDL_WaitEvent(&event);
+        switch (event.type) {
+            case SDL_QUIT:
+                continu = false;
+                break;
+            default:
+                break;
+        }
+    }
+    /*
+     * TODO
+     * Do stuff here
+     */
+
+    SDL_Quit();
+}
+
+int WinMain() {
+    mainFunction();
+    return 0;
+}
+
+int main() {
+    mainFunction();
+    return 0;
 }

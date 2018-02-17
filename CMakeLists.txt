@@ -5,6 +5,16 @@ project(dessinImage)
 set(EXECUTABLE_OUTPUT_PATH
         bin/
         )
+find_package(SDL REQUIRED)
+
+if (WIN32)
+    set(SDL_INCLUDE_DIR "D:/OpenGlUtils/SDL-1.2.15/include")
+    set(SDL_LIBRARY "D:/OpenGlUtils/SDL-1.2.15/lib/libSDL.dll.a;D:/OpenGlUtils/SDL-1.2.15/lib/libSDLmain.a")
+    #set(MLV_LIBRARY "D:/OpenGlUtils/mlv-2.0.2-win32/lib/libMLV.a;D:/OpenGlUtils/mlv-2.0.2-win32/lib/libmingwex.a")
+else (WIN32)
+    find_package(SDL REQUIRED)
+
+endif (WIN32)
 
 set(CMAKE_CXX_FLAGS
         "${CMAKE_CXX_FLAGS} -W -Wall -ansi -std=c++14 -g -Weffc++ -Wfatal-errors"
@@ -12,6 +22,7 @@ set(CMAKE_CXX_FLAGS
 
 set(ALL_LIBRARIES
         effolkronium_random
+        ${SDL_LIBRARY}
         )
 
 include_directories(
@@ -19,6 +30,7 @@ include_directories(
         /usr/include/
         third-party/random-1.1.0/include
         third-party/json3.0/include
+        ${SDL_INCLUDE_DIR}
 )
 
 add_subdirectory(third-party/random-1.1.0/)
