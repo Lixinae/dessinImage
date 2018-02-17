@@ -20,6 +20,7 @@ namespace figure {
 
     double Triangle::surface() const {
         // TODo
+        // base * hauteur / 2
         return 0;
     }
 

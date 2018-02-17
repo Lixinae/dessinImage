@@ -15,8 +15,6 @@ namespace figure {
 
         shared_ptr<Figure> copy() const override;
 
-        ~Ligne() override = default;
-
         void deplacer(const Point &trans) override;
 
         void dessiner(ostream &os = cout) const override;

@@ -25,7 +25,7 @@ namespace figure {
         /**
          * Detruit la figure
          */
-        virtual ~Figure() {};
+        virtual ~Figure() = default;;
 
         /**
          * Deplace la figure
