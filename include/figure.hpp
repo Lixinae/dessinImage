@@ -8,7 +8,7 @@
 #include <cmath>
 #include "dessin.hpp"
 
-#define PI acos(-1)
+constexpr double PI = acos(-1);
 namespace figure {
 
     using namespace std;
