@@ -14,14 +14,14 @@ Image::Image(const Point &a) : _origine(a), _figures() {
 	
 }
 
-Image::Image(const Image &image) : _origine(image._origine), _figures(image._figures) {
-
+Image::Image(const Image &image) : _origine(image._origine), _figures() {
+	for (const auto & figure : image._figures) {
+		_figures.insert(figure->copy());
+	}
 }
 
 shared_ptr<Figure> Image::copy() const {
-    auto res = std::shared_ptr<Image>(new Image(this->_origine));
-    res->_figures = this->_figures;
-    return res;
+    return std::make_shared<Image>(*this);
 }
 
 const std::shared_ptr<Figure> Image::getFigure(int index) const {

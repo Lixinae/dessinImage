@@ -18,7 +18,7 @@ public:
 	* Realise une copie profonde de la figure
 	* \return une copie profonde de la figure
 	*/ 
-    virtual std::shared_ptr<Figure> copy() const = 0; // TODO figure *
+    virtual shared_ptr<Figure> copy() const = 0;
 
    /**
     * Detruit la figure

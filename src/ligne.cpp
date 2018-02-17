@@ -11,7 +11,7 @@ Ligne::Ligne(const Point &a, const Point &b) : _origine(a), _extremite(b) {
 }
 
 std::shared_ptr<Figure> Ligne::copy() const {
-    return std::shared_ptr<Figure>(new Ligne(this->_origine, this->_extremite));
+    return std::make_shared<Ligne>(this->_origine, this->_extremite);
 }
 
 void Ligne::deplacer(const Point &p) {

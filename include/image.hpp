@@ -16,12 +16,12 @@ public:
 
 	//TODO
     /*explicit*/ Image();
-    /*explicit*/ Image(const Point &a);
+    /*explicit*/ Image(const Point &p);
     /*explicit*/ Image(const Image &image);
 
     std::shared_ptr<Figure> copy() const override;
 
-    const std::shared_ptr<Figure> getFigure(int index) const;
+    const shared_ptr<Figure> getFigure(int index) const;
 
     int getNombre() const;
 
@@ -41,7 +41,7 @@ private:
 
     Point _origine;
 
-    std::set<std::shared_ptr<Figure>> _figures;
+    set<std::shared_ptr<Figure>> _figures;
     
     static void afficherAux(ostream &os, const Image &image, int niveau);
 

@@ -17,7 +17,7 @@ public:
     explicit Cercle(const Point &centre);
     explicit Cercle(const Point &center, int rayon);
 
-    std::shared_ptr<Figure> copy() const override;
+    shared_ptr<Figure> copy() const override;
 
     ~Cercle() override = default;
 

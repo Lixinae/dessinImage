@@ -16,7 +16,7 @@ Cercle::Cercle(const Point &centre, int rayon) : _centre(centre), _rayon(rayon) 
 }
 
 shared_ptr<Figure> Cercle::copy() const {
-    return std::shared_ptr<Figure>(new Cercle(this->_centre, this->_rayon));
+    return std::make_shared<Cercle>(this->_centre, this->_rayon);
 }
 
 void Cercle::deplacer(const Point &p) {

@@ -13,7 +13,7 @@ public:
 
     explicit Ligne(const Point &a, const Point &b);
 
-    std::shared_ptr<Figure> copy() const override;
+    shared_ptr<Figure> copy() const override;
 
     ~Ligne() override = default;
 

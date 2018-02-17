@@ -328,13 +328,15 @@ void testCreerFigures() {
     */
     for_each(figures.begin(), figures.end(), affiche);
 
-    vector<Condition *> conditions;
-    conditions.push_back(new EstPetite(300));
-    conditions.push_back(new EstUn(&Cercle::temoin));
-    conditions.push_back(new EstUn(&Image::temoin));
-    conditions.push_back(new Non(new EstUn(&Cercle::temoin)));
-    conditions.push_back(new Non(new EstUn(&Ligne::temoin)));
-    conditions.push_back(new Et(new EstUn(&Cercle::temoin), new EstPetite(300)));
+    vector<Condition *> conditions = {
+        new EstPetite(300),
+        new EstUn(&Cercle::temoin),
+        new EstUn(&Ligne::temoin),
+        new EstUn(&Image::temoin),
+        new Non(new EstUn(&Cercle::temoin)),
+        new Non(new EstUn(&Ligne::temoin)),
+        new Et(new EstUn(&Cercle::temoin), new EstPetite(300))
+    };
 
     for (auto cond:conditions) {
         int n = Filtrage::compterSi(figures, cond, true);
