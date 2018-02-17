@@ -5,36 +5,38 @@
 
 namespace figure {
 
-using namespace std;
+    class Cercle : public Figure {
 
-class Cercle : public Figure {
-	
-public:
-    
-    static Cercle temoin;
+    public:
 
-    explicit Cercle();
-    explicit Cercle(const Point &centre);
-    explicit Cercle(const Point &center, int rayon);
+        static Cercle temoin;
 
-    shared_ptr<Figure> copy() const override;
+        explicit Cercle();
 
-    ~Cercle() override = default;
+        explicit Cercle(const Point &centre);
 
-    void deplacer(const Point &trans) override;
+        explicit Cercle(const Point &center, int rayon);
 
-    void dessiner(ostream &os = cout) const override;
+        shared_ptr<Figure> copy() const override;
 
-    double surface() const override;
+        ~Cercle() override = default;
 
-    void afficher(ostream &os = cout) const override;
+        void deplacer(const Point &trans) override;
 
-private:
-    
-    Point _centre;
-    int _rayon;
+        void dessiner(ostream &os = cout) const override;
 
-};
+        double surface() const override;
+
+        double perimetre() const override;
+
+        void afficher(ostream &os = cout) const override;
+
+    private:
+
+        Point _centre;
+        int _rayon;
+
+    };
 
 }
 

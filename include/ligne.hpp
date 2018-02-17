@@ -5,32 +5,34 @@
 
 namespace figure {
 
-class Ligne : public Figure {
+    class Ligne : public Figure {
 
-public:
+    public:
 
-    static Ligne temoin;
+        static Ligne temoin;
 
-    explicit Ligne(const Point &a, const Point &b);
+        explicit Ligne(const Point &a, const Point &b);
 
-    shared_ptr<Figure> copy() const override;
+        shared_ptr<Figure> copy() const override;
 
-    ~Ligne() override = default;
+        ~Ligne() override = default;
 
-    void deplacer(const Point &trans) override;
+        void deplacer(const Point &trans) override;
 
-    void dessiner(ostream &os = cout) const override;
+        void dessiner(ostream &os = cout) const override;
 
-    double surface() const override;
+        double surface() const override;
 
-    void afficher(ostream &os = cout) const override;
+        double perimetre() const override;
 
-private:
+        void afficher(ostream &os = cout) const override;
 
-    Point _origine;
-    Point _extremite;
+    private:
 
-};
+        Point _origine;
+        Point _extremite;
+
+    };
 
 }
 

@@ -5,72 +5,80 @@
 #include <iostream>
 #include "point.hpp"
 #include <memory>
+#include <cmath>
 
+#define PI acos(-1)
 namespace figure {
 
-using namespace std;
+    using namespace std;
 
-class Figure {
+    class Figure {
 
-public:
+    public:
 
-   /**
-	* Realise une copie profonde de la figure
-	* \return une copie profonde de la figure
-	*/ 
-    virtual shared_ptr<Figure> copy() const = 0;
+        /**
+         * Realise une copie profonde de la figure
+         * \return une copie profonde de la figure
+         */
+        virtual shared_ptr<Figure> copy() const = 0;
 
-   /**
-    * Detruit la figure
-    */
-    virtual ~Figure() {};
+        /**
+         * Detruit la figure
+         */
+        virtual ~Figure() {};
 
-   /**
-    * Deplace la figure
-    * \param trans : translation
-    */
-    virtual void deplacer(const Point &trans) = 0; // TODO operation(matrice2d)
+        /**
+         * Deplace la figure
+         * \param trans : translation
+         */
+        virtual void deplacer(const Point &trans) = 0; // TODO operation(matrice2d)
 
-   /**
-    * Dessine la figure
-    * \param os : flux
-    */
-    virtual void dessiner(ostream &os = cout) const = 0; //TODO rm os
+        /**
+         * Dessine la figure
+         * \param os : flux
+         */
+        virtual void dessiner(ostream &os = cout) const = 0; //TODO rm os
 
-   /**
-    * Affiche la figure dans un flux
-    * \param os : le flux
-    * \return le flux
-    */
-    virtual void afficher(ostream &os) const = 0;
-    
-   /**
-    * Calcule la surface de la figure
-    * \return la surface de la figure
-    */
-    virtual double surface() const = 0; //TODO rm -> perimetre aire
+        /**
+         * Affiche la figure dans un flux
+         * \param os : le flux
+         * \return le flux
+         */
+        virtual void afficher(ostream &os) const = 0;
 
-   /**
-    * Teste l'egalite de deux figures
-    * \param f : figure a tester
-    * \return true si les figures sont les memes, faux sinon
-    */
-    bool operator==(const Figure &f) const {
-        return (this == &f); //TODO egalite memoire ?
-    }
+        /**
+         * Calcule la surface de la figure
+         * \return la surface de la figure
+         */
+        virtual double surface() const = 0; //TODO rm -> perimetre aire
 
-   /**
-    * Ecrit une figure dans un flux
-    * \param os : le flux
-    * \param figure : la figure a ecrire
-    * \return le flux
-    */
-    friend ostream &operator<<(ostream &os, const Figure &figure) {
-        figure.afficher(os);
-        return os;
-    }
+        /**
+        * Calcule le perimetre de la figure
+        * \return le perimetre de la figure
+        */
+        virtual double perimetre() const = 0; //TODO rm -> perimetre aire
 
-};
+        /**
+        * Teste l'egalite de deux figures
+        * \param f : figure a tester
+        * \return true si les figures sont les memes, faux sinon
+        */
+        bool operator==(const Figure &f) const {
+            return (this == &f); //TODO egalite memoire ?
+        }
+
+        /**
+         * Ecrit une figure dans un flux
+         * \param os : le flux
+         * \param figure : la figure a ecrire
+         * \return le flux
+         */
+        friend ostream &operator<<(ostream &os, const Figure &figure) {
+            figure.afficher(os);
+            return os;
+        }
+
+    };
 
 }
 
