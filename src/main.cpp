@@ -28,11 +28,12 @@ void mainFunction() {
             default:
                 break;
         }
+        /*
+ * TODO
+ * Do stuff here
+ */
     }
-    /*
-     * TODO
-     * Do stuff here
-     */
+
 
     SDL_Quit();
 }
