@@ -53,6 +53,12 @@ namespace figure {
 
         void afficher(ostream &os = cout) const override;
 
+        const Point &get_point1() const;
+
+        const Point &get_point2() const;
+
+        const Point &get_point3() const;
+
     private:
         Point _point1;
         Point _point2;

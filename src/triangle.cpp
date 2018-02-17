@@ -67,5 +67,17 @@ namespace figure {
         // todo
     }
 
+    const Point &Triangle::get_point1() const {
+        return _point1;
+    }
+
+    const Point &Triangle::get_point2() const {
+        return _point2;
+    }
+
+    const Point &Triangle::get_point3() const {
+        return _point3;
+    }
+
 
 }
