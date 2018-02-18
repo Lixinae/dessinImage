@@ -9,12 +9,15 @@ namespace figure {
                                                                                         _point2(point2),
                                                                                         _point3(point3) {}
 
+	string Triangle::nom() const {
+		return "triangle";
+	}
+
     void Triangle::deplacer(const Point &trans) {
 
     }
 
     double Triangle::surface() const {
-
         auto a = sqrt(pow(_point1.getX() - _point2.getX(), 2)
                       + pow(_point1.getY() - _point2.getY(), 2));
         auto b = sqrt(pow(_point2.getX() - _point3.getX(), 2)
@@ -22,8 +25,6 @@ namespace figure {
         auto c = sqrt(pow(_point1.getX() - _point3.getX(), 2)
                       + pow(_point1.getY() - _point3.getY(), 2));
         auto s = (1 / 2) * (a + b + c);
-
-        // Formule de heron
         return sqrt(s * (s - a) * (s - b) * (s - c));
     }
 
