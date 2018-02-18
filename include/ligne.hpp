@@ -12,10 +12,28 @@ namespace figure {
         static Ligne temoin;
 
         explicit Ligne(const Point &a, const Point &b);
-
+        
+        /**
+         * Renvoie le point d'origine de la ligne
+         * \return le point d'origine de la ligne
+         */
+		Point getOrigine() const;
+        
+        /**
+         * Renvoie le point d'extremite de la ligne
+         * \return le point d'extremite de la ligne
+         */
+		Point getExtremite() const;
+		
         shared_ptr<Figure> copy() const override;
+        
+        /**
+		 * Renvoie le nom utilise pour identifier une ligne
+		 * \return le nom utilise pour identifier une ligne
+		 */
+		string nom() const override;
 
-        void deplacer(const Point &trans) override;
+   void deplacer(const Point &trans) override;
 
 		/**
 		 * Realise une translation sur la ligne

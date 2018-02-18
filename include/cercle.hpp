@@ -17,6 +17,18 @@ namespace figure {
 
 		explicit Cercle(const Point &center, int rayon);
 
+		/**
+         * Renvoie le centre du cercle
+         * \return le centre du cercle
+         */
+		Point getCentre() const;
+
+		/**
+         * Renvoie le rayon du cercle
+         * \return le rayon du cercle
+         */
+		int getRayon() const;
+
 		void deplacer(const Point &trans) override;
 
 		/**
@@ -39,6 +51,13 @@ namespace figure {
 		void homothetie(float k) override;
 
 		shared_ptr<Figure> copy() const override;
+		
+		/**
+		 * Renvoie le nom utilise pour identifier un cercle
+		 * \return le nom utilise pour identifier un cercle
+		 */
+		string nom() const override;
+
 
        /**
 		* Dessine le cercle dans la classe de dessin en argument

@@ -1,7 +1,3 @@
-//
-// Created by ValasNaerth on 17/02/2018.
-//
-
 #ifndef DESSINIMAGE_TRIANGLE_HPP
 #define DESSINIMAGE_TRIANGLE_HPP
 
@@ -18,13 +14,19 @@ namespace figure {
 
         shared_ptr<Figure> copy() const override;
 
+		/**
+		 * Renvoie le nom utilise pour identifier un triangle
+		 * \return le nom utilise pour identifier un triangle
+		 */
+		string nom() const override;
+
         void deplacer(const Point &trans) override;
 
         /**
-         * Realise une translation sur la figure
-         * \param x : valeur de la translation en abscisse
-         * \param y : valeur de la translation en ordonnnee
-         */
+		 * Realise une translation sur la figure
+		 * \param x : valeur de la translation en abscisse
+		 * \param y : valeur de la translation en ordonnnee
+		 */
         void translation(int x, int y) override;
 
         /**
@@ -58,4 +60,4 @@ namespace figure {
     };
 }
 
-#endif //DESSINIMAGE_TRIANGLE_HPP
+#endif
