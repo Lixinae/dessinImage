@@ -22,11 +22,33 @@ namespace figure {
 
         /*explicit*/ Image(const Image &image);
 
+		/**
+         * Renvoie l'origine de l'image
+         * \return l'origine de l'image
+         */
+		Point getOrigine() const;
+		
+		/**
+		 * Renvoie le nombre de figure dans l'image
+		 * \return le nombre de figure dans l'image
+		 */
+		int getNombre() const;
+	
+		/**
+		 * Realise un acces par indice aux figures de l'image
+		 * \param index : indice de la figure
+		 * \return figure a l'indice en argument
+		 */
+		const shared_ptr<Figure> getFigure(int index) const; //TODO change into Figure *
+	
         std::shared_ptr<Figure> copy() const override;
+        
+        /**
+		 * Renvoie le nom utilise pour identifier une image
+		 * \return le nom utilise pour identifier une image
+		 */
+		string nom() const override;
 
-        const shared_ptr<Figure> getFigure(int index) const; //TODO change into Figure *
-
-        int getNombre() const;
 
 		void deplacer(const Point &trans) override;
     

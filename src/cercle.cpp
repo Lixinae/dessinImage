@@ -16,10 +16,24 @@ namespace figure {
     Cercle::Cercle(const Point &centre, int rayon) : _centre(centre), _rayon(rayon) {
 
     }
+    
+	Point Cercle::getCentre() const {
+		return _centre;
+	}
+
+	int Cercle::getRayon() const {
+		return _rayon;
+	}
 
     shared_ptr<Figure> Cercle::copy() const {
         return std::make_shared<Cercle>(this->_centre, this->_rayon);
     }
+
+
+	std::string Cercle::nom() const {
+		return "cercle";
+	}
+
 
 	void Cercle::translation(int x, int y) {
 		Matrice2D transformation = Matrice2D::translation(x,y);
