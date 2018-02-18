@@ -10,6 +10,7 @@
 #include <et.hpp>
 #include <non.hpp>
 #include <filtrage.hpp>
+#include <serialisation.hpp>
 
 using namespace std;
 using namespace figure;
