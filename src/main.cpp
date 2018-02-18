@@ -16,7 +16,7 @@ using namespace std;
 using namespace figure;
 
 int main() {
-    
+	
     return 0;
 
 }

@@ -11,9 +11,21 @@ namespace figure {
 
     }
 
+	Point Ligne::getOrigine() const {
+		return _origine;
+	}
+        
+	Point Ligne::getExtremite() const {
+		return _extremite;
+	}
+
     std::shared_ptr<Figure> Ligne::copy() const {
         return std::make_shared<Ligne>(this->_origine, this->_extremite);
     }
+
+	std::string Ligne::nom() const {
+		return "ligne";
+	}
 
 	void Ligne::translation(int x, int y) {
 		Matrice2D transformation = Matrice2D::translation(x,y);

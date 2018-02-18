@@ -20,9 +20,17 @@ namespace figure {
         }
     }
 
+	Point Image::getOrigine() const {
+		return _origine;
+	}
+
     shared_ptr<Figure> Image::copy() const {
         return std::make_shared<Image>(*this);
     }
+    
+    std::string Image::nom() const {
+		return "image";
+	}
 
     const std::shared_ptr<Figure> Image::getFigure(int index) const {
         auto it = std::cbegin(_figures);

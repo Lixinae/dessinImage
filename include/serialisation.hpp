@@ -1,7 +1,6 @@
 #ifndef SERIALISATION_H
 #define SERIALISATION_H
 
-#include <fstream>
 #include "figure.hpp"
 
 namespace figure {

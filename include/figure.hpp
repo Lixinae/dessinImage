@@ -22,6 +22,12 @@ public:
 	*/ 
     virtual shared_ptr<Figure> copy() const = 0;
 
+	/**
+	 * Renvoie le nom de la figure
+	 * \return le nom de la figure
+	 */
+	virtual string nom() const = 0;
+
    /**
     * Detruit la figure
     */
