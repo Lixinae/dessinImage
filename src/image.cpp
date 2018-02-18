@@ -55,12 +55,12 @@ namespace figure {
         */
         _figures.insert(f.copy());
 	}
-	
+
 	void Image::translation(int x, int y) {
 		//TODO
 		std::for_each(
 			std::cbegin(_figures),
-			std::cend(_figures), 
+			std::cend(_figures),
 			[x,y](const auto & figure){figure->translation(x,y);}
 		);
 	}
@@ -69,16 +69,16 @@ namespace figure {
 		//TODO
 		std::for_each(
 			std::cbegin(_figures),
-			std::cend(_figures), 
+			std::cend(_figures),
 			[theta](const auto & figure){figure->rotation(theta);}
 		);
 	}
-		
+
 	void Image::homothetie(float k) {
 		//TODO
 		std::for_each(
 			std::cbegin(_figures),
-			std::cend(_figures), 
+			std::cend(_figures),
 			[k](const auto & figure){figure->homothetie(k);}
 		);
 	}

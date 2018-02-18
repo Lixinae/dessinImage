@@ -60,12 +60,12 @@ namespace figure {
 
     double Cercle::surface() const {
        // return PI * pow(_rayon,2);
-       return 3.1415 * pow(_rayon,2);
+        return PI * pow(_rayon, 2);
     }
 
     double Cercle::perimetre() const {
         //return 2*PI*_rayon;
-        return 2*3.1415*_rayon;
+        return 2 * PI * _rayon;
     }
 
     void Cercle::afficher(ostream &os) const {

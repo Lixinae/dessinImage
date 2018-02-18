@@ -33,8 +33,7 @@ namespace figure {
 		 */
 		string nom() const override;
 
-
-        void deplacer(const Point &trans) override;
+   void deplacer(const Point &trans) override;
 
 		/**
 		 * Realise une translation sur la ligne

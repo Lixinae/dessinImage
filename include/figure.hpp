@@ -8,8 +8,9 @@
 #include <cmath>
 #include "dessin.hpp"
 
+#define PI acos(-1) //TODO rm
 namespace figure {
-
+  
 using namespace std;
 
 class Figure {
@@ -104,6 +105,5 @@ public:
     }
 
 };
-}
 
 #endif
