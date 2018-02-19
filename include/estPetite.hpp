@@ -3,33 +3,37 @@
 
 #include "condition.hpp"
 
-/**
- * Conversion d'un entier en un objet string
- */
-extern string intToString(int n);
+namespace condition {
 
 class EstPetite : public Condition {
 
 public:
-    explicit EstPetite(double seuil) : _seuil(seuil) {
-    }
 
-    ~EstPetite() override = default;
+	/**
+	 * Construit une condition de seuil pour l'aire
+	 * \param seuil : seuil maximum pour l'aire
+	 */
+    explicit EstPetite(double seuil);
 
-//    double getSeuil() const {
-//        return _seuil;
-//    }
+	/**
+	 * Renvoie la condition sous forme de chaine de caractere
+	 * \return la condition sous forme de chaine de caractere
+	 */
+    string toString() const override;
 
-    string toString() const override {
-        return string("La surface EST PLUS PETITE QUE ") + "" + intToString(static_cast<int>(_seuil));
-    }
-
-    bool verif(const Figure *f) const override {
-        return f->surface() < this->_seuil;
-    }
+	/**
+	 * Verifie si l'aire de la figure est plus petite que le seuil
+	 * \param f : figure a tester
+	 * \return true si l'aire de la figure est plus petit que le seuil, false sinon
+	 */
+    bool verif(const Figure *f) const override;
 
 private:
+
     double _seuil;
+
 };
+
+}
 
 #endif

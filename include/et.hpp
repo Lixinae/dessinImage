@@ -3,32 +3,54 @@
 
 #include "condition.hpp"
 
+namespace condition {
+
 class Et : public Condition {
 
 public:
-    Et(const Et &other) : _c1(other._c1), _c2(other._c2) {}
+	
+	/**
+	 * Construit une conjonction de condition
+	 * \param c1 : premiere condition
+	 * \param c2 : deuxieme condition
+	 */
+    explicit Et(Condition *c1, Condition *c2);
+    
+    /**
+	 * Constructeur de copie
+	 * Les pointeurs sur les conditions sont partages
+	 * \param other : condition a copier
+	 */
+	explicit Et(const Et &other);
+    
+    /**
+	 * Renvoie la condition sous forme de chaine de caractere
+	 * \return la condition sous forme de chaine de caractere
+	 */
+    string toString() const override ;
+    
+    /**
+	 * Verifie si les deux conditions sont verifiees
+	 * \param f : figure a tester
+	 * \return true si les deux conditions sont verifiees, false sinon
+	 */
+    bool verif(const Figure *f) const override;
 
-    Et(Condition *c1, Condition *c2) : _c1(c1), _c2(c2) {}
-
-    ~Et() override = default;
-
-    string toString() const override {
-        return _c1->toString() + " ET " + _c2->toString();
-    }
-
-    bool verif(const Figure *f) const override {
-        return (_c1->verif(f)) && (_c2->verif(f));
-    }
-
-    Et &operator=(const Et &other) {
-        _c1 = other._c1;
-        _c2 = other._c2;
-        return *this;
-    }
+	/**
+     * Operateur d'affection
+     * Les pointeurs sur les conditions sont partages
+     * \param other : condition a affecter
+     * \return l'instance courante
+     */
+    Et &operator=(const Et &other);
 
 private:
+
     Condition *_c1;
     Condition *_c2;
+
 };
+
+}
 
 #endif
