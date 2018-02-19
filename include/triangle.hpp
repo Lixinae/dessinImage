@@ -4,8 +4,11 @@
 #include "figure.hpp"
 
 namespace figure {
+	
     class Triangle : public Figure {
+    
     public:
+    
         static Triangle temoin;
 
         explicit Triangle();
@@ -60,9 +63,11 @@ namespace figure {
         const Point &get_point3() const;
 
     private:
+    
         Point _point1;
         Point _point2;
         Point _point3;
+    
     };
 }
 

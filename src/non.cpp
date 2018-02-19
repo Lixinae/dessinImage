@@ -24,3 +24,5 @@ Non &Non::operator=(const Non &other) {
 	}
 	return *this;
 }
+
+}
