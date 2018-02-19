@@ -3,28 +3,38 @@
 
 #include "condition.hpp"
 
-/**
- * Conversion d'un entier en un objet string
- */
-extern string intToString(int n);
+namespace condition {
 
 class EstPetite : public Condition {
 
 public:
+
+
+	/**
+	 * Construit une condition de seuil pour l'aire
+	 * \param seuil : seuil maximum pour l'aire
+	 */
     explicit EstPetite(double seuil);
 
-    ~EstPetite() override = default;
-
-//    double getSeuil() const {
-//        return _seuil;
-//    }
-
+	/**
+	 * Renvoie la condition sous forme de chaine de caractere
+	 * \return la condition sous forme de chaine de caractere
+	 */
     string toString() const override;
 
-    bool verif(const Figure *f) const override;
+	/**
+	 * Verifie si l'aire de la figure est plus petite que le seuil
+	 * \param f : figure a tester
+	 * \return true si l'aire de la figure est plus petit que le seuil, false sinon
+	 */
+   bool verif(const Figure *f) const override;
 
 private:
+
     double _seuil;
+
 };
+
+}
 
 #endif

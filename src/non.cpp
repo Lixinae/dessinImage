@@ -1,26 +1,26 @@
-//
-// Created by ValasNaerth on 18/02/2018.
-//
+#include "non.hpp"
 
-#include <non.hpp>
-
-Non::Non(const Non &other) : condition(other.condition) {
-
-}
+namespace condition {
 
 Non::Non(Condition *c) : condition(c) {
-
+	
+}
+    
+Non::Non(const Non &other) : condition(other.condition) {
+	
 }
 
 string Non::toString() const {
-    return "NON " + condition->toString();
+	return "NON " + condition->toString();
 }
 
 bool Non::verif(const Figure *f) const {
-    return !(condition->verif(f));
+	return !(condition->verif(f));
 }
 
 Non &Non::operator=(const Non &other) {
-    condition = other.condition;
-    return *this;
+	if (&other != this) {
+		condition = other.condition;
+	}
+	return *this;
 }

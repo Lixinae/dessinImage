@@ -10,8 +10,10 @@
 #include "condition.hpp"
 
 using namespace std;
+using namespace condition;
 
 class Filtrage {
+
 public:
     static void remplitAlea(list<int> entiers, int n);
 
