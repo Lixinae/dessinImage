@@ -17,7 +17,7 @@ public:
 	 */
     explicit EstUn(const Figure *f);
     
-    /**
+  /**
 	 * Constructeur de copie
 	 * Les pointeurs sur la figure sont partages
 	 * \param other : condition a copier

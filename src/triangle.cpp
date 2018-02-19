@@ -5,6 +5,11 @@
 #include <triangle.hpp>
 
 namespace figure {
+
+    Triangle::Triangle() : _point1(0, 1), _point2(-1, 0), _point3(0, 1) {
+
+    }
+
     Triangle::Triangle(const Point &point1, const Point &point2, const Point &point3) : _point1(point1),
                                                                                         _point2(point2),
                                                                                         _point3(point3) {}
@@ -61,4 +66,18 @@ namespace figure {
     void Triangle::translation(int x, int y) {
         // todo
     }
+
+    const Point &Triangle::get_point1() const {
+        return _point1;
+    }
+
+    const Point &Triangle::get_point2() const {
+        return _point2;
+    }
+
+    const Point &Triangle::get_point3() const {
+        return _point3;
+    }
+
+
 }

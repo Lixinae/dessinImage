@@ -2,7 +2,9 @@
 
 namespace condition {
 
-Et::Et(Condition *c1, Condition *c2) : _c1(c1), _c2(c2) {}
+Et::Et(Condition *c1, Condition *c2) : _c1(c1), _c2(c2) {
+
+}
 
 Et::Et(const Et &other) : Et(other._c1, other._c2) {
 

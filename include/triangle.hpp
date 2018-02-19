@@ -4,23 +4,21 @@
 #include "figure.hpp"
 
 namespace figure {
-	
     class Triangle : public Figure {
-    
     public:
-    
         static Triangle temoin;
 
-        explicit Triangle(const Point &point1 = Point(0, 1), const Point &point2 = Point(-1, 0),
-                          const Point &point3 = Point(0, 1));
+        explicit Triangle();
+
+        explicit Triangle(const Point &point1, const Point &point2, const Point &point3);
 
         shared_ptr<Figure> copy() const override;
-	
-		/**
-		 * Renvoie le nom utilise pour identifier un triangle
-		 * \return le nom utilise pour identifier un triangle
-		 */
-		string nom() const override;
+
+        /**
+         * Renvoie le nom utilise pour identifier un triangle
+         * \return le nom utilise pour identifier un triangle
+         */
+        string nom() const override;
 
         void deplacer(const Point &trans) override;
 
@@ -55,14 +53,17 @@ namespace figure {
 
         void afficher(ostream &os = cout) const override;
 
+        const Point &get_point1() const;
+
+        const Point &get_point2() const;
+
+        const Point &get_point3() const;
+
     private:
-    
         Point _point1;
         Point _point2;
         Point _point3;
-    
     };
-
 }
 
 #endif

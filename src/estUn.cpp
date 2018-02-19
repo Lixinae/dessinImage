@@ -18,5 +18,3 @@ EstUn &EstUn::operator=(const EstUn &other) {
 	ftemoin = other.ftemoin;
 	return *this;
 }
-
-}

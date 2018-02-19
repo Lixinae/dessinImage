@@ -9,6 +9,7 @@ class EstPetite : public Condition {
 
 public:
 
+
 	/**
 	 * Construit une condition de seuil pour l'aire
 	 * \param seuil : seuil maximum pour l'aire
@@ -26,7 +27,7 @@ public:
 	 * \param f : figure a tester
 	 * \return true si l'aire de la figure est plus petit que le seuil, false sinon
 	 */
-    bool verif(const Figure *f) const override;
+   bool verif(const Figure *f) const override;
 
 private:
 

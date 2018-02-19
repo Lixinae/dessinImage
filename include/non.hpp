@@ -35,7 +35,7 @@ public:
 	 */
     bool verif(const Figure *f) const override;
 
-	/**
+	 /**
      * Operateur d'affection
      * Les pointeurs sur la sont partages
      * \param other : condition a affecter
