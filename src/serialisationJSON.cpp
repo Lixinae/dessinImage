@@ -97,14 +97,7 @@ namespace figure {
         jsonFigure["nom"]["args"]["figures"] = jsonSubFigures;
         return jsonFigure;
     }
-
-    json SerialisationJSON::pointVersJson(const Point &point) const {
-        json jsonPoint;
-        jsonPoint["x"] = point.getX();
-        jsonPoint["y"] = point.getY();
-        return jsonPoint;
-    }
-
+    
     json SerialisationJSON::figureVersJson(const Triangle &figure) const {
         json jsonFigure;
         jsonFigure["nom"] = Triangle::temoin.nom();
@@ -112,6 +105,13 @@ namespace figure {
         jsonFigure["nom"]["args"]["point2"] = pointVersJson(figure.get_point2());
         jsonFigure["nom"]["args"]["point3"] = pointVersJson(figure.get_point3());
         return jsonFigure;
+    }
+
+    json SerialisationJSON::pointVersJson(const Point &point) const {
+        json jsonPoint;
+        jsonPoint["x"] = point.getX();
+        jsonPoint["y"] = point.getY();
+        return jsonPoint;
     }
 
 }

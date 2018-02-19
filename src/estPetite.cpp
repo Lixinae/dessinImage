@@ -14,3 +14,5 @@ string EstPetite::toString() const {
 bool EstPetite::verif(const Figure *f) const {
 	return f->surface() < _seuil;
 }
+
+}
