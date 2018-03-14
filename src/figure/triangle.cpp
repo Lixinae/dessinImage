@@ -1,7 +1,3 @@
-//
-// Created by ValasNaerth on 17/02/2018.
-//
-
 #include <figure/triangle.hpp>
 
 namespace figure {
@@ -23,10 +19,6 @@ namespace figure {
 	string Triangle::nom() const {
 		return "triangle";
 	}
-
-    void Triangle::deplacer(const Point &trans) {
-
-    }
 
     double Triangle::surface() const {
         auto a = sqrt(pow(_point1.getX() - _point2.getX(), 2)
@@ -64,27 +56,6 @@ namespace figure {
 	void Triangle::tranformation(const Matrice2D & matrice) {
 		//TODO
 	}
-
-    void Triangle::homothetie(float k) {
-        Matrice2D transformation = Matrice2D::homothetie(k, 0, 0); // todo
-        _point1 = transformation * _point1;
-        _point2 = transformation * _point2;
-        _point3 = transformation * _point3;
-    }
-
-    void Triangle::rotation(float theta) {
-        Matrice2D transformation = Matrice2D::rotation(theta, 0, 0); // todo
-        _point1 = transformation * _point1;
-        _point2 = transformation * _point2;
-        _point3 = transformation * _point3;
-    }
-
-    void Triangle::translation(int x, int y) {
-        Matrice2D transformation = Matrice2D::translation(x, y);
-        _point1 = transformation * _point1;
-        _point2 = transformation * _point2;
-        _point3 = transformation * _point3;
-    }
 
     const Point &Triangle::get_point1() const {
         return _point1;

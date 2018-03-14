@@ -37,36 +37,11 @@ namespace figure {
         virtual ~Figure() {};
 
         /**
-         * Deplace la figure
-         * \param trans : translation
-         */
-        virtual void deplacer(const Point &trans) = 0; // TODO operation(matrice2d)
-
-        /**
          * Realise une transformation decrite par une matrice sur la figure
          * \param matrice : tranformation a appliquer
          */
         virtual void tranformation(const Matrice2D & matrice) = 0;
         
-        /**
-         * Realise une translation sur la figure
-         * \param x : valeur de la translation en abscisse
-         * \param y : valeur de la translation en ordonnnee
-         */
-        virtual void translation(int x, int y) = 0; //TODO rm + rot + hom
-        
-        /**
-         * Realise une rotation sur la figure
-         * \param thetat : valeur de l'angle de rotation en radian
-         */
-        virtual void rotation(float theta) = 0;
-
-        /**
-         * Realise une homothetie sur la figure
-         * \param k : valeur de l'homothetie
-         */
-        virtual void homothetie(float k) = 0;
-
         /**
          * Dessine la figure dans la classe de dessin en argument
          * \param dessin : classe de dessin
