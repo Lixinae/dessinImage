@@ -2,7 +2,7 @@
 // Created by ValasNaerth on 17/02/2018.
 //
 
-#include <triangle.hpp>
+#include <figure/triangle.hpp>
 
 namespace figure {
 
@@ -66,15 +66,24 @@ namespace figure {
 	}
 
     void Triangle::homothetie(float k) {
-        // todo
+        Matrice2D transformation = Matrice2D::homothetie(k, 0, 0); // todo
+        _point1 = transformation * _point1;
+        _point2 = transformation * _point2;
+        _point3 = transformation * _point3;
     }
 
     void Triangle::rotation(float theta) {
-        // todo
+        Matrice2D transformation = Matrice2D::rotation(theta, 0, 0); // todo
+        _point1 = transformation * _point1;
+        _point2 = transformation * _point2;
+        _point3 = transformation * _point3;
     }
 
     void Triangle::translation(int x, int y) {
-        // todo
+        Matrice2D transformation = Matrice2D::translation(x, y);
+        _point1 = transformation * _point1;
+        _point2 = transformation * _point2;
+        _point3 = transformation * _point3;
     }
 
     const Point &Triangle::get_point1() const {

@@ -1,9 +1,9 @@
 #ifndef MATRICE2D_H
 #define MATRICE2D_H
 
-#include "point.hpp"
+#include "figure/point.hpp" //TODO rm
 
-namespace figure { //TODO namespace calcul
+namespace figure { //TODO namespace calcul/matrice
 
 using namespace std;
 
@@ -20,7 +20,8 @@ public:
 	static Matrice2D homothetie(float k, float x, float y);
 
 	friend Matrice2D operator* (const Matrice2D &a, const Matrice2D &b);
-	friend Point operator* (const Matrice2D &a, const Point &b); //TODO in Point
+	friend Point operator* (const Matrice2D &a, const Point &b); //TODO in Point : pas possible donc supr
+	//faire plutot void mat::transformePoint(float &x, float &y);
 
 private:
 

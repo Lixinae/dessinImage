@@ -10,6 +10,7 @@
 #include "dessin.hpp"
 
 constexpr double PI = acos(-1);
+
 namespace figure {
 
     using namespace std;
@@ -53,7 +54,7 @@ namespace figure {
          * \param y : valeur de la translation en ordonnnee
          */
         virtual void translation(int x, int y) = 0; //TODO rm + rot + hom
-
+        
         /**
          * Realise une rotation sur la figure
          * \param thetat : valeur de l'angle de rotation en radian

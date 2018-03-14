@@ -6,19 +6,34 @@ set(EXECUTABLE_OUTPUT_PATH
         bin/
         )
 
+if (WIN32)
+    #    set(SDL_INCLUDE_DIR "D:/OpenGlUtils/SDL-1.2.15/include")
+    #set(SDL_LIBRARY "D:/OpenGlUtils/SDL-1.2.15/lib/libSDL.dll.a;D:/OpenGlUtils/SDL-1.2.15/lib/libSDLmain.a")
+    set(SDL2_INCLUDE_DIRS "D:/mingw32/include/SDL2")
+    set(SDL2_LIBRARIES "D:/mingw32/lib/libSDL2.dll.a;D:/mingw32/lib/libSDL2main.a")
+else (WIN32)
+    find_package(SDL2 REQUIRED)
+
+endif (WIN32)
+
 set(CMAKE_CXX_FLAGS
         "${CMAKE_CXX_FLAGS} -W -Wall -ansi -std=c++14 -g -Weffc++ -Wfatal-errors"
         )
 
 set(ALL_LIBRARIES
         effolkronium_random
+        ${SDL2_LIBRARIES}
         )
+
+message(${SDL2_LIBRARIES})
+message(${SDL2_INCLUDE_DIRS})
 
 include_directories(
         include/
         /usr/include/
         third-party/random-1.1.0/include
         third-party/json3.0/include
+        ${SDL2_INCLUDE_DIRS}
 )
 
 add_subdirectory(third-party/random-1.1.0/)

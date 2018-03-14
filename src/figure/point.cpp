@@ -1,4 +1,4 @@
-#include "point.hpp"
+#include "figure/point.hpp"
 
 namespace figure {
 
@@ -14,15 +14,15 @@ namespace figure {
         return _y;
     }
 
-	Point Point::operator+(const Point &p) const { //TODO rm
-		return Point(_x + p._x, _y + p._y);
-	}
+    Point Point::operator+(const Point &p) const { //TODO rm
+        return Point(_x + p._x, _y + p._y);
+    }
 
-	Point &Point::operator+=(const Point &p) {//TODO rm
-		_x += p._x;
-		_y += p._y;
-		return *this;
-	}
+    Point &Point::operator+=(const Point &p) {//TODO rm
+        _x += p._x;
+        _y += p._y;
+        return *this;
+    }
 
     ostream &operator<<(ostream &os, const Point &p) {
         return (os << '(' << p._x << ',' << p._y << ')');
