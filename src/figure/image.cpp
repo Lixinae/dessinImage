@@ -45,46 +45,11 @@ namespace figure {
     void Image::ajouter(const Figure &f) {
         if (f == *this)
             return;
-
-        /** Code pour du partage d'instances allou�es dynamiquement
-         * n�cessite des compteurs de r�f�rence pour leur lib�ration m�moire
-            en C ==> ABANDON
-            _tableau[_nombre++] = (Figure *) (&f);
-            en C++: du const_cast
-            _tableau[_nombre++] = const_cast<Figure *> (&f);
-        */
         _figures.insert(f.copy());
 	}
 	
 	void Image::tranformation(const Matrice2D & matrice) {
 		//TODO
-	}
-
-	void Image::translation(int x, int y) {
-		//TODO
-		std::for_each(
-			std::cbegin(_figures),
-			std::cend(_figures),
-			[x,y](const auto & figure){figure->translation(x,y);}
-		);
-	}
-
-	void Image::rotation(float theta) {
-		//TODO
-		std::for_each(
-			std::cbegin(_figures),
-			std::cend(_figures),
-			[theta](const auto & figure){figure->rotation(theta);}
-		);
-	}
-
-	void Image::homothetie(float k) {
-		//TODO
-		std::for_each(
-			std::cbegin(_figures),
-			std::cend(_figures),
-			[k](const auto & figure){figure->homothetie(k);}
-		);
 	}
 
 	void Image::dessiner(const Dessin &dessin) const {
@@ -94,15 +59,6 @@ namespace figure {
 			[&dessin](const auto & figure){figure->dessiner(dessin);}
 		);
 	}
-
-    void Image::deplacer(const Point &p) {
-        _origine += p;
-        std::for_each(
-                std::cbegin(_figures),
-                std::cend(_figures),
-                [p](const auto &figure) { figure->deplacer(p); }
-        );
-    }
 
     double Image::surface() const {
         double res = std::accumulate(

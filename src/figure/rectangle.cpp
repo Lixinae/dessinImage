@@ -24,37 +24,9 @@ namespace figure {
         return "rectangle";
     }
 
-    void Rectangle::deplacer(const Point &trans) {
-
-    }
-    
     void Rectangle::tranformation(const Matrice2D & matrice) {
 		//TODO
 	}
-
-    void Rectangle::translation(int x, int y) {
-        Matrice2D transformation = Matrice2D::translation(x, y);
-        _upperLeft = transformation * _upperLeft;
-        _upperRight = transformation * _upperRight;
-        _lowerLeft = transformation * _lowerLeft;
-        _lowerRight = transformation * _lowerRight;
-    }
-
-    void Rectangle::rotation(float theta) {
-        Matrice2D transformation = Matrice2D::rotation(theta);
-        _upperLeft = transformation * _upperLeft;
-        _upperRight = transformation * _upperRight;
-        _lowerLeft = transformation * _lowerLeft;
-        _lowerRight = transformation * _lowerRight;
-    }
-
-    void Rectangle::homothetie(float k) {
-        Matrice2D transformation = Matrice2D::homothetie(k);
-        _upperLeft = transformation * _upperLeft;
-        _upperRight = transformation * _upperRight;
-        _lowerLeft = transformation * _lowerLeft;
-        _lowerRight = transformation * _lowerRight;
-    }
 
     void Rectangle::dessiner(const Dessin &dessin) const {
         dessin.dessinePolygone(vector<Point>{_upperLeft, _upperRight, _lowerLeft, _lowerRight});

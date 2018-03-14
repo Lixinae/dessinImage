@@ -51,33 +51,11 @@ namespace figure {
          */
 		string nom() const override;
 
-
-		void deplacer(const Point &trans) override;
-
 		/**
         * Realise une transformation decrite par une matrice sur l'image
         * \param matrice : tranformation a appliquer
         */
 		void tranformation(const Matrice2D &matrice);
-    
-		/**
-		 * Realise une translation sur l'image
-		 * \param x : valeur de la translation en abscisse
-		 * \param y : valeur de la translation en ordonnnee
-		 */
-		void translation(int x, int y) override;
-		
-		/**
-		 * Realise une rotation sur l'image
-		 * \param thetat : valeur de l'angle de rotation en radian
-		 */
-		void rotation(float theta) override;
-		
-		/**
-		 * Realise une homothetie sur l'image
-		 * \param k : valeur de l'homothetie
-		 */
-		void homothetie(float k) override;
 
 		void ajouter(const Figure &f);
 
