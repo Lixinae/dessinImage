@@ -40,10 +40,10 @@ namespace figure {
 		 * \param index : indice de la figure
 		 * \return figure a l'indice en argument
 		 */
-		const shared_ptr<Figure> getFigure(int index) const; //TODO change into Figure *
-
+		const shared_ptr<Figure> getFigure(int index) const;
+	
 		////todo
-		std::shared_ptr<Figure> copy() const override;
+        std::shared_ptr<Figure> copy() const override;
 
 		/**
          * Renvoie le nom utilise pour identifier une image

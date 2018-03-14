@@ -27,6 +27,10 @@ namespace figure {
     void Rectangle::deplacer(const Point &trans) {
 
     }
+    
+    void Rectangle::tranformation(const Matrice2D & matrice) {
+		//TODO
+	}
 
     void Rectangle::translation(int x, int y) {
         Matrice2D transformation = Matrice2D::translation(x, y);

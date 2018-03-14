@@ -61,9 +61,9 @@ namespace figure {
         dessin.dessinePolygone(vector<Point>{_point1, _point2, _point3});
     }
 
-    void Triangle::tranformation(const Matrice2D &matrice) {
-        //TODO
-    }
+	void Triangle::tranformation(const Matrice2D & matrice) {
+		//TODO
+	}
 
     void Triangle::homothetie(float k) {
         Matrice2D transformation = Matrice2D::homothetie(k, 0, 0); // todo
