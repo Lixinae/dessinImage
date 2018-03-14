@@ -12,7 +12,11 @@ class Matrice2D {
 public:
 
 	static Matrice2D translation(float x, float y);
+	
+	static Matrice2D rotation(float theta);
 	static Matrice2D rotation(float theta, float x, float y);
+	
+	static Matrice2D homothetie(float k);
 	static Matrice2D homothetie(float k, float x, float y);
 
 	friend Matrice2D operator* (const Matrice2D &a, const Matrice2D &b);

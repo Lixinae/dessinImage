@@ -22,7 +22,7 @@ Matrice2D Matrice2D::translation(float x, float y) {
 	);
 }
 
-Matrice2D Matrice2D::rotation(float theta, float x, float y) {
+Matrice2D Matrice2D::rotation(float theta) {
 	float cos_theta = cos(theta);
 	float sin_theta = sin(theta);
 	return Matrice2D(
@@ -32,12 +32,20 @@ Matrice2D Matrice2D::rotation(float theta, float x, float y) {
 	);
 }
 
-Matrice2D Matrice2D::homothetie(float k, float x, float y) {
+Matrice2D Matrice2D::rotation(float theta, float x, float y) {
+	return translation(-x, -y) * rotation(theta) * translation(x, y);
+}
+
+Matrice2D Matrice2D::homothetie(float k) {
 	return Matrice2D(
 		k, 0, 0,
 		0, k, 0,
 		0, 0, 1
 	);
+}
+
+Matrice2D Matrice2D::homothetie(float k, float x, float y) {
+	return translation(-x, -y) * homothetie(k) * translation(x, y);
 }
 
 Matrice2D operator* (const Matrice2D &a, const Matrice2D &b) {
