@@ -34,6 +34,9 @@ namespace figure {
 		return "cercle";
 	}
 
+	void Cercle::tranformation(const Matrice2D & matrice) {
+		//TODO
+	}
 
 	void Cercle::translation(int x, int y) {
 		Matrice2D transformation = Matrice2D::translation(x,y);
@@ -45,7 +48,7 @@ namespace figure {
 	}
 	
 	void Cercle::homothetie(float k) {
-		Matrice2D transformation = Matrice2D::homothetie(k);
+		Matrice2D transformation = Matrice2D::homothetie(k, 0, 0); //TODO
 		_centre = transformation * _centre;
 		_rayon *= k;
 	}

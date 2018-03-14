@@ -32,6 +32,12 @@ namespace figure {
 		void deplacer(const Point &trans) override;
 
 		/**
+         * Realise une transformation decrite par une matrice sur le cercle
+         * \param matrice : tranformation a appliquer
+         */
+        void tranformation(const Matrice2D & matrice);
+
+		/**
 		 * Realise une translation sur le cercle
 		 * \param x : valeur de la translation en abscisse
 		 * \param y : valeur de la translation en ordonnnee

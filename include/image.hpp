@@ -41,6 +41,7 @@ namespace figure {
 		 */
 		const shared_ptr<Figure> getFigure(int index) const; //TODO change into Figure *
 	
+		////todo
         std::shared_ptr<Figure> copy() const override;
         
         /**
@@ -51,6 +52,12 @@ namespace figure {
 
 
 		void deplacer(const Point &trans) override;
+    
+		 /**
+         * Realise une transformation decrite par une matrice sur l'image
+         * \param matrice : tranformation a appliquer
+         */
+        void tranformation(const Matrice2D & matrice);
     
 		/**
 		 * Realise une translation sur l'image

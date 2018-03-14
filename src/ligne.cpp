@@ -26,6 +26,10 @@ namespace figure {
 	std::string Ligne::nom() const {
 		return "ligne";
 	}
+	
+	void Ligne::tranformation(const Matrice2D & matrice) {
+		//TODO
+	}
 
 	void Ligne::translation(int x, int y) {
 		Matrice2D transformation = Matrice2D::translation(x,y);
@@ -34,7 +38,7 @@ namespace figure {
 	}
 
 	void Ligne::rotation(float theta) {
-		Matrice2D transformation = Matrice2D::rotation(theta);
+		Matrice2D transformation = Matrice2D::rotation(theta, 0, 0); //TODO
 		_origine = transformation * _origine;
 		_extremite = transformation * _extremite;
 	}
