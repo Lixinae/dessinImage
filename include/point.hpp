@@ -21,19 +21,19 @@ public:
     * \param x : la valeur du point en abscisse
     * \param y : la valeur du point en ordonnee
     */
-    explicit Point(int x, int y);
+    explicit Point(float x, float y);
 
    /**
     * Renvoie la valeur en abscisse du point
     * \return la valeur en abscisse du point
     */
-    int getX() const;
+    float getX() const;
 
    /**
     * Renvoie la valeur en ordonnee du point
     * \return la valeur en ordonnee du point
     */
-    int getY() const;
+    float getY() const;
 
    /**
     * Realise l'addition terme a terme de deux points
@@ -59,8 +59,8 @@ public:
 
 private:
 
-    int _x;
-    int _y;
+    float _x;
+    float _y;
 
 };
   
