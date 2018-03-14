@@ -2,6 +2,7 @@
 #define POINT_H
 
 #include <iostream>
+#include "matrice2D.hpp"
 
 namespace figure {
 
@@ -35,19 +36,13 @@ namespace figure {
          */
         float getY() const;
 
-        /**
-         * Realise l'addition terme a terme de deux points
-         * \param p : le point a additionner
-         * \return le point resultant de l'addition
+		/**
+         * Renvoie le resultat du produit matriciel entre une matrice de transformation en un point
+         * \param x : la matrice de transformation
+         * \param y : le point
+         * \return le resultat du produit matriciel entre une matrice de transformation en un point
          */
-        Point operator+(const Point &p) const; //TODO rm
-
-        /**
-         * Realise l'incrementation terme a terme d'un point
-         * \param p : valeur du point a ajouter
-         * \return une reference vers l'instance du point
-         */
-        Point &operator+=(const Point &p); //TODO rm
+		friend Point operator* (const Matrice2D &matrice, const Point &point);
 
         /**
          * Ecrit un point dans un flux

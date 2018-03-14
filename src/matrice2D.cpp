@@ -65,10 +65,12 @@ Matrice2D operator* (const Matrice2D &a, const Matrice2D &b) {
 	);
 }
 
-Point operator* (const Matrice2D &a, const Point &b) {
-	float x = a._m11*b.getX() + a._m12*b.getY() + a._m13;
-	float y = a._m21*b.getX() + a._m22*b.getY() + a._m23;
-	return Point(x,y);
+
+void Matrice2D::transformePoint(float &x, float &y) const {
+	float xx = _m11*x + _m12*y + _m13;
+	float yy = _m21*x + _m22*y + _m23;
+	x = xx;
+	y = yy;
 }
 
 }
