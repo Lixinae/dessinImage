@@ -36,11 +36,11 @@ namespace figure {
 
 		void deplacer(const Point &trans) override;
 
-		/**
-        * Realise une transformation decrite par une matrice sur la ligne
-        * \param matrice : tranformation a appliquer
-        */
-		void tranformation(const Matrice2D &matrice);
+		 /**
+         * Realise une transformation decrite par une matrice sur la ligne
+         * \param matrice : tranformation a appliquer
+         */
+        void tranformation(const Matrice2D & matrice);
 
 		/**
 		 * Realise une translation sur la ligne

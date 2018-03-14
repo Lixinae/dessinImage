@@ -26,6 +26,12 @@ namespace figure {
         string nom() const override;
 
         void deplacer(const Point &trans) override;
+        
+        /**
+         * Realise une transformation decrite par une matrice sur le rectangle
+         * \param matrice : tranformation a appliquer
+         */
+        void tranformation(const Matrice2D & matrice);
 
         /**
 		 * Realise une translation sur la figure
@@ -75,4 +81,4 @@ namespace figure {
 
     };
 }
-#endif //DESSINIMAGE_RECTANGLE_HPP
+#endif 

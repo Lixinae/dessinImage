@@ -6,9 +6,11 @@
 #include "point.hpp"
 #include <memory>
 #include <cmath>
+#include "matrice2D.hpp"
 #include "dessin.hpp"
 
 constexpr double PI = acos(-1);
+
 namespace figure {
 
     using namespace std;
@@ -44,14 +46,15 @@ namespace figure {
          * Realise une transformation decrite par une matrice sur la figure
          * \param matrice : tranformation a appliquer
          */
-        virtual void tranformation(const Matrice2D &matrice) = 0;
-
+        virtual void tranformation(const Matrice2D & matrice) = 0;
+        
         /**
          * Realise une translation sur la figure
          * \param x : valeur de la translation en abscisse
          * \param y : valeur de la translation en ordonnnee
          */
         virtual void translation(int x, int y) = 0; //TODO rm + rot + hom
+        
         /**
          * Realise une rotation sur la figure
          * \param thetat : valeur de l'angle de rotation en radian
