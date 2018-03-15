@@ -13,10 +13,10 @@ namespace figure {
 
     public:
 
-        /**
-         * Initialise la classe de dessin
-         */
-        virtual void initialise() = 0;
+//        /**
+//         * Initialise la classe de dessin
+//         */
+//        virtual void initialise() = 0;
 
         /**
          * Dessine une ligne
