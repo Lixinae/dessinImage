@@ -7,6 +7,7 @@
 namespace figure {
 
     using namespace std;
+    using namespace transformation;
 
     class Point {
 
@@ -35,6 +36,12 @@ namespace figure {
          * \return la valeur en ordonnee du point
          */
         float getY() const;
+
+		/**
+		 * Applique la transformation representee par la matrice au point
+		 * \param matrice : matrice de transformation
+		 */
+		void transforme(const Matrice2D &matrice);
 
 		/**
          * Renvoie le resultat du produit matriciel entre une matrice de transformation en un point

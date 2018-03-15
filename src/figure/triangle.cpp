@@ -50,11 +50,16 @@ namespace figure {
     }
 
     void Triangle::dessiner(const Dessin &dessin) const {
-        dessin.dessinePolygone(vector<Point>{_point1, _point2, _point3});
+        dessin.dessinePolygone(
+			{_point1.getX(), _point2.getX(), _point3.getX()},
+			{_point1.getY(), _point2.getY(), _point3.getY()}
+		);
     }
 
 	void Triangle::tranformation(const Matrice2D & matrice) {
-		//TODO
+		_point1.transforme(matrice);
+		_point2.transforme(matrice);
+		_point3.transforme(matrice);
 	}
 
     const Point &Triangle::get_point1() const {

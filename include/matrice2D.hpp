@@ -1,7 +1,7 @@
 #ifndef MATRICE2D_H
 #define MATRICE2D_H
 
-namespace figure { //TODO namespace calcul/matrice
+namespace transformation {
 
 using namespace std;
 

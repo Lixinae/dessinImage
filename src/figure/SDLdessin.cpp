@@ -1,45 +1,52 @@
 #include <figure/SDLdessin.hpp>
 #include <cmath>
+#include <stdexcept>
 
-namespace figure {
+namespace dessin {
 
-    SDLdessin::SDLdessin(int width, int height) : m_width(width), m_height(height) {
+    SDLdessin::SDLdessin(int width, int height) : 
+		m_width(width),
+		m_height(height),
+		m_window(nullptr),
+		m_renderer(nullptr) {
     }
 
-    SDLdessin::SDLdessin(const SDLdessin &) : m_width(800), m_height(600) {
+    SDLdessin::SDLdessin(const SDLdessin &) : SDLdessin(800,600) {
 
     }
 
     SDLdessin &SDLdessin::operator=(const SDLdessin &) {
+		// todo copy-swap idiom
         return *this;
     }
 
+	SDLdessin::~SDLdessin() {
+		SDL_DestroyWindow(m_window);
+	};
+
     void SDLdessin::initialise() {
         if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-            cout << "SDL could not initialize! SDL_Error: " << SDL_GetError() << endl;
-        } else {
-            //Create window
-            if (SDL_CreateWindowAndRenderer(m_width, m_height, 0, &m_window, &m_renderer) < 0) {
-                cout << "Window could not be created! SDL_Error: " << SDL_GetError() << endl;
-            } else {
-                SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-            }
-        }
+            throw std::runtime_error("SDL could not be initialized: " + string(SDL_GetError()));
+		}
+        if (SDL_CreateWindowAndRenderer(m_width, m_height, 0, &m_window, &m_renderer) < 0) {
+			throw std::runtime_error("Window could not be created: " + string(SDL_GetError()));
+		}
+		SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
     }
 
 // todo
-    void SDLdessin::dessineLigne(const Point &p1, const Point &p2) const {
+    void SDLdessin::dessineLigne(float x1, float y1, float x2, float y2) const {
         SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
         SDL_RenderDrawLine(m_renderer,
-                           static_cast<int>(std::round(p1.getX())), static_cast<int>(std::round(p1.getY())),
-                           static_cast<int>(std::round(p2.getX())), static_cast<int>(std::round(p2.getY())));
+                           static_cast<int>(std::round(x1)), static_cast<int>(std::round(y1)),
+                           static_cast<int>(std::round(x2)), static_cast<int>(std::round(y2)));
         SDL_RenderPresent(m_renderer);
 
     }
 
-    void SDLdessin::dessineCercle(const Point &centre, float rayon) const {
+    void SDLdessin::dessineCercle(float x, float y, float rayon) const {
         draw_circle(m_renderer,
-                    static_cast<int>(std::round(centre.getX())), static_cast<int>(std::round(centre.getY())),
+                    static_cast<int>(std::round(x)), static_cast<int>(std::round(y)),
                     static_cast<int>(std::round(rayon)),
                     255, 255, 255, SDL_ALPHA_OPAQUE);
         SDL_RenderPresent(m_renderer);
@@ -47,10 +54,7 @@ namespace figure {
 
     void SDLdessin::set_pixel(SDL_Renderer *rend, int x, int y, int r, int g, int b, int a) const {
         SDL_SetRenderDrawColor(rend,
-                               static_cast<Uint8>(r),
-                               static_cast<Uint8>(g),
-                               static_cast<Uint8>(b),
-                               static_cast<Uint8>(a));
+			static_cast<Uint8>(r), static_cast<Uint8>(g), static_cast<Uint8>(b), static_cast<Uint8>(a));
         SDL_RenderDrawPoint(rend, x, y);
     }
 
@@ -94,19 +98,23 @@ namespace figure {
         }
     }
 
-    void SDLdessin::dessinePolygone(const vector<Point> &points) const {
+    void SDLdessin::dessinePolygone(const vector<float> &xs, const vector<float> &ys) const {
+		if (xs.size() != ys.size()) {
+			throw std::invalid_argument("xs and ys have not the same size");
+		}
+		unsigned int n = xs.size();
         SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-        for (int i = 0; i < points.size() - 1; i++) {
-            int x1 = static_cast<int>(std::round(points[i].getX()));
-            int y1 = static_cast<int>(std::round(points[i].getY()));;
-            int x2 = static_cast<int>(std::round(points[i + 1].getX()));;
-            int y2 = static_cast<int>(std::round(points[i + 1].getY()));;
+        for (unsigned int i = 0; i < n; i++) {
+            int x1 = static_cast<int>(std::round(xs[i]));
+            int y1 = static_cast<int>(std::round(ys[i]));
+            int x2 = static_cast<int>(std::round(xs[(i + 1)%n]));
+            int y2 = static_cast<int>(std::round(ys[(i + 1)%n]));
             SDL_RenderDrawLine(m_renderer, x1, y1, x2, y2);
         }
         SDL_RenderPresent(m_renderer);
     }
 
-    void SDLdessin::attendClick() const {
+    void SDLdessin::attendTouche() const {
         bool done = false;
         while (!done) {
             SDL_Event event{};
@@ -121,7 +129,7 @@ namespace figure {
         }
     }
 
-    void SDLdessin::cleanWindow() const {
+    void SDLdessin::nettoie() const {
         SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
         SDL_RenderClear(m_renderer);
     }

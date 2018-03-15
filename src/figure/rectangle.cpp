@@ -29,7 +29,9 @@ namespace figure {
 	}
 
     void Rectangle::dessiner(const Dessin &dessin) const {
-        dessin.dessinePolygone(vector<Point>{_upperLeft, _upperRight, _lowerLeft, _lowerRight});
+        /*dessin.dessinePolygone(
+			{_upperLeft, _upperRight, _lowerLeft, _lowerRight}
+		);*/
     }
 
     double Rectangle::surface() const {

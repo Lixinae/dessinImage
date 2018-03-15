@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-namespace figure {
+namespace transformation {
 
 Matrice2D::Matrice2D(
 	float m11, float m12, float m13,
@@ -64,7 +64,6 @@ Matrice2D operator* (const Matrice2D &a, const Matrice2D &b) {
 		m31, m32, m33
 	);
 }
-
 
 void Matrice2D::transformePoint(float &x, float &y) const {
 	float xx = _m11*x + _m12*y + _m13;

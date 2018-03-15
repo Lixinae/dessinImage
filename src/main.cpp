@@ -1,31 +1,40 @@
 #include <sstream>
-#include <figure/image.hpp>
+#include <figure/cercle.hpp>////
+#include <figure/triangle.hpp>////
+#include <figure/image.hpp>////
+#include <matrice2D.hpp>
 #include <condition/condition.hpp>
 #include <figure/SDLdessin.hpp>
 
 using namespace std;
 using namespace figure;
+using namespace transformation;
+using namespace dessin;
 using namespace condition;
 
 
 void mainFunction() {
-    SDLdessin drawing(800, 600);
-    drawing.initialise();
-
-    // todo
-
-    drawing.dessineCercle(Point(500, 500), 50);
-
-    drawing.dessinePolygone({Point(100, 100), Point(500, 500), Point(400, 200), Point(125, 150), Point(200, 300)});
-
-    //drawing.dessineLigne(Point(100, 100), Point(500, 500));
-    drawing.attendClick();
-
-    drawing.cleanWindow(); // nettoie la fenetre des ob
-    drawing.dessineLigne(Point(200, 100), Point(500, 500));
-    drawing.dessineLigne(Point(100, 500), Point(400, 200));
-    drawing.attendClick();
-
+	
+    SDLdessin dessin(800, 600);
+    dessin.initialise();
+    
+    Cercle c(Point(50,50), 20);
+    Triangle t(Point(10,10), Point(200, 10), Point(50,300));
+    
+    c.dessiner(dessin);
+    t.dessiner(dessin);
+    dessin.attendTouche();
+    
+    Matrice2D transformations = 
+		Matrice2D::translation(10,220) * Matrice2D::rotation(-0.8)
+	;
+    t.tranformation(transformations);
+    
+    dessin.nettoie();
+    c.dessiner(dessin);
+    t.dessiner(dessin);
+    dessin.attendTouche();
+    
 }
 
 int WinMain() {

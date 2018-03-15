@@ -1,4 +1,3 @@
-
 #ifndef FIGUREH
 #define FIGUREH
 
@@ -8,11 +7,13 @@
 #include <cmath>
 #include "dessin.hpp"
 #include <matrice2D.hpp>
+
 constexpr double PI = acos(-1);
 
 namespace figure {
 
     using namespace std;
+    using namespace dessin;
 
     class Figure {
 
@@ -58,13 +59,13 @@ namespace figure {
          * Calcule la surface de la figure
          * \return la surface de la figure
          */
-        virtual double surface() const = 0; //TODO rm -> perimetre aire
+        virtual double surface() const = 0;
 
         /**
          * Calcule le perimetre de la figure
          * \return le perimetre de la figure
          */
-        virtual double perimetre() const = 0; //TODO rm -> perimetre aire
+        virtual double perimetre() const = 0;
 
         /**
          * Teste l'egalite de deux figures

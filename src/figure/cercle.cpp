@@ -37,7 +37,7 @@ namespace figure {
     }
 
     void Cercle::dessiner(const Dessin &dessin) const {
-        dessin.dessineCercle(_centre, _rayon);
+        dessin.dessineCercle(_centre.getX(), _centre.getY(), _rayon);
     }
 
     double Cercle::surface() const {
