@@ -10,7 +10,24 @@ namespace dessin {
 	
     public:
     
-        SDLdessin(int width, int height);
+		/**
+		 * Construit un systeme de dessin implemente avec la librairie SDL
+		 * \param width : largeur de la fenetre
+		 * \param height : hauteur de la fenetre
+		 */
+        explicit SDLdessin(int width, int height);
+        
+        /**
+         * Constructeur de copie
+         * \param dessin : systeme de dessin a copier
+         */
+		SDLdessin(const SDLdessin &dessin);
+
+		/**
+         * Operateur d'affectation
+         * \param dessin : systeme de dessin a affecter
+         */
+        SDLdessin &operator=(const SDLdessin &dessin);
 
         /**
          * Initialise la classe de dessin
@@ -62,10 +79,6 @@ namespace dessin {
         int m_height;
         SDL_Window *m_window;
         SDL_Renderer *m_renderer;
-
-        SDLdessin(const SDLdessin &);
-
-        SDLdessin &operator=(const SDLdessin &);
 
         void set_pixel(SDL_Renderer *rend, int x, int y, int r, int g, int b, int a) const;
 

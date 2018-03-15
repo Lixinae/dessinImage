@@ -12,7 +12,7 @@ namespace figure {
 
     }
 
-    Cercle::Cercle(const Point &centre, int rayon) : _centre(centre), _rayon(rayon) {
+    Cercle::Cercle(const Point &centre, float rayon) : _centre(centre), _rayon(rayon) {
 
     }
 

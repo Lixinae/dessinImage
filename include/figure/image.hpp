@@ -1,4 +1,3 @@
-
 #ifndef IMAGE_H
 #define IMAGE_H
 
@@ -6,7 +5,6 @@
 #include "figure.hpp"
 #include <set>
 #include <numeric>
-#include <transformation/matrice2D.hpp>
 
 namespace figure {
 
@@ -14,14 +12,27 @@ namespace figure {
 
     public:
 
+		/**
+		 * Temoin de la classe Figure
+		 */
         static Image temoin;
+	
+		/**
+		 * Construit une image
+		 */
+		explicit Image();
 
-        //TODO
-        /*explicit*/ Image();
+		/**
+		 * Construit une image
+		 * \param p : origine de l'image
+		 */
+        explicit Image(const Point &p);
 
-        /*explicit*/ Image(const Point &p);
-
-        /*explicit*/ Image(const Image &image);
+		/**
+		 * Constructeur de copie
+		 * \param image : image a copier
+		 */
+        Image(const Image &image);
 
 		/**
          * Renvoie l'origine de l'image
@@ -42,7 +53,10 @@ namespace figure {
 		 */
 		const shared_ptr<Figure> getFigure(int index) const;
 	
-		////todo
+		/**
+         * Realise une copie profonde de l'image
+         * \return une copie profonde de l'image
+         */
         std::shared_ptr<Figure> copy() const override;
 
 		/**
@@ -57,6 +71,10 @@ namespace figure {
         */
 		void tranformation(const Matrice2D &matrice);
 
+		/**
+		 * Ajoute une figure a l'image
+		 * \param f : figure a ajouter
+		 */
 		void ajouter(const Figure &f);
 
 	   /**
@@ -65,10 +83,23 @@ namespace figure {
 		*/
 		void dessiner(const Dessin &dessin) const override;
 
+		/**
+         * Calcule la surface de l'image
+         * \return la surface de l'image
+         */
 		double surface() const override;
 
+		/**
+         * Calcule le perimetre de l'image
+         * \return le perimetre de l'image
+         */
 		double perimetre() const override;
 
+		/**
+         * Affiche l'image dans un flux
+         * \param os : le flux
+         * \return le flux
+         */
 		void afficher(ostream &os = cout) const override;
 
 		private:

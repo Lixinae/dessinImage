@@ -1,7 +1,6 @@
 #ifndef LIGNE_H
 #define LIGNE_H
 
-#include <transformation/matrice2D.hpp>
 #include "figure.hpp"
 
 namespace figure {
@@ -10,8 +9,16 @@ namespace figure {
 
     public:
 
+		/**
+		 * Temoin de la classe Ligne
+		 */
         static Ligne temoin;
 
+		/**
+         * Construit une ligne
+         * \param a : origine de la ligne
+         * \param b : extremite de la ligne
+         */
         explicit Ligne(const Point &a, const Point &b);
         
         /**
@@ -26,6 +33,10 @@ namespace figure {
          */
 		Point getExtremite() const;
 		
+		/**
+         * Realise une copie profonde de la ligne
+         * \return une copie profonde de la ligne
+         */
         shared_ptr<Figure> copy() const override;
         
         /**
@@ -46,10 +57,23 @@ namespace figure {
         */
 		void dessiner(const Dessin &dessin) const override;
 
+		/**
+         * Calcule la surface de la ligne
+         * \return la surface de la ligne
+         */
 		double surface() const override;
 
+		/**
+         * Calcule le perimetre de la ligne
+         * \return le perimetre de la ligne
+         */
 		double perimetre() const override;
 
+		/**
+         * Affiche la ligne dans un flux
+         * \param os : le flux
+         * \return le flux
+         */
         void afficher(ostream &os = cout) const override;
 
     private:

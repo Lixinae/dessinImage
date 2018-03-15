@@ -2,12 +2,12 @@
 #define POINT_H
 
 #include <iostream>
-#include "transformation/matrice2D.hpp"
+#include "calcul/matrice2D.hpp"
 
 namespace figure {
 
     using namespace std;
-    using namespace transformation;
+    using namespace calcul;
 
     class Point {
 

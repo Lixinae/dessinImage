@@ -1,10 +1,3 @@
-/**
- * auteurs          : Michel Landschoot
- * mail             : direction@landsnet.com
- * date de création : 2013-12-21
- * description      : impléméntation d'une classe de filtrage des figures satisfaisant une condition
- */
-
 #include <algorithm>
 #include <iostream>
 #include "filtrage.hpp"

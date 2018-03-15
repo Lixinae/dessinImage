@@ -1,7 +1,6 @@
 #ifndef CERCLE_H
 #define CERCLE_H
 
-#include <transformation/matrice2D.hpp>
 #include "figure.hpp"
 
 namespace figure {
@@ -10,13 +9,28 @@ namespace figure {
 
     public:
 
+		/**
+		 * Temoin de la classe Cercle
+		 */
         static Cercle temoin;
 
+		/**
+         * Construit un cercle
+         */
         explicit Cercle();
 
+		/**
+         * Construit un cercle
+         * \param centre : centre du cercle
+         */
         explicit Cercle(const Point &centre);
 
-        explicit Cercle(const Point &center, int rayon);
+		/**
+         * Construit un cercle
+         * \param centre : centre du cercle
+         * \param rayon : rayon du cercle
+         */
+        explicit Cercle(const Point &center, float rayon);
 
         /**
          * Renvoie le centre du cercle
@@ -36,6 +50,10 @@ namespace figure {
         */
         void tranformation(const Matrice2D &matrice);
 
+		/**
+         * Realise une copie profonde du cercle
+         * \return une copie profonde du cercle
+         */
         shared_ptr<Figure> copy() const override;
 
         /**
@@ -50,16 +68,29 @@ namespace figure {
          */
         void dessiner(const Dessin &dessin) const override;
 
+		/**
+         * Calcule la surface du cercle
+         * \return la surface du cercle
+         */
         double surface() const override;
 
+		/**
+         * Calcule le perimetre du cercle
+         * \return le perimetre du cercle
+         */
         double perimetre() const override;
 
+		/**
+         * Affiche le cercle dans un flux
+         * \param os : le flux
+         * \return le flux
+         */
         void afficher(ostream &os = cout) const override;
 
     private:
 
         Point _centre;
-        int _rayon;
+        float _rayon;
 
     };
 
