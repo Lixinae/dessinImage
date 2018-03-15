@@ -49,7 +49,11 @@ namespace figure {
 	}
 	
 	void Image::tranformation(const Matrice2D & matrice) {
-		//TODO
+		std::for_each(
+			std::cbegin(_figures),
+			std::cend(_figures), 
+			[&matrice](const auto & figure){figure->tranformation(matrice);}
+		);
 	}
 
 	void Image::dessiner(const Dessin &dessin) const {

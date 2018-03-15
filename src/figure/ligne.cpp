@@ -17,7 +17,7 @@ namespace figure {
 	}
 
     std::shared_ptr<Figure> Ligne::copy() const {
-        return std::make_shared<Ligne>(this->_origine, this->_extremite);
+        return std::make_shared<Ligne>(_origine, _extremite);
     }
 
 	std::string Ligne::nom() const {
@@ -25,7 +25,8 @@ namespace figure {
 	}
 	
 	void Ligne::tranformation(const Matrice2D & matrice) {
-		//TODO
+		_origine = matrice * _origine;
+		_extremite = matrice * _extremite;
 	}
 
     void Ligne::dessiner(const Dessin &dessin) const {
@@ -35,16 +36,16 @@ namespace figure {
     double Ligne::surface() const {
         double xx = _origine.getX() - _extremite.getX();
         double yy = _origine.getY() - _extremite.getY();
-        double distance = sqrt(pow(xx, 2) + pow(yy, 2));
+        double distance = sqrt(xx*xx  + yy*yy);
         return distance;
     }
 
     double Ligne::perimetre() const {
         double xx = _origine.getX() - _extremite.getX();
         double yy = _origine.getY() - _extremite.getY();
-        double distance = sqrt(pow(xx, 2) + pow(yy, 2));
+        double distance = sqrt(xx*xx + yy*yy);
         double epaisseur = 1.0;
-        return 2 * distance + 2 * epaisseur;
+        return 2 * (distance + epaisseur);
     }
 
     void Ligne::afficher(ostream &os) const {
