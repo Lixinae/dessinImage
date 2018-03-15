@@ -7,6 +7,7 @@
 namespace figure {
 
     using namespace std;
+    using namespace transformation;
 
     class Point {
 

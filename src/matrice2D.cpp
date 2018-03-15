@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-namespace figure {
+namespace transformation {
 
 Matrice2D::Matrice2D(
 	float m11, float m12, float m13,
