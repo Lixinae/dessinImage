@@ -10,13 +10,27 @@ namespace figure {
 
     public:
 
+		/**
+		 * Temoin de la classe Rectangle
+		 */
         static Rectangle temoin;
-
+	
+		/**
+		 * Construit un rectangle
+		 */
         explicit Rectangle();
 
-        explicit Rectangle(const Point &upperLeft, const Point &upperRight, const Point &lowerLeft,
-                           const Point &lowerRight);
+		/**
+		 * Construit un rectangle
+		 * \param upperLeft : coin superieur gauche du rectangle
+		 * \param upperLeft : coin inferieur droit du rectangle
+		 */
+        explicit Rectangle(const Point &upperLeft, const Point &lowerRight);
 
+		/**
+         * Realise une copie profonde du rectangle
+         * \return une copie profonde du rectangle
+         */
         shared_ptr<Figure> copy() const override;
 
         /**
@@ -37,25 +51,40 @@ namespace figure {
          */
         void dessiner(const Dessin &dessin) const override;
 
+		/**
+         * Calcule la surface du rectangle
+         * \return la surface du rectangle
+         */
         double surface() const override;
 
+		/**
+         * Calcule le perimetre du rectangle
+         * \return le perimetre du rectangle
+         */
         double perimetre() const override;
 
+		/**
+         * Affiche le rectangle dans un flux
+         * \param os : le flux
+         * \return le flux
+         */
         void afficher(ostream &os = cout) const override;
 
+		/**
+         * Renvoie le coin superieur gauche point du rectangle
+         * \return le coin superieur gauche point du rectangle
+         */
         const Point &get_upperLeft() const;
 
-        const Point &get_upperRight() const;
-
-        const Point &get_lowerLeft() const;
-
+		/**
+         * Renvoie le coin inferieur droit point du rectangle
+         * \return le coin inferieur droit point du rectangle
+         */
         const Point &get_lowerRight() const;
 
     private:
 
         Point _upperLeft;
-        Point _upperRight;
-        Point _lowerLeft;
         Point _lowerRight;
 
     };

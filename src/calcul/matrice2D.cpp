@@ -1,8 +1,8 @@
-#include "transformation/matrice2D.hpp"
+#include "calcul/matrice2D.hpp"
 
 #include <cmath>
 
-namespace transformation {
+namespace calcul {
 
 Matrice2D::Matrice2D(
 	float m11, float m12, float m13,

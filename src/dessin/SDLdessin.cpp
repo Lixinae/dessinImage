@@ -11,12 +11,22 @@ namespace dessin {
 		m_renderer(nullptr) {
     }
 
-    SDLdessin::SDLdessin(const SDLdessin &) : SDLdessin(800,600) {
+    SDLdessin::SDLdessin(const SDLdessin &dessin) :  
+		m_width(dessin.m_width),
+		m_height(dessin.m_height),
+		m_window(dessin.m_window),
+		m_renderer(dessin.m_renderer) {
 
     }
 
-    SDLdessin &SDLdessin::operator=(const SDLdessin &) {
-		// todo copy-swap idiom
+    SDLdessin &SDLdessin::operator=(const SDLdessin &dessin) {
+		if (&dessin != this) {
+			SDLdessin tmp(dessin);
+			swap(m_width, tmp.m_width);
+			swap(m_height, tmp.m_height);
+			swap(m_window, tmp.m_window);
+			swap(m_renderer, tmp.m_renderer);
+		}
         return *this;
     }
 
@@ -34,7 +44,6 @@ namespace dessin {
 		SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
     }
 
-// todo
     void SDLdessin::dessineLigne(float x1, float y1, float x2, float y2) const {
         SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
         SDL_RenderDrawLine(m_renderer,

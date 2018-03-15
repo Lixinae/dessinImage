@@ -6,7 +6,7 @@
 #include <memory>
 #include <cmath>
 #include "dessin/dessin.hpp"
-#include <transformation/matrice2D.hpp>
+#include <calcul/matrice2D.hpp>
 
 constexpr double PI = acos(-1);
 
@@ -14,6 +14,7 @@ namespace figure {
 
     using namespace std;
     using namespace dessin;
+    using namespace calcul;
 
     class Figure {
 

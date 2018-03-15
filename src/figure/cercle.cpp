@@ -2,7 +2,7 @@
 
 namespace figure {
 
-    Cercle Cercle::temoin = Cercle(Point(0, 0), 0);
+    Cercle Cercle::temoin = Cercle();
 
     Cercle::Cercle() : Cercle(Point(0, 0), 0) {
 
@@ -12,7 +12,7 @@ namespace figure {
 
     }
 
-    Cercle::Cercle(const Point &centre, int rayon) : _centre(centre), _rayon(rayon) {
+    Cercle::Cercle(const Point &centre, float rayon) : _centre(centre), _rayon(rayon) {
 
     }
 
@@ -33,7 +33,12 @@ namespace figure {
     }
 
     void Cercle::tranformation(const Matrice2D &matrice) {
-        //TODO
+        Point temoin = _centre + Point(_rayon,0);
+        _centre = matrice * _centre;
+        temoin = matrice * temoin;
+        float xx = _centre.getX() - temoin.getX();
+        float yy = _centre.getY() - temoin.getY();
+        _rayon = sqrt(xx*xx + yy*yy);
     }
 
     void Cercle::dessiner(const Dessin &dessin) const {

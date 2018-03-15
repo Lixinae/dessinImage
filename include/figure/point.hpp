@@ -2,12 +2,12 @@
 #define POINT_H
 
 #include <iostream>
-#include "transformation/matrice2D.hpp"
+#include "calcul/matrice2D.hpp"
 
 namespace figure {
 
     using namespace std;
-    using namespace transformation;
+    using namespace calcul;
 
     class Point {
 
@@ -38,10 +38,12 @@ namespace figure {
         float getY() const;
 
 		/**
-		 * Applique la transformation representee par la matrice au point
-		 * \param matrice : matrice de transformation
-		 */
-		void transforme(const Matrice2D &matrice);
+         * Renvoie le resultat de la somme de deux points
+         * \param p1 : le premier point
+         * \param p2 : le second point
+         * \return le resultat de la somme de deux points
+         */
+		friend Point operator+ (const Point &p1, const Point &p2);
 
 		/**
          * Renvoie le resultat du produit matriciel entre une matrice de transformation en un point

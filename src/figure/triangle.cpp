@@ -4,7 +4,7 @@ namespace figure {
 
 	Triangle Triangle::temoin = Triangle();
 
-    Triangle::Triangle() : Triangle(Point(0, 1), Point(-1, 0), Point(0, 1)) {
+    Triangle::Triangle() : Triangle(Point(1, 2), Point(0, 1), Point(1, 2)) {
 
     }
 
@@ -57,9 +57,9 @@ namespace figure {
     }
 
 	void Triangle::tranformation(const Matrice2D & matrice) {
-		_point1.transforme(matrice);
-		_point2.transforme(matrice);
-		_point3.transforme(matrice);
+		_point1 = matrice * _point1;
+		_point2 = matrice * _point2;
+		_point3 = matrice * _point3;
 	}
 
     const Point &Triangle::get_point1() const {
