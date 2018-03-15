@@ -14,8 +14,7 @@ namespace figure {
 
         explicit Rectangle();
 
-        explicit Rectangle(const Point &upperLeft, const Point &upperRight, const Point &lowerLeft,
-                           const Point &lowerRight);
+        explicit Rectangle(const Point &upperLeft, const Point &lowerRight);
 
         shared_ptr<Figure> copy() const override;
 
@@ -45,17 +44,11 @@ namespace figure {
 
         const Point &get_upperLeft() const;
 
-        const Point &get_upperRight() const;
-
-        const Point &get_lowerLeft() const;
-
         const Point &get_lowerRight() const;
 
     private:
 
         Point _upperLeft;
-        Point _upperRight;
-        Point _lowerLeft;
         Point _lowerRight;
 
     };

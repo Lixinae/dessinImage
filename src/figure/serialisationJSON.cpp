@@ -36,8 +36,6 @@ namespace figure {
         if (type == Rectangle::temoin.nom()) {
             return new Rectangle(
                     jsonVersPoint(jsonFigure["nom"]["args"]["upperLeft"]),
-                    jsonVersPoint(jsonFigure["nom"]["args"]["upperLeft"]),
-                    jsonVersPoint(jsonFigure["nom"]["args"]["lowerLeft"]),
                     jsonVersPoint(jsonFigure["nom"]["args"]["lowerRight"])
             );
         }
@@ -129,8 +127,6 @@ namespace figure {
         json jsonFigure;
         jsonFigure["nom"] = Rectangle::temoin.nom();
         jsonFigure["nom"]["args"]["upperLeft"] = pointVersJson(figure.get_upperLeft());
-        jsonFigure["nom"]["args"]["upperRight"] = pointVersJson(figure.get_upperRight());
-        jsonFigure["nom"]["args"]["lowerLeft"] = pointVersJson(figure.get_lowerLeft());
         jsonFigure["nom"]["args"]["lowerRight"] = pointVersJson(figure.get_lowerRight());
         return jsonFigure;
     }

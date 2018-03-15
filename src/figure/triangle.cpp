@@ -4,7 +4,7 @@ namespace figure {
 
 	Triangle Triangle::temoin = Triangle();
 
-    Triangle::Triangle() : Triangle(Point(0, 1), Point(-1, 0), Point(0, 1)) {
+    Triangle::Triangle() : Triangle(Point(1, 2), Point(0, 1), Point(1, 2)) {
 
     }
 
