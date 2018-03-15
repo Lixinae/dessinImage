@@ -65,7 +65,6 @@ Matrice2D operator* (const Matrice2D &a, const Matrice2D &b) {
 	);
 }
 
-
 void Matrice2D::transformePoint(float &x, float &y) const {
 	float xx = _m11*x + _m12*y + _m13;
 	float yy = _m21*x + _m22*y + _m23;

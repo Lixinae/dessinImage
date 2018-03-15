@@ -3,28 +3,34 @@
 
 namespace figure {
 
-    SDLdessin::SDLdessin(int width, int height) : m_width(width), m_height(height) {
+    SDLdessin::SDLdessin(int width, int height) : 
+		m_width(width),
+		m_height(height),
+		m_window(nullptr),
+		m_renderer(nullptr) {
     }
 
-    SDLdessin::SDLdessin(const SDLdessin &) : m_width(800), m_height(600) {
+    SDLdessin::SDLdessin(const SDLdessin &) : SDLdessin(800,600) {
 
     }
 
     SDLdessin &SDLdessin::operator=(const SDLdessin &) {
+		// todo copy-swap idiom
         return *this;
     }
 
+	SDLdessin::~SDLdessin() {
+		SDL_DestroyWindow(m_window);
+	};
+
     void SDLdessin::initialise() {
         if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-            cout << "SDL could not initialize! SDL_Error: " << SDL_GetError() << endl;
-        } else {
-            //Create window
-            if (SDL_CreateWindowAndRenderer(m_width, m_height, 0, &m_window, &m_renderer) < 0) {
-                cout << "Window could not be created! SDL_Error: " << SDL_GetError() << endl;
-            } else {
-                SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-            }
-        }
+            throw std::runtime_error("SDL could not be initialized: " + string(SDL_GetError()));
+		}
+        if (SDL_CreateWindowAndRenderer(m_width, m_height, 0, &m_window, &m_renderer) < 0) {
+			throw std::runtime_error("Window could not be created: " + string(SDL_GetError()));
+		}
+		SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
     }
 
 // todo
@@ -47,10 +53,7 @@ namespace figure {
 
     void SDLdessin::set_pixel(SDL_Renderer *rend, int x, int y, int r, int g, int b, int a) const {
         SDL_SetRenderDrawColor(rend,
-                               static_cast<Uint8>(r),
-                               static_cast<Uint8>(g),
-                               static_cast<Uint8>(b),
-                               static_cast<Uint8>(a));
+			static_cast<Uint8>(r), static_cast<Uint8>(g), static_cast<Uint8>(b), static_cast<Uint8>(a));
         SDL_RenderDrawPoint(rend, x, y);
     }
 
@@ -96,7 +99,7 @@ namespace figure {
 
     void SDLdessin::dessinePolygone(const vector<Point> &points) const {
         SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-        for (int i = 0; i < points.size() - 1; i++) {
+        for (unsigned int i = 0; i < points.size() - 1; i++) {
             int x1 = static_cast<int>(std::round(points[i].getX()));
             int y1 = static_cast<int>(std::round(points[i].getY()));;
             int x2 = static_cast<int>(std::round(points[i + 1].getX()));;
@@ -106,7 +109,7 @@ namespace figure {
         SDL_RenderPresent(m_renderer);
     }
 
-    void SDLdessin::attendClick() const {
+    void SDLdessin::attendTouche() const {
         bool done = false;
         while (!done) {
             SDL_Event event{};
@@ -121,7 +124,7 @@ namespace figure {
         }
     }
 
-    void SDLdessin::cleanWindow() const {
+    void SDLdessin::nettoie() const {
         SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
         SDL_RenderClear(m_renderer);
     }

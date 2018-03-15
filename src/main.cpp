@@ -9,22 +9,22 @@ using namespace condition;
 
 
 void mainFunction() {
-    SDLdessin drawing(800, 600);
-    drawing.initialise();
+	
+    SDLdessin dessin(800, 600);
+    dessin.initialise();
 
     // todo
 
-    drawing.dessineCercle(Point(500, 500), 50);
+    dessin.dessineCercle(Point(500, 500), 50);
 
-    drawing.dessinePolygone({Point(100, 100), Point(500, 500), Point(400, 200), Point(125, 150), Point(200, 300)});
+    dessin.dessinePolygone({Point(100, 100), Point(500, 500), Point(400, 200), Point(125, 150), Point(200, 300)});
 
-    //drawing.dessineLigne(Point(100, 100), Point(500, 500));
-    drawing.attendClick();
+    dessin.attendTouche();
 
-    drawing.cleanWindow(); // nettoie la fenetre des ob
-    drawing.dessineLigne(Point(200, 100), Point(500, 500));
-    drawing.dessineLigne(Point(100, 500), Point(400, 200));
-    drawing.attendClick();
+    dessin.nettoie(); // nettoie la fenetre des ob
+    dessin.dessineLigne(Point(200, 100), Point(500, 500));
+    dessin.dessineLigne(Point(100, 500), Point(400, 200));
+    dessin.attendTouche();
 
 }
 

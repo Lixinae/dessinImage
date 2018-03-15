@@ -1,7 +1,3 @@
-//
-// Created by ValasNaerth on 14/03/2018.
-//
-
 #ifndef DESSINIMAGE_SDLDRAWING_HPP
 #define DESSINIMAGE_SDLDRAWING_HPP
 
@@ -9,25 +5,12 @@
 #include <SDL.h>
 
 namespace figure {
+	
     class SDLdessin : public Dessin {
-    private:
-        int m_width = 800, m_height = 600;
-        SDL_Window *m_window = nullptr;
-
-        //The surface contained by the window
-        SDL_Renderer *m_renderer = nullptr;
-
-        SDLdessin(const SDLdessin &);
-
-        SDLdessin &operator=(const SDLdessin &);
-
-        void set_pixel(SDL_Renderer *rend, int x, int y, int r, int g, int b, int a) const;
-
-        void draw_circle(SDL_Renderer *surface, int n_cx, int n_cy, int radius, int r, int g, int b, int a) const;
-
+	
     public:
+    
         SDLdessin(int width, int height);
-
 
         /**
          * Initialise la classe de dessin
@@ -48,7 +31,6 @@ namespace figure {
          */
         void dessineCercle(const Point &centre, float rayon) const override;
 
-
         /**
          * Dessine un polygone
          * \param points : points definissant le contour du polygone
@@ -56,24 +38,37 @@ namespace figure {
         void dessinePolygone(const vector<Point> &points) const override;
 
         /**
-        * Met la fenetre en attente d'un evenement pour la maintenir ouverte
+        * Met la fenetre en attente jusqu'à utilisation d'une touche du clavier
         */
-        void attendClick() const;
+        void attendTouche() const;
 
         /**
          * Nettoie la fenetre de rendu
          */
-        void cleanWindow() const;
+        void nettoie() const;
 
         /**
          * Detruit la classe de dessin
          */
-        ~SDLdessin() {
-            SDL_DestroyWindow(m_window);
-        };
+        ~SDLdessin();
 
+	private:
+    
+        int m_width;
+        int m_height;
+        SDL_Window *m_window;
+        SDL_Renderer *m_renderer;
+
+        SDLdessin(const SDLdessin &);
+
+        SDLdessin &operator=(const SDLdessin &);
+
+        void set_pixel(SDL_Renderer *rend, int x, int y, int r, int g, int b, int a) const;
+
+        void draw_circle(SDL_Renderer *surface, int n_cx, int n_cy, int radius, int r, int g, int b, int a) const;
 
     };
+    
 }
 
-#endif //DESSINIMAGE_SDLDRAWING_HPP
+#endif
