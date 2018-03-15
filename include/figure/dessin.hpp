@@ -4,7 +4,7 @@
 
 #include <vector>
 
-namespace figure {
+namespace dessin {
 
     using namespace std;
 

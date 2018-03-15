@@ -2,7 +2,7 @@
 #include <cmath>
 #include <stdexcept>
 
-namespace figure {
+namespace dessin {
 
     SDLdessin::SDLdessin(int width, int height) : 
 		m_width(width),

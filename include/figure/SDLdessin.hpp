@@ -4,7 +4,7 @@
 #include <figure/dessin.hpp>
 #include <SDL.h>
 
-namespace figure {
+namespace dessin {
 	
     class SDLdessin : public Dessin {
 	

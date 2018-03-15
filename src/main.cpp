@@ -5,6 +5,7 @@
 
 using namespace std;
 using namespace figure;
+using namespace dessin;
 using namespace condition;
 
 
