@@ -104,14 +104,13 @@ namespace dessin {
 		}
 		unsigned int n = xs.size();
         SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-        for (unsigned int i = 0; i < n - 1; i++) {
+        for (unsigned int i = 0; i < n; i++) {
             int x1 = static_cast<int>(std::round(xs[i]));
             int y1 = static_cast<int>(std::round(ys[i]));
-            int x2 = static_cast<int>(std::round(xs[i + 1]));
-            int y2 = static_cast<int>(std::round(ys[i + 1]));
+            int x2 = static_cast<int>(std::round(xs[(i + 1)%n]));
+            int y2 = static_cast<int>(std::round(ys[(i + 1)%n]));
             SDL_RenderDrawLine(m_renderer, x1, y1, x2, y2);
         }
-        // TODO dernier -> premier ?
         SDL_RenderPresent(m_renderer);
     }
 

@@ -57,7 +57,9 @@ namespace figure {
     }
 
 	void Triangle::tranformation(const Matrice2D & matrice) {
-		//TODO
+		_point1.transforme(matrice);
+		_point2.transforme(matrice);
+		_point3.transforme(matrice);
 	}
 
     const Point &Triangle::get_point1() const {

@@ -14,6 +14,10 @@ namespace figure {
         return _y;
     }
     
+    void Point::transforme(const Matrice2D &matrice) {
+		matrice.transformePoint(_x,_y);
+	}
+    
 	Point operator* (const Matrice2D &matrice, const Point &point) {
 		float x = point._x;
 		float y = point._y;

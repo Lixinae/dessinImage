@@ -38,6 +38,12 @@ namespace figure {
         float getY() const;
 
 		/**
+		 * Applique la transformation representee par la matrice au point
+		 * \param matrice : matrice de transformation
+		 */
+		void transforme(const Matrice2D &matrice);
+
+		/**
          * Renvoie le resultat du produit matriciel entre une matrice de transformation en un point
          * \param x : la matrice de transformation
          * \param y : le point
