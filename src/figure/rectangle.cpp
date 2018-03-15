@@ -1,5 +1,4 @@
 #include <figure/rectangle.hpp>
-#include <matrice2D.hpp>
 
 namespace figure {
 

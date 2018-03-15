@@ -6,7 +6,7 @@
 #include "figure.hpp"
 #include <set>
 #include <numeric>
-#include <matrice2D.hpp>
+#include <transformation/matrice2D.hpp>
 
 namespace figure {
 

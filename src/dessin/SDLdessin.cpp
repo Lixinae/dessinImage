@@ -1,4 +1,4 @@
-#include <figure/SDLdessin.hpp>
+#include <dessin/SDLdessin.hpp>
 #include <cmath>
 #include <stdexcept>
 

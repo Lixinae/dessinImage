@@ -2,7 +2,7 @@
 #define POINT_H
 
 #include <iostream>
-#include "matrice2D.hpp"
+#include "transformation/matrice2D.hpp"
 
 namespace figure {
 

@@ -3,8 +3,6 @@
 
 namespace transformation {
 
-using namespace std;
-
 class Matrice2D {
 
 public:

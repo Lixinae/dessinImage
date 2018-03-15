@@ -1,7 +1,7 @@
 #ifndef SERIALISATIONJSON_H
 #define SERIALISATIONJSON_H
 
-#include "serialisation.hpp"
+#include "figure/serialisation.hpp"
 #include <json.hpp>
 #include <figure/rectangle.hpp>
 #include "figure/ligne.hpp"

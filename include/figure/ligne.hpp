@@ -1,7 +1,7 @@
 #ifndef LIGNE_H
 #define LIGNE_H
 
-#include <matrice2D.hpp>
+#include <transformation/matrice2D.hpp>
 #include "figure.hpp"
 
 namespace figure {

@@ -1,7 +1,7 @@
 #ifndef DESSINIMAGE_SDLDRAWING_HPP
 #define DESSINIMAGE_SDLDRAWING_HPP
 
-#include <figure/dessin.hpp>
+#include <dessin/dessin.hpp>
 #include <SDL.h>
 
 namespace dessin {
