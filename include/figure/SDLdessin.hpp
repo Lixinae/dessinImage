@@ -20,6 +20,11 @@ namespace figure {
         SDLdessin(const SDLdessin &);
 
         SDLdessin &operator=(const SDLdessin &);
+
+        void set_pixel(SDL_Renderer *rend, int x, int y, int r, int g, int b, int a) const;
+
+        void draw_circle(SDL_Renderer *surface, int n_cx, int n_cy, int radius, int r, int g, int b, int a) const;
+
     public:
         SDLdessin(int width, int height);
 
@@ -60,6 +65,8 @@ namespace figure {
         ~SDLdessin() {
             SDL_DestroyWindow(m_window);
         };
+
+
     };
 }
 

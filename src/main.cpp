@@ -13,8 +13,9 @@ void mainFunction() {
     drawing.initialise();
 
     // todo
-//    drawing.dessineLigne(Point(100, 100), Point(500, 500));
+    drawing.dessineLigne(Point(100, 100), Point(500, 500));
     drawing.dessineLigne(Point(500, 500), Point(400, 200));
+    drawing.dessineCercle(Point(500, 500), 50);
     //drawing.dessineLigne(Point(100, 100), Point(500, 500));
     drawing.attendClick();
 

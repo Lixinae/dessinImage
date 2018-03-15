@@ -30,7 +30,6 @@ namespace figure {
 
 // todo
     void SDLdessin::dessineLigne(const Point &p1, const Point &p2) const {
-        SDL_RenderClear(m_renderer);
         SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
         SDL_RenderDrawLine(m_renderer,
                            static_cast<int>(std::round(p1.getX())), static_cast<int>(std::round(p1.getY())),
@@ -40,11 +39,66 @@ namespace figure {
     }
 
     void SDLdessin::dessineCercle(const Point &centre, float rayon) const {
+        draw_circle(m_renderer,
+                    static_cast<int>(std::round(centre.getX())), static_cast<int>(std::round(centre.getY())),
+                    static_cast<int>(std::round(rayon)),
+                    255, 255, 255, SDL_ALPHA_OPAQUE);
+    }
 
+    void SDLdessin::set_pixel(SDL_Renderer *rend, int x, int y, int r, int g, int b, int a) const {
+        SDL_SetRenderDrawColor(rend,
+                               static_cast<Uint8>(r),
+                               static_cast<Uint8>(g),
+                               static_cast<Uint8>(b),
+                               static_cast<Uint8>(a));
+        SDL_RenderDrawPoint(rend, x, y);
+    }
+
+    void SDLdessin::draw_circle(SDL_Renderer *surface,
+                                int n_cx, int n_cy, int radius,
+                                int r, int g, int b, int a) const {
+        auto error = (double) -radius;
+        double x = (double) radius - 0.5;
+        auto y = 0.5;
+        double cx = n_cx - 0.5;
+        double cy = n_cy - 0.5;
+
+        while (x >= y) {
+            set_pixel(surface, (int) (cx + x), (int) (cy + y), r, g, b, a);
+            set_pixel(surface, (int) (cx + y), (int) (cy + x), r, g, b, a);
+
+            if (x != 0) {
+                set_pixel(surface, (int) (cx - x), (int) (cy + y), r, g, b, a);
+                set_pixel(surface, (int) (cx + y), (int) (cy - x), r, g, b, a);
+            }
+
+            if (y != 0) {
+                set_pixel(surface, (int) (cx + x), (int) (cy - y), r, g, b, a);
+                set_pixel(surface, (int) (cx - y), (int) (cy + x), r, g, b, a);
+            }
+
+            if (x != 0 && y != 0) {
+                set_pixel(surface, (int) (cx - x), (int) (cy - y), r, g, b, a);
+                set_pixel(surface, (int) (cx - y), (int) (cy - x), r, g, b, a);
+            }
+
+            error += y;
+            ++y;
+            error += y;
+
+            if (error >= 0) {
+                --x;
+                error -= x;
+                error -= x;
+            }
+        }
     }
 
     void SDLdessin::dessinePolygone(const vector<Point> &points) const {
-
+//        SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+//        SDL_RenderDrawLine(m_renderer,
+//                           static_cast<int>(std::round(p1.getX())), static_cast<int>(std::round(p1.getY())),
+//                           static_cast<int>(std::round(p2.getX())), static_cast<int>(std::round(p2.getY())));
     }
 
     void SDLdessin::attendClick() const {
