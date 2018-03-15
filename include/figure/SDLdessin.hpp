@@ -59,6 +59,12 @@ namespace figure {
         * Met la fenetre en attente d'un evenement pour la maintenir ouverte
         */
         void attendClick() const;
+
+        /**
+         * Nettoie la fenetre de rendu
+         */
+        void cleanWindow() const;
+
         /**
          * Detruit la classe de dessin
          */
