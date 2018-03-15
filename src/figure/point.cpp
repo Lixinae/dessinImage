@@ -13,17 +13,14 @@ namespace figure {
     float Point::Point::getY() const {
         return _y;
     }
-
-    Point Point::operator+(const Point &p) const { //TODO rm
-        return Point(_x + p._x, _y + p._y);
-    }
-
-    Point &Point::operator+=(const Point &p) {//TODO rm
-        _x += p._x;
-        _y += p._y;
-        return *this;
-    }
-
+    
+	Point operator* (const Matrice2D &matrice, const Point &point) {
+		float x = point._x;
+		float y = point._y;
+		matrice.transformePoint(x,y);
+		return Point(x,y);
+	}
+    
     ostream &operator<<(ostream &os, const Point &p) {
         return (os << '(' << p._x << ',' << p._y << ')');
     }

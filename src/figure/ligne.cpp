@@ -28,27 +28,6 @@ namespace figure {
 		//TODO
 	}
 
-	void Ligne::rotation(float theta) {
-		Matrice2D transformation = Matrice2D::rotation(theta, 0, 0); //TODO
-		_origine = transformation * _origine;
-		_extremite = transformation * _extremite;
-	}
-	
-    void Ligne::translation(int x, int y) {
-        Matrice2D transformation = Matrice2D::translation(x, y);
-        _origine = transformation * _origine;
-        _extremite = transformation * _extremite;
-    }
-
-	void Ligne::homothetie(float /*k*/) { //TODO homothetie sur ligne ?
-		//TODO
-	}
-	
-    void Ligne::deplacer(const Point &p) {
-        _origine += p;
-        _extremite += p;
-    }
-
     void Ligne::dessiner(const Dessin &dessin) const {
         dessin.dessineLigne(_origine, _extremite);
     }

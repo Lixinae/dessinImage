@@ -30,32 +30,11 @@ namespace figure {
          */
         int getRayon() const;
 
-        void deplacer(const Point &trans) override;
-
         /**
         * Realise une transformation decrite par une matrice sur le cercle
         * \param matrice : tranformation a appliquer
         */
         void tranformation(const Matrice2D &matrice);
-
-        /**
-         * Realise une translation sur le cercle
-         * \param x : valeur de la translation en abscisse
-         * \param y : valeur de la translation en ordonnnee
-         */
-        void translation(int x, int y) override;
-
-        /**
-         * Realise une rotation sur le cercle
-         * \param thetat : valeur de l'angle de rotation en radian
-         */
-        void rotation(float theta) override;
-
-        /**
-         * Realise une homothetie sur le cercle
-         * \param k : valeur de l'homothetie
-         */
-        void homothetie(float k) override;
 
         shared_ptr<Figure> copy() const override;
 
@@ -64,7 +43,6 @@ namespace figure {
          * \return le nom utilise pour identifier un cercle
          */
         string nom() const override;
-
 
         /**
          * Dessine le cercle dans la classe de dessin en argument
