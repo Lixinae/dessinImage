@@ -29,7 +29,7 @@ namespace figure {
 	}
 
     void Ligne::dessiner(const Dessin &dessin) const {
-        dessin.dessineLigne(_origine, _extremite);
+        dessin.dessineLigne(_origine.getX(), _origine.getY(), _extremite.getX(), _extremite.getY());
     }
 
     double Ligne::surface() const {

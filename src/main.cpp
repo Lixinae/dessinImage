@@ -15,15 +15,18 @@ void mainFunction() {
 
     // todo
 
-    dessin.dessineCercle(Point(500, 500), 50);
+    dessin.dessineCercle(500, 500, 50);
 
-    dessin.dessinePolygone({Point(100, 100), Point(500, 500), Point(400, 200), Point(125, 150), Point(200, 300)});
+    dessin.dessinePolygone(
+		{100, 500, 400, 125, 200},
+		{100, 500, 200, 150, 300}
+	);
 
     dessin.attendTouche();
 
     dessin.nettoie(); // nettoie la fenetre des ob
-    dessin.dessineLigne(Point(200, 100), Point(500, 500));
-    dessin.dessineLigne(Point(100, 500), Point(400, 200));
+    dessin.dessineLigne(200, 100, 500, 500);
+    dessin.dessineLigne(100, 500, 400, 200);
     dessin.attendTouche();
 
 }
