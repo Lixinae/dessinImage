@@ -61,12 +61,6 @@ namespace dessin {
         SDL_RenderPresent(m_renderer);
     }
 
-    void SDLdessin::dessineCerclePlein(float x, float y, float rayon) const {
-        for (auto i = static_cast<int>(rayon); i >= 0; i--) {
-            dessineCercle(x, y, i);
-        }
-    }
-
     void SDLdessin::set_pixel(SDL_Renderer *rend, int x, int y, int r, int g, int b, int a) const {
         SDL_SetRenderDrawColor(rend,
 			static_cast<Uint8>(r), static_cast<Uint8>(g), static_cast<Uint8>(b), static_cast<Uint8>(a));

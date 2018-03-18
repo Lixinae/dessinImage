@@ -68,8 +68,6 @@ namespace dessin {
          */
         void nettoie() const;
 
-        void dessineCerclePlein(float x, float y, float rayon) const;
-
         /**
          * Detruit la classe de dessin
          */

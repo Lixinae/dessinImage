@@ -21,7 +21,7 @@ set(CMAKE_CXX_FLAGS
         )
 
 set(ALL_LIBRARIES
-        effolkronium_random
+        #        effolkronium_random
         ${SDL2_LIBRARIES}
         )
 
@@ -31,12 +31,12 @@ message(${SDL2_INCLUDE_DIRS})
 include_directories(
         include/
         /usr/include/
-        third-party/random-1.1.0/include
+        #        third-party/random-1.1.0/include
         third-party/json3.0/include
         ${SDL2_INCLUDE_DIRS}
 )
 
-add_subdirectory(third-party/random-1.1.0/)
+#add_subdirectory(third-party/random-1.1.0/)
 
 file(GLOB_RECURSE
         SOURCE_FILES

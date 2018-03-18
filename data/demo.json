@@ -1,0 +1,75 @@
+{
+  "args": {
+    "figures": [
+      {
+        "args": {
+          "centre": {
+            "x": 50.0,
+            "y": 50.0
+          },
+          "rayon": 20
+        },
+        "nom": "cercle"
+      },
+      {
+        "args": {
+          "point1": {
+            "x": 10.0,
+            "y": 10.0
+          },
+          "point2": {
+            "x": 200.0,
+            "y": 10.0
+          },
+          "point3": {
+            "x": 50.0,
+            "y": 300.0
+          }
+        },
+        "nom": "triangle"
+      },
+      {
+        "args": {
+          "figures": [
+            {
+              "args": {
+                "lowerRight": {
+                  "x": 500.0,
+                  "y": 200.0
+                },
+                "upperLeft": {
+                  "x": 100.0,
+                  "y": 100.0
+                }
+              },
+              "nom": "rectangle"
+            },
+            {
+              "args": {
+                "extremite": {
+                  "x": 500.0,
+                  "y": 200.0
+                },
+                "origine": {
+                  "x": 10.0,
+                  "y": 10.0
+                }
+              },
+              "nom": "ligne"
+            }
+          ],
+          "origine": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "nom": "image"
+      }
+    ],
+    "origine": {
+      "x": 0.0,
+      "y": 0.0
+    }
+  },
+  "nom": "image"
+}
