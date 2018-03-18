@@ -5,6 +5,9 @@
 #include "point.hpp"
 #include <memory>
 #include <cmath>
+
+#include <list> //TODO rm
+
 #include "dessin/dessin.hpp"
 #include <calcul/matrice2D.hpp>
 
@@ -67,26 +70,36 @@ namespace figure {
          * \return le perimetre de la figure
          */
         virtual double perimetre() const = 0;
-
+        
         /**
          * Teste l'egalite de deux figures
          * \param f : figure a tester
          * \return true si les figures sont les memes, faux sinon
          */
-        bool operator==(const Figure &f) const {
-            return (this == &f); //TODO egalite memoire ?
-        }
+        bool operator==(const Figure &f) const;
+        
+        /**
+		 * Retourne une figure aléatoire
+		 * \param x : valeur en abscisse du centre de la figure
+		 * \param y : valeur en ordonnee du centre de la figure
+		 * \return une figure aléatoire
+		 */
+		static Figure * getUneFigure(int x, int y);
 
+		/**
+		 * Retourne un conteneur de figures aléatoires
+		 * \param n : taille du conteneur
+		 * \return un conteneur de figures aléatoires 
+		 */
+		static list<const Figure *> creerFigures(int n);
+		
         /**
          * Ecrit une figure dans un flux
          * \param os : le flux
          * \param figure : la figure a ecrire
          * \return le flux
          */
-        friend ostream &operator<<(ostream &os, const Figure &figure) {
-            figure.afficher(os);
-            return os;
-        }
+        friend ostream &operator<<(ostream &os, const Figure &figure);
 
     };
 
