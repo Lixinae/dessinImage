@@ -22,7 +22,7 @@ namespace figure {
 		SDLdessin dessin(800, 800);
 		dessin.initialise();
 	
-		/*
+		/*	
         Ligne l(Point(420, 520), Point(730, 620));
         Ligne l2(Point(200, 500), Point(340, 640));
         Ligne l3(Point(340, 500), Point(200, 640));
@@ -50,12 +50,28 @@ namespace figure {
         image3.ajouter(c6);
         image.ajouter(image2);
         image.ajouter(image3);
-        serialisation.sauvegarde("./data/demo.json", image);
+        //serialisation.sauvegarde("./data/demo.json", image);
+		vector<shared_ptr<Figure>> fs = {
+			make_shared<Image>(image3),
+			make_shared<Cercle>(c2),
+			make_shared<Image>(image)
+		};
+		serialisation.sauvegarde_conteneur("data/figures.json", fs);
 		*/
-
-        shared_ptr<Figure> figure = serialisation.charge("data/demo.json");
-        figure->dessiner(dessin);
-        dessin.attendTouche();
+	
+        //shared_ptr<Figure> figure = serialisation.charge("data/demo.json");
+        //figure->dessiner(dessin);
+        //dessin.attendTouche();
+        
+        vector<shared_ptr<Figure>> figures = serialisation.charge_conteneur("data/figures.json");
+        //figures[2]->dessiner(dessin);
+		//dessin.attendTouche();
+        
+        for (const auto & figure : figures) {
+			figure->dessiner(dessin);
+			dessin.attendTouche();
+			dessin.nettoie();
+		}
         
     }
 

@@ -9,6 +9,12 @@ namespace figure {
         fichierFigure << figureVersJson(figure).dump(4);
         fichierFigure.close();
     }
+    
+    void SerialisationJSON::sauvegarde_conteneur(const string &fichier, const vector<shared_ptr<Figure>> &figures) const {
+		ofstream fichierFigures(fichier);
+        fichierFigures << figuresVersJson(figures).dump(4);
+        fichierFigures.close();
+	}
 
     shared_ptr<Figure> SerialisationJSON::charge(const string &fichier) const {
         json jsonFigure;
@@ -17,6 +23,22 @@ namespace figure {
         fichierFigure.close();
         return jsonVersFigure(jsonFigure);
     }
+    
+    vector<shared_ptr<Figure>> SerialisationJSON::charge_conteneur(const string &fichier) const {
+		json jsonFigures;
+        ifstream fichierFigures(fichier);
+        fichierFigures >> jsonFigures;
+        fichierFigures.close();
+        return jsonVersFigures(jsonFigures);
+	}
+
+	vector<shared_ptr<Figure>> SerialisationJSON::jsonVersFigures(const json &jsonFigures) const {
+		vector<shared_ptr<Figure>> figures;
+		for (const auto &it : jsonFigures) {
+			figures.push_back(jsonVersFigure(it));
+		}
+		return figures;
+	}
 
     shared_ptr<Figure> SerialisationJSON::jsonVersFigure(const json &jsonFigure) const {
         string type = jsonFigure["nom"];
@@ -59,6 +81,14 @@ namespace figure {
         return Point(jsonPoint["x"], jsonPoint["y"]);
     }
 
+    json SerialisationJSON::figuresVersJson(const vector<shared_ptr<Figure>> & figures) const {
+		json jsonFigures;
+		for (const auto & figure : figures) {
+            jsonFigures.push_back(figureVersJson(*figure));
+        }
+		return jsonFigures;
+	}	
+	
     json SerialisationJSON::figureVersJson(const Figure &figure) const {
         if (figure.nom() == Ligne::temoin.nom()) {
             return figureVersJson(dynamic_cast<const Ligne &>(figure));

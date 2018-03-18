@@ -1,0 +1,235 @@
+[
+    {
+        "args": {
+            "figures": [
+                {
+                    "args": {
+                        "centre": {
+                            "x": 580.0,
+                            "y": 300.0
+                        },
+                        "rayon": 80
+                    },
+                    "nom": "cercle"
+                },
+                {
+                    "args": {
+                        "centre": {
+                            "x": 580.0,
+                            "y": 110.0
+                        },
+                        "rayon": 40
+                    },
+                    "nom": "cercle"
+                },
+                {
+                    "args": {
+                        "centre": {
+                            "x": 480.0,
+                            "y": 135.0
+                        },
+                        "rayon": 40
+                    },
+                    "nom": "cercle"
+                },
+                {
+                    "args": {
+                        "centre": {
+                            "x": 408.0,
+                            "y": 210.0
+                        },
+                        "rayon": 40
+                    },
+                    "nom": "cercle"
+                },
+                {
+                    "args": {
+                        "centre": {
+                            "x": 580.0,
+                            "y": 300.0
+                        },
+                        "rayon": 140
+                    },
+                    "nom": "cercle"
+                }
+            ],
+            "origine": {
+                "x": 580.0,
+                "y": 300.0
+            }
+        },
+        "nom": "image"
+    },
+    {
+        "args": {
+            "centre": {
+                "x": 580.0,
+                "y": 300.0
+            },
+            "rayon": 140
+        },
+        "nom": "cercle"
+    },
+    {
+        "args": {
+            "figures": [
+                {
+                    "args": {
+                        "extremite": {
+                            "x": 200.0,
+                            "y": 640.0
+                        },
+                        "origine": {
+                            "x": 340.0,
+                            "y": 500.0
+                        }
+                    },
+                    "nom": "ligne"
+                },
+                {
+                    "args": {
+                        "centre": {
+                            "x": 140.0,
+                            "y": 180.0
+                        },
+                        "rayon": 80
+                    },
+                    "nom": "cercle"
+                },
+                {
+                    "args": {
+                        "point1": {
+                            "x": 50.0,
+                            "y": 290.0
+                        },
+                        "point2": {
+                            "x": 250.0,
+                            "y": 290.0
+                        },
+                        "point3": {
+                            "x": 100.0,
+                            "y": 580.0
+                        }
+                    },
+                    "nom": "triangle"
+                },
+                {
+                    "args": {
+                        "extremite": {
+                            "x": 340.0,
+                            "y": 640.0
+                        },
+                        "origine": {
+                            "x": 200.0,
+                            "y": 500.0
+                        }
+                    },
+                    "nom": "ligne"
+                },
+                {
+                    "args": {
+                        "figures": [
+                            {
+                                "args": {
+                                    "lowerRight": {
+                                        "x": 750.0,
+                                        "y": 640.0
+                                    },
+                                    "upperLeft": {
+                                        "x": 400.0,
+                                        "y": 500.0
+                                    }
+                                },
+                                "nom": "rectangle"
+                            },
+                            {
+                                "args": {
+                                    "extremite": {
+                                        "x": 730.0,
+                                        "y": 620.0
+                                    },
+                                    "origine": {
+                                        "x": 420.0,
+                                        "y": 520.0
+                                    }
+                                },
+                                "nom": "ligne"
+                            }
+                        ],
+                        "origine": {
+                            "x": 575.0,
+                            "y": 570.0
+                        }
+                    },
+                    "nom": "image"
+                },
+                {
+                    "args": {
+                        "figures": [
+                            {
+                                "args": {
+                                    "centre": {
+                                        "x": 580.0,
+                                        "y": 300.0
+                                    },
+                                    "rayon": 140
+                                },
+                                "nom": "cercle"
+                            },
+                            {
+                                "args": {
+                                    "centre": {
+                                        "x": 580.0,
+                                        "y": 300.0
+                                    },
+                                    "rayon": 80
+                                },
+                                "nom": "cercle"
+                            },
+                            {
+                                "args": {
+                                    "centre": {
+                                        "x": 580.0,
+                                        "y": 110.0
+                                    },
+                                    "rayon": 40
+                                },
+                                "nom": "cercle"
+                            },
+                            {
+                                "args": {
+                                    "centre": {
+                                        "x": 480.0,
+                                        "y": 135.0
+                                    },
+                                    "rayon": 40
+                                },
+                                "nom": "cercle"
+                            },
+                            {
+                                "args": {
+                                    "centre": {
+                                        "x": 408.0,
+                                        "y": 210.0
+                                    },
+                                    "rayon": 40
+                                },
+                                "nom": "cercle"
+                            }
+                        ],
+                        "origine": {
+                            "x": 580.0,
+                            "y": 300.0
+                        }
+                    },
+                    "nom": "image"
+                }
+            ],
+            "origine": {
+                "x": 400.0,
+                "y": 400.0
+            }
+        },
+        "nom": "image"
+    }
+]
