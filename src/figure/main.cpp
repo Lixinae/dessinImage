@@ -1,11 +1,15 @@
 #include <sstream>
-#include <figure/cercle.hpp>///////rm
-#include <figure/triangle.hpp>////////////rm
-#include <figure/rectangle.hpp>////////////rm
+#include <figure/cercle.hpp>///////todo rm
+#include <figure/triangle.hpp>////////////todo rm
+#include <figure/rectangle.hpp>////////////todo rm
 #include <figure/filtrage.hpp>
 #include <dessin/SDLdessin.hpp>
 #include <figure/serialisationJSON.hpp>
+#include <condition/condition.hpp>
+#include <condition/estUn.hpp>
 #include <condition/estPetite.hpp>
+#include <condition/et.hpp>
+#include <condition/non.hpp>
 
 namespace figure {
 
@@ -64,14 +68,28 @@ namespace figure {
         //dessin.attendTouche();
         
         vector<shared_ptr<Figure>> figures = serialisation.charge_conteneur("data/figures.json");
-        //figures[2]->dessiner(dessin);
-		//dessin.attendTouche();
         
+        const Condition & condition = EstUn(&Cercle::temoin);
+        
+        cout << "Condition de filtre : " << condition << endl;
+        cout << "Nombre de figure respecant la condition : " << Filtrage::compterSi(figures,condition) << endl;
+        
+        /*
         for (const auto & figure : figures) {
 			figure->dessiner(dessin);
 			dessin.attendTouche();
 			dessin.nettoie();
-		}
+		}*/
+		
+		figures[2]->dessiner(dessin);
+		dessin.attendTouche();
+		dessin.nettoie();
+		
+		Filtrage::supprimerSi(figures, condition);
+		
+		figures[2]->dessiner(dessin);
+		dessin.attendTouche();
+		dessin.nettoie();
         
     }
 

@@ -14,13 +14,12 @@ namespace figure {
 	public:
 
 		/**
-		 * Retourne le nombre de figures d'une liste de figures vérifiant la condition dans un conteneur
+		 * Retourne le nombre de figures d'un conteneur de figures vérifiant la condition dans un conteneur
 		 * \param figures : conteneur de figures
 		 * \param condition : condition a verifier
 		 * \return le nombre de figures d'une liste de figures vérifiant la condition dans un conteneur
 		 */
-		template <template <class T> class Container>
-		static int compterSi(const Container<const Figure *> & figures, const Condition & condition);
+		static int compterSi(const vector<shared_ptr<Figure>> & figures, const Condition & condition);
 
 		/**
 		 * Suppression superficielle des figures d'un conteneur satisfaisant la condition
@@ -31,8 +30,7 @@ namespace figure {
 		 * \param condition : condition a verifier
 		 * \return true si au moins une figure a ete suprrime, false sinon
 		 */
-		template <template <class T> class Container>
-		static bool supprimerSi(Container<const Figure *> &figures, const Condition & condition);
+		static bool supprimerSi(vector<shared_ptr<Figure>> &figures, const Condition & condition);
 		
 		/**
 		 * Suppression profonde des figures d'un conteneur satisfaisant la condition
@@ -43,8 +41,7 @@ namespace figure {
 		 * \param condition : condition a verifier
 		 * \return true si au moins une figure a ete suprrime, false sinon
 		 */
-		template <template <class T> class Container>
-		static bool supprimerSiProfond(Container<const Figure *> &figures, const Condition & condition);
+		static bool supprimerSiProfond(vector<shared_ptr<Figure>> &figures, const Condition & condition);
 	
 	};
 	

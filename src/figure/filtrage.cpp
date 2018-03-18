@@ -6,52 +6,50 @@
 
 namespace figure {
 
-	template <template <class T> class Container>
-	int Filtrage::compterSi(const Container<const Figure *> & figures, const Condition & condition) {
+	int Filtrage::compterSi(const vector<shared_ptr<Figure>> & figures, const Condition & condition) {
 		int compteur = 0;
-		std::for_each(cbegin(figures), cend(figures), [&compteur, condition](const auto & figure){
-			if (condition.verif(figure)) {
+		std::for_each(cbegin(figures), cend(figures), [&compteur, &condition](const auto & figure){
+			if (condition.verif(figure.get())) {
 				compteur++;
 			}
 		});
 		return compteur;
 	}
 
-	template <template <class T> class Container>
-	bool Filtrage::supprimerSi(Container<const Figure *> &figures, const Condition & condition) {
-		bool flag = false;
+	bool Filtrage::supprimerSi(vector<shared_ptr<Figure>> &figures, const Condition & condition) {
+		/*bool flag = false;
 		auto it(figures.begin());
 		auto end(figures.end());
 		while (it != end) {
-			if (condition.verif(*it)) {
+			if (condition.verif(it->get())) {
 				flag = true;
 				it = figures.erase(it);
 			} else {
 				++it;
 			}
 		}
-		return flag;
+		return flag;*/
+		return true;
 	}
 	
-	template <template <class T> class Container>
-	bool Filtrage::supprimerSiProfond(Container<const Figure *> &figures, const Condition & condition) {
+	bool Filtrage::supprimerSiProfond(vector<shared_ptr<Figure>> &figures, const Condition & condition) {
 		bool flag = false;
 		if (figures.empty())
 			return true;
 		auto it(figures.begin());
 		auto end(figures.end());
 		while (it != end) {
-			if (condition.verif(*it)) {
+			if (condition.verif(it->get())) {
 				flag = true;
 				it = figures.erase(it);
 			} else {
-				auto *image = dynamic_cast<const Image *>(*it);
+				auto *image = dynamic_cast<Image *>(it->get());
 				if (image != 0) {
-					auto figuresImage = list<const Figure *>();
+					auto figuresImage = vector<shared_ptr<Figure>>();
 					for (int i = 0; i < image->getNombre(); i++) {
-						figuresImage.push_back(image->getFigure(i).get());
+						figuresImage.push_back(image->getFigure(i));
 					}
-					flag = Filtrage::supprimerSiProfond<Container>(figuresImage, condition);
+					flag = Filtrage::supprimerSiProfond(figuresImage, condition);
 					it = figures.erase(it);
 					auto *nouvelle = new Image();
 					auto it2(figuresImage.begin());
@@ -59,7 +57,7 @@ namespace figure {
 					for (; it2 != end2; ++it2) {
 						nouvelle->ajouter(**it2);
 					}
-					figures.push_front(nouvelle);
+					figures.push_back(make_shared<Image>(*nouvelle));
 				} else {
 					++it;
 				}
