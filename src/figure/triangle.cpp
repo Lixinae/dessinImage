@@ -21,8 +21,9 @@ namespace figure {
 	}
 
 	Point Triangle::origine() const {
-		//TODO
-		return Point(0,0);
+        auto x = (_point1.getX()+_point2.getX()+_point3.getX())/3.f;
+        auto y = (_point1.getY()+_point2.getY()+_point3.getY())/3.f;
+		return Point(x,y);
 	}
 
     double Triangle::surface() const {

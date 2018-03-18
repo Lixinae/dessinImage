@@ -34,8 +34,7 @@ namespace figure {
     }
 
 	Point Ligne::origine() const {
-		//TODO
-		return Point(0,0);
+		return _origine;
 	}
 
     double Ligne::surface() const {

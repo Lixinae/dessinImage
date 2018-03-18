@@ -36,8 +36,9 @@ namespace figure {
     }
     
     Point Rectangle::origine() const {
-		//TODO
-		return Point(0,0);
+        auto x = (_upperLeft.getX() + _lowerRight.getX())/2.f;
+        auto y = (_upperLeft.getY() + _lowerRight.getY())/2.f;
+		return Point(x,y);
 	}
 
     double Rectangle::surface() const {

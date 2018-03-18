@@ -46,8 +46,7 @@ namespace figure {
     }
    
 	Point Cercle::origine() const {
-		//TODO
-		return Point(0,0);
+		return _centre;
 	}
 
     double Cercle::surface() const {

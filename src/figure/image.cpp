@@ -65,8 +65,7 @@ namespace figure {
 	}
 
 	Point Image::origine() const {
-		//TODO
-		return Point(0,0);
+		return _origine;
 	}
 
     double Image::surface() const {
