@@ -39,9 +39,10 @@ namespace dessin {
             throw std::runtime_error("SDL could not be initialized: " + string(SDL_GetError()));
 		}
         if (SDL_CreateWindowAndRenderer(m_width, m_height, 0, &m_window, &m_renderer) < 0) {
-			throw std::runtime_error("Window could not be created: " + string(SDL_GetError()));
-		}
-		SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+            throw std::runtime_error("Window could not be created: " + string(SDL_GetError()));
+        }
+        SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+        SDL_RenderClear(m_renderer);
     }
 
     void SDLdessin::dessineLigne(float x1, float y1, float x2, float y2) const {
