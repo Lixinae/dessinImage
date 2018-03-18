@@ -14,7 +14,7 @@ namespace figure {
     using namespace std;
     using json = nlohmann::json;
 
-    class SerialisationJSON : Serialisation {
+    class SerialisationJSON : public Serialisation {
 
     public:
 
@@ -30,11 +30,11 @@ namespace figure {
          * \param fichier : nom du fichier
          * \return la figure stockee dans le fichier JSON
          */
-        Figure *charge(const string &fichier) const override;
+        shared_ptr<Figure> charge(const string &fichier) const override;
 
     private:
 
-        Figure *jsonVersFigure(const json &jsonFigure) const;
+        shared_ptr<Figure> jsonVersFigure(const json &jsonFigure) const;
 
         Point jsonVersPoint(const json &jsonPoint) const;
 
