@@ -72,6 +72,7 @@ namespace figure {
         const Condition & condition = EstUn(&Cercle::temoin);
         
         cout << "Condition de filtre : " << condition << endl;
+        cout << "Nombre de figure respecant la condition : " << Filtrage::compterSi(figures,condition) << endl;
         
         /*
         for (const auto & figure : figures) {
@@ -82,8 +83,13 @@ namespace figure {
 		
 		figures[2]->dessiner(dessin);
 		dessin.attendTouche();
+		dessin.nettoie();
 		
+		Filtrage::supprimerSi(figures, condition);
 		
+		figures[2]->dessiner(dessin);
+		dessin.attendTouche();
+		dessin.nettoie();
         
     }
 
