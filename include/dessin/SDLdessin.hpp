@@ -68,6 +68,8 @@ namespace dessin {
          */
         void nettoie() const;
 
+        void dessineCerclePlein(float x, float y, float rayon) const;
+
         /**
          * Detruit la classe de dessin
          */
@@ -83,6 +85,7 @@ namespace dessin {
         void set_pixel(SDL_Renderer *rend, int x, int y, int r, int g, int b, int a) const;
 
         void draw_circle(SDL_Renderer *surface, int n_cx, int n_cy, int radius, int r, int g, int b, int a) const;
+
 
     };
     
