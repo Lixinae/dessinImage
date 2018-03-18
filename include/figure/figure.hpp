@@ -6,7 +6,7 @@
 #include <memory>
 #include <cmath>
 
-#include <list>
+#include <list> //TODO rm
 
 #include "dessin/dessin.hpp"
 #include <calcul/matrice2D.hpp>

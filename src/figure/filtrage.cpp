@@ -6,22 +6,24 @@
 
 namespace figure {
 
-	int Filtrage::compterSi(list<const Figure *> figures, Condition *condition) {
+	template <template <class T> class Container>
+	int Filtrage::compterSi(const Container<const Figure *> & figures, const Condition & condition) {
 		int compteur = 0;
 		std::for_each(cbegin(figures), cend(figures), [&compteur, condition](const auto & figure){
-			if (condition->verif(figure)) {
+			if (condition.verif(figure)) {
 				compteur++;
 			}
 		});
 		return compteur;
 	}
 
-	bool Filtrage::supprimerSi(list<const Figure *> &figures, Condition *condition) {
+	template <template <class T> class Container>
+	bool Filtrage::supprimerSi(Container<const Figure *> &figures, const Condition & condition) {
 		bool flag = false;
 		auto it(figures.begin());
 		auto end(figures.end());
 		while (it != end) {
-			if (condition->verif(*it)) {
+			if (condition.verif(*it)) {
 				flag = true;
 				it = figures.erase(it);
 			} else {
@@ -31,14 +33,15 @@ namespace figure {
 		return flag;
 	}
 	
-	bool Filtrage::supprimerSiProfond(list<const Figure *> &figures, Condition *condition) {
+	template <template <class T> class Container>
+	bool Filtrage::supprimerSiProfond(Container<const Figure *> &figures, const Condition & condition) {
 		bool flag = false;
 		if (figures.empty())
 			return true;
 		auto it(figures.begin());
 		auto end(figures.end());
 		while (it != end) {
-			if (condition->verif(*it)) {
+			if (condition.verif(*it)) {
 				flag = true;
 				it = figures.erase(it);
 			} else {
@@ -48,7 +51,7 @@ namespace figure {
 					for (int i = 0; i < image->getNombre(); i++) {
 						figuresImage.push_back(image->getFigure(i).get());
 					}
-					flag = Filtrage::supprimerSiProfond(figuresImage, condition);
+					flag = Filtrage::supprimerSiProfond<Container>(figuresImage, condition);
 					it = figures.erase(it);
 					auto *nouvelle = new Image();
 					auto it2(figuresImage.begin());
