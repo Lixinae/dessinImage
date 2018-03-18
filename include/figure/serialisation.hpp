@@ -23,12 +23,12 @@ public:
     * \param fichier : nom du fichier
     * \return la figure stockee dans le fichier
     */
-	virtual Figure * charge(const string &fichier) const = 0;
+	virtual shared_ptr<Figure> charge(const string &fichier) const = 0;
 	
    /**
     * Detruit la classe de serialisation
     */
-   virtual ~Serialisation() = default;;
+   virtual ~Serialisation() = default;
 
 };
 

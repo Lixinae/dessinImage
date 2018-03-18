@@ -52,6 +52,12 @@ namespace figure {
         void dessiner(const Dessin &dessin) const override;
 
 		/**
+         * Renvoie le point d'origine du triangle
+         * \return le point d'origine du triangle
+         */
+        Point origine() const override;
+
+		/**
          * Calcule la surface du triangle
          * \return la surface du triangle
          */

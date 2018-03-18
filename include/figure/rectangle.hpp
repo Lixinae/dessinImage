@@ -52,6 +52,12 @@ namespace figure {
         void dessiner(const Dessin &dessin) const override;
 
 		/**
+         * Renvoie le point d'origine du rectangle
+         * \return le point d'origine du rectangle
+         */
+        Point origine() const override;
+
+		/**
          * Calcule la surface du rectangle
          * \return la surface du rectangle
          */

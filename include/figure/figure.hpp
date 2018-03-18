@@ -5,9 +5,6 @@
 #include "point.hpp"
 #include <memory>
 #include <cmath>
-
-#include <list> //TODO rm
-
 #include "dessin/dessin.hpp"
 #include <calcul/matrice2D.hpp>
 
@@ -59,6 +56,12 @@ namespace figure {
          */
         virtual void afficher(ostream &os) const = 0;
 
+        /**
+         * Renvoie le point d'origine de la figure
+         * \return le point d'origine de la figure
+         */
+        virtual Point origine() const = 0;
+        
         /**
          * Calcule la surface de la figure
          * \return la surface de la figure

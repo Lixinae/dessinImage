@@ -10,7 +10,7 @@ namespace figure {
         fichierFigure.close();
     }
 
-    Figure *SerialisationJSON::charge(const string &fichier) const {
+    shared_ptr<Figure> SerialisationJSON::charge(const string &fichier) const {
         json jsonFigure;
         ifstream fichierFigure(fichier);
         fichierFigure >> jsonFigure;
@@ -18,35 +18,35 @@ namespace figure {
         return jsonVersFigure(jsonFigure);
     }
 
-    Figure *SerialisationJSON::jsonVersFigure(const json &jsonFigure) const {
+    shared_ptr<Figure> SerialisationJSON::jsonVersFigure(const json &jsonFigure) const {
         string type = jsonFigure["nom"];
         if (type == Ligne::temoin.nom()) {
-            return new Ligne(
+            return make_shared<Ligne>(
                     jsonVersPoint(jsonFigure["args"]["origine"]),
                     jsonVersPoint(jsonFigure["args"]["extremite"])
             );
         }
         if (type == Triangle::temoin.nom()) {
-            return new Triangle(
+            return make_shared<Triangle>(
                     jsonVersPoint(jsonFigure["args"]["point1"]),
                     jsonVersPoint(jsonFigure["args"]["point2"]),
                     jsonVersPoint(jsonFigure["args"]["point3"])
             );
         }
         if (type == Rectangle::temoin.nom()) {
-            return new Rectangle(
+            return make_shared<Rectangle>(
                     jsonVersPoint(jsonFigure["args"]["upperLeft"]),
                     jsonVersPoint(jsonFigure["args"]["lowerRight"])
             );
         }
         if (type == Cercle::temoin.nom()) {
-            return new Cercle(
+            return make_shared<Cercle>(
                     jsonVersPoint(jsonFigure["args"]["centre"]),
                     jsonFigure["args"]["rayon"]
             );
         }
         if (type == Image::temoin.nom()) {
-            Image *image = new Image(jsonVersPoint(jsonFigure["args"]["origine"]));
+            shared_ptr<Image> image = make_shared<Image>(jsonVersPoint(jsonFigure["args"]["origine"]));
             for (const auto &it : jsonFigure["args"]["figures"]) {
                 image->ajouter(*(jsonVersFigure(it)));
             }

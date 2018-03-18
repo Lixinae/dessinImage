@@ -69,6 +69,12 @@ namespace figure {
         void dessiner(const Dessin &dessin) const override;
 
 		/**
+         * Renvoie le point d'origine du cercle
+         * \return le point d'origine du cercle
+         */
+        Point origine() const override;
+
+		/**
          * Calcule la surface du cercle
          * \return la surface du cercle
          */
