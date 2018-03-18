@@ -58,6 +58,12 @@ namespace figure {
 		void dessiner(const Dessin &dessin) const override;
 
 		/**
+         * Renvoie le point d'origine de la ligne
+         * \return le point d'origine de la ligne
+         */
+        Point origine() const override;
+
+		/**
          * Calcule la surface de la ligne
          * \return la surface de la ligne
          */

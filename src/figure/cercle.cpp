@@ -44,6 +44,11 @@ namespace figure {
     void Cercle::dessiner(const Dessin &dessin) const {
         dessin.dessineCercle(_centre.getX(), _centre.getY(), _rayon);
     }
+   
+	Point Cercle::origine() const {
+		//TODO
+		return Point(0,0);
+	}
 
     double Cercle::surface() const {
         return PI * _rayon * _rayon;

@@ -34,6 +34,11 @@ namespace figure {
 			{_upperLeft.getY(), _lowerRight.getY(), _lowerRight.getY(), _upperLeft.getY()}
 		);
     }
+    
+    Point Rectangle::origine() const {
+		//TODO
+		return Point(0,0);
+	}
 
     double Rectangle::surface() const {
 		float h = abs(_upperLeft.getY() - _lowerRight.getY());

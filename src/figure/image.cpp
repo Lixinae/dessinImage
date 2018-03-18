@@ -64,6 +64,11 @@ namespace figure {
 		);
 	}
 
+	Point Image::origine() const {
+		//TODO
+		return Point(0,0);
+	}
+
     double Image::surface() const {
         double res = std::accumulate(
                 std::cbegin(_figures),

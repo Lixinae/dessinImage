@@ -33,6 +33,11 @@ namespace figure {
         dessin.dessineLigne(_origine.getX(), _origine.getY(), _extremite.getX(), _extremite.getY());
     }
 
+	Point Ligne::origine() const {
+		//TODO
+		return Point(0,0);
+	}
+
     double Ligne::surface() const {
         double xx = _origine.getX() - _extremite.getX();
         double yy = _origine.getY() - _extremite.getY();

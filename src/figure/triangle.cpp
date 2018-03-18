@@ -20,6 +20,11 @@ namespace figure {
 		return "triangle";
 	}
 
+	Point Triangle::origine() const {
+		//TODO
+		return Point(0,0);
+	}
+
     double Triangle::surface() const {
         auto a = sqrt(pow(_point1.getX() - _point2.getX(), 2)
                       + pow(_point1.getY() - _point2.getY(), 2));
