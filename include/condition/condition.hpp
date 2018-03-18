@@ -29,6 +29,14 @@ namespace condition {
          * Detruit la condition
          */
         virtual ~Condition() {};
+        
+        /**
+         * Ecrit une condition dans un flux
+         * \param os : le flux
+         * \param figure : la condition a ecrire
+         * \return le flux
+         */
+        friend ostream &operator<<(ostream &os, const Condition &condition);
 
     };
 
