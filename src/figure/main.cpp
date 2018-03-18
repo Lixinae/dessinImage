@@ -14,7 +14,7 @@ namespace figure {
 
 	void main() {
 
-		auto x = Filtrage::creerFigures(5);
+		auto x = Figure::creerFigures(5);
 		std::cerr << x.size() << std::endl;
 
 		SDLdessin dessin(800, 600);

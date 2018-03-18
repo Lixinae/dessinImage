@@ -43,22 +43,6 @@ namespace figure {
 		 * \return true si au moins une figure a ete suprrime, false sinon
 		 */
 		static bool supprimerSiProfond(list<const Figure *> &figures, Condition *condition);
-
-
-		/**
-		 * Retourne une figure aléatoire
-		 * \param x : valeur en abscisse du centre de la figure
-		 * \param y : valeur en ordonnee du centre de la figure
-		 * \return une figure aléatoire
-		 */
-		static Figure * getUneFigure(int x, int y);
-
-		/**
-		 * Retourne un conteneur de figures aléatoires
-		 * \param n : taille du conteneur
-		 * \return un conteneur de figures aléatoires 
-		 */
-		static list<const Figure *> creerFigures(int n);
 	
 	};
 	
