@@ -84,3 +84,5 @@ target_link_libraries(
         dessinImage
         ${ALL_LIBRARIES}
 )
+
+file(COPY data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
