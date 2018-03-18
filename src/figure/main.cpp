@@ -11,7 +11,6 @@ namespace figure {
 	using namespace figure;
 	using namespace calcul;
 	using namespace dessin;
-	using namespace condition;
 
 	void main() {
 
