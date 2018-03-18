@@ -2,7 +2,7 @@
 #include <figure/cercle.hpp>///////
 #include <figure/triangle.hpp>////////////
 #include <figure/rectangle.hpp>////////////
-#include <condition/condition.hpp>
+#include <figure/filtrage.hpp>
 #include <dessin/SDLdessin.hpp>
 
 namespace figure {
@@ -13,6 +13,9 @@ namespace figure {
 	using namespace dessin;
 
 	void main() {
+
+		auto x = Filtrage::creerFigures(5);
+		std::cerr << x.size() << std::endl;
 
 		SDLdessin dessin(800, 600);
 		dessin.initialise();
