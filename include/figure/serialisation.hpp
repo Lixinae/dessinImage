@@ -2,7 +2,7 @@
 #define SERIALISATION_H
 
 #include "figure/figure.hpp"
-#include <vector> 
+#include <list> 
 
 namespace figure {
 
@@ -24,7 +24,7 @@ public:
     * \param fichier : nom du fichier
     * \param figure : conteneur figure a sauvegarder
     */
-	virtual void sauvegarde_conteneur(const string &fichier, const vector<shared_ptr<Figure>> &figures) const = 0;
+	virtual void sauvegarde_conteneur(const string &fichier, const list<shared_ptr<Figure>> &figures) const = 0;
 
    /**
     * Charge une figure depuis un fichier
@@ -38,7 +38,7 @@ public:
     * \param fichier : nom du fichier
     * \return la figure stockee dans le fichier
     */
-	virtual vector<shared_ptr<Figure>> charge_conteneur(const string &fichier) const = 0;
+	virtual list<shared_ptr<Figure>> charge_conteneur(const string &fichier) const = 0;
 	
    /**
     * Detruit la classe de serialisation

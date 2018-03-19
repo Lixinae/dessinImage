@@ -3,6 +3,7 @@
 
 #include "figure/figure.hpp"
 #include "condition/condition.hpp"
+#include <list>
 
 namespace figure {
 
@@ -19,7 +20,7 @@ namespace figure {
 		 * \param condition : condition a verifier
 		 * \return le nombre de figures d'une liste de figures vérifiant la condition dans un conteneur
 		 */
-		static int compterSi(const vector<shared_ptr<Figure>> & figures, const Condition & condition);
+		static int compterSi(const list<shared_ptr<Figure>> & figures, const Condition & condition);
 
 		/**
 		 * Suppression superficielle des figures d'un conteneur satisfaisant la condition
@@ -30,7 +31,7 @@ namespace figure {
 		 * \param condition : condition a verifier
 		 * \return true si au moins une figure a ete suprrime, false sinon
 		 */
-		static bool supprimerSi(vector<shared_ptr<Figure>> &figures, const Condition & condition);
+		static bool supprimerSi(list<shared_ptr<Figure>> &figures, const Condition & condition);
 		
 		/**
 		 * Suppression profonde des figures d'un conteneur satisfaisant la condition
@@ -41,7 +42,7 @@ namespace figure {
 		 * \param condition : condition a verifier
 		 * \return true si au moins une figure a ete suprrime, false sinon
 		 */
-		static bool supprimerSiProfond(vector<shared_ptr<Figure>> &figures, const Condition & condition);
+		static bool supprimerSiProfond(list<shared_ptr<Figure>> &figures, const Condition & condition);
 	
 	};
 	
