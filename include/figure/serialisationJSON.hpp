@@ -30,7 +30,7 @@ namespace figure {
 		* \param fichier : nom du fichier
 		* \param figure : conteneur figure a sauvegarder
 		*/
-		void sauvegarde_conteneur(const string &fichier, const vector<shared_ptr<Figure>> &figures) const override;
+		void sauvegarde_conteneur(const string &fichier, const list<shared_ptr<Figure>> &figures) const override;
 
         /**
          * Charge une figure depuis un fichier JSON
@@ -44,17 +44,17 @@ namespace figure {
 		* \param fichier : nom du fichier
 		* \return la figure stockee dans le fichier
 		*/
-		virtual vector<shared_ptr<Figure>> charge_conteneur(const string &fichier) const override;
+		virtual list<shared_ptr<Figure>> charge_conteneur(const string &fichier) const override;
 
     private:
 
-        vector<shared_ptr<Figure>> jsonVersFigures(const json &jsonFigures) const;
+        list<shared_ptr<Figure>> jsonVersFigures(const json &jsonFigures) const;
         
         shared_ptr<Figure> jsonVersFigure(const json &jsonFigure) const;
 
         Point jsonVersPoint(const json &jsonPoint) const;
 
-		json figuresVersJson(const vector<shared_ptr<Figure>> & figures) const;	
+		json figuresVersJson(const list<shared_ptr<Figure>> & figures) const;	
         
         json figureVersJson(const Figure &figure) const;
 

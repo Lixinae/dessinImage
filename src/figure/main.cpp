@@ -67,7 +67,8 @@ namespace figure {
         //figure->dessiner(dessin);
         //dessin.attendTouche();
         
-        vector<shared_ptr<Figure>> figures = serialisation.charge_conteneur("data/figures.json");
+        list<shared_ptr<Figure>> figures = serialisation.charge_conteneur("data/figures.json");
+        std::vector<shared_ptr<Figure>> vec_figures(begin(figures), end(figures));
         
         const Condition & condition = EstUn(&Cercle::temoin);
         
@@ -80,14 +81,18 @@ namespace figure {
 			dessin.attendTouche();
 			dessin.nettoie();
 		}*/
+		cout << figures.size() << endl;
 		
-		figures[2]->dessiner(dessin);
+		vec_figures[0]->dessiner(dessin);
 		dessin.attendTouche();
 		dessin.nettoie();
 		
-		Filtrage::supprimerSi(figures, condition);
+		//Filtrage::supprimerSi(figures, condition);
+		Filtrage::supprimerSiProfond(figures, condition);
 		
-		figures[2]->dessiner(dessin);
+		cout << figures.size() << endl;
+		std::vector<shared_ptr<Figure>> vec_figures_filter(begin(figures), end(figures));
+		vec_figures_filter[1]->dessiner(dessin);
 		dessin.attendTouche();
 		dessin.nettoie();
         
