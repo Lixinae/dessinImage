@@ -1,6 +1,6 @@
 #include "comparable/comparableLexicographique.hpp"
 
-namespace comparable {
+namespace comparateur {
 
 ComparateurLexicographique::ComparateurLexicographique(Comparateur * c1, Comparateur * c2) :
 	_c1(c1),

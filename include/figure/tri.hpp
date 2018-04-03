@@ -8,7 +8,7 @@
 namespace figure {
 
 	using namespace std;
-	using namespace comparable;
+	using namespace comparateur;
 
 	class Tri {
 

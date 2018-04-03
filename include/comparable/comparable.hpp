@@ -3,7 +3,7 @@
 
 #include "figure/figure.hpp"
 
-namespace comparable {
+namespace comparateur {
 
     using namespace figure;
 

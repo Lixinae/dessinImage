@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace comparable {
+namespace comparateur {
 
 ComparateurDistance::ComparateurDistance(const Point & p) : _p(p) {
 	

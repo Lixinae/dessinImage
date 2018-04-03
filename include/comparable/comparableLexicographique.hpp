@@ -3,7 +3,7 @@
 
 #include "comparable/comparable.hpp"
 
-namespace comparable {
+namespace comparateur {
 
     class ComparateurLexicographique : public Comparateur {
 

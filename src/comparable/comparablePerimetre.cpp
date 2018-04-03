@@ -1,6 +1,6 @@
 #include "comparable/comparablePerimetre.hpp"
 
-namespace comparable {
+namespace comparateur {
 
 string ComparateurPerimetre::toString() const {
 	return "Perimetre";

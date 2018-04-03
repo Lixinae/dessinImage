@@ -1,6 +1,6 @@
 #include "comparable/comparableAire.hpp"
 
-namespace comparable {
+namespace comparateur {
 
 string ComparateurAire::toString() const {
 	return "Aire";
