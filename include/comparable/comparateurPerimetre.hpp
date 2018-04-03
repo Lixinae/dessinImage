@@ -1,22 +1,16 @@
-#ifndef COMPARATEURDISTANCE_H
-#define COMPARATEURDISTANCE_H
+#ifndef COMPARATEURPERIMETRE_H
+#define COMPARATEURPERIMETRE_H
 
-#include "comparable/comparable.hpp"
+#include "comparable/comparateur.hpp"
 
 namespace comparateur {
 
-    class ComparateurDistance : public Comparateur {
+    class ComparateurPerimetre : public Comparateur {
 
     public:
 
-		/**
-		 * Creer un comparateur pour la distance entre un point et l'origine des figures
-		 * \param p : Point de comparaison pour le comparable
-		 */
-		ComparateurDistance(const Point & p);
-
         /**
-         * Compare deux figures selon leurs distance entre le point et leurs origine
+         * Compare deux figures selon leurs perimetres
          * \param f2 : premiere figure a comparer 
          * \param f2 : deuxieme figure a comparer 
          * \return un entier positif si la premiere figure est superieur a la deuxieme,
@@ -31,9 +25,6 @@ namespace comparateur {
          */
         virtual string toString() const override;
 
-	private:
-	
-		Point _p;
 
     };
 

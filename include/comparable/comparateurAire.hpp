@@ -1,16 +1,16 @@
-#ifndef COMPARATEURPERIMETRE_H
-#define COMPARATEURPERIMETRE_H
+#ifndef COMPARATEURAIRE_H
+#define COMPARATEURAIRE_H
 
-#include "comparable/comparable.hpp"
+#include "comparable/comparateur.hpp"
 
 namespace comparateur {
 
-    class ComparateurPerimetre : public Comparateur {
+    class ComparateurAire : public Comparateur {
 
     public:
 
         /**
-         * Compare deux figures selon leurs perimetres
+         * Compare deux figures selon leurs aires
          * \param f2 : premiere figure a comparer 
          * \param f2 : deuxieme figure a comparer 
          * \return un entier positif si la premiere figure est superieur a la deuxieme,
