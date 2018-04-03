@@ -1,18 +1,18 @@
-#include "comparable/comparableDistance.hpp"
+#include "comparateur/comparateurDistance.hpp"
 
 #include <string>
 
-namespace comparable {
+namespace comparateur {
 
-ComparableDistance::ComparableDistance(const Point & p) : _p(p) {
+ComparateurDistance::ComparateurDistance(const Point & p) : _p(p) {
 	
 }
 
-string ComparableDistance::toString() const {
+string ComparateurDistance::toString() const {
 	return "Distance a (" + to_string(_p.getX()) + ", " + to_string(_p.getY()) + ")";
 }
 
-int ComparableDistance::compare(const Figure *f1, const Figure *f2) const {
+int ComparateurDistance::compare(const Figure *f1, const Figure *f2) const {
 	Point origine1 = f1->origine();
 	Point origine2 = f2->origine();
 	float x1 = origine1.getX() - _p.getX();

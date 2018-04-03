@@ -1,16 +1,16 @@
-#ifndef COMPARABLEPERIMETRE_H
-#define COMPARABLEPERIMETRE_H
+#ifndef COMPARATEURAIRE_H
+#define COMPARATEURAIRE_H
 
-#include "comparable/comparable.hpp"
+#include "comparateur/comparateur.hpp"
 
-namespace comparable {
+namespace comparateur {
 
-    class ComparablePerimetre : public Comparable {
+    class ComparateurAire : public Comparateur {
 
     public:
 
         /**
-         * Compare deux figures selon leurs perimetres
+         * Compare deux figures selon leurs aires
          * \param f2 : premiere figure a comparer 
          * \param f2 : deuxieme figure a comparer 
          * \return un entier positif si la premiere figure est superieur a la deuxieme,
@@ -20,8 +20,8 @@ namespace comparable {
         int compare(const Figure *f1, const Figure *f2) const override;
 
         /**
-         * Renvoie le comparable sous forme de chaine de caractere
-         * \return le comparable sous forme de chaine de caractere
+         * Renvoie le comparateur sous forme de chaine de caractere
+         * \return le comparateur sous forme de chaine de caractere
          */
         virtual string toString() const override;
 

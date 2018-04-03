@@ -2,24 +2,24 @@
 #define TRI_H
 
 #include "figure/figure.hpp"
-#include "comparable/comparable.hpp"
+#include "comparateur/comparateur.hpp"
 #include <list>
 
 namespace figure {
 
 	using namespace std;
-	using namespace comparable;
+	using namespace comparateur;
 
 	class Tri {
 
 	public:
 
 		/**
-		 * Tri un conteneur de figures selon un comparable
+		 * Tri un conteneur de figures selon un comparateur
 		 * \param figures : conteneur de figures
-		 * \param comparable : critere de comparaison
+		 * \param comparateur : critere de comparaison
 		 */
-		static void trier(list<shared_ptr<Figure>> & figures, const Comparable & comparable);
+		static void trier(list<shared_ptr<Figure>> & figures, const Comparateur & comparateur);
 
 	};
 	

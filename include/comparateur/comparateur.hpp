@@ -1,13 +1,13 @@
-#ifndef COMPARABLE_H
-#define COMPARABLE_H
+#ifndef COMPARATEUR_H
+#define COMPARATEUR_H
 
 #include "figure/figure.hpp"
 
-namespace comparable {
+namespace comparateur {
 
     using namespace figure;
 
-    class Comparable {
+    class Comparateur {
 
     public:
 
@@ -22,23 +22,23 @@ namespace comparable {
         virtual int compare(const Figure *f1, const Figure *f2) const = 0;
 
         /**
-         * Renvoie le comparable sous forme de chaine de caractere
-         * \return le comparable sous forme de chaine de caractere
+         * Renvoie le comparateur sous forme de chaine de caractere
+         * \return le comparateur sous forme de chaine de caractere
          */
         virtual string toString() const = 0;
 
         /**
-         * Detruit le comparable
+         * Detruit le comparateur
          */
-        virtual ~Comparable() {};
+        virtual ~Comparateur() {};
         
         /**
-         * Ecrit un co dans un flux
+         * Ecrit un compateur dans un flux
          * \param os : le flux
          * \param figure : la condition a ecrire
          * \return le flux
          */
-        friend ostream &operator<<(ostream &os, const Comparable &comparable);
+        friend ostream &operator<<(ostream &os, const Comparateur &comparateur);
 
     };
 
