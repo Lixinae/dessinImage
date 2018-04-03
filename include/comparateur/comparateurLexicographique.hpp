@@ -1,7 +1,7 @@
 #ifndef COMPARATEURLEXICO_H
 #define COMPARATEURLEXICO_H
 
-#include "comparable/comparateur.hpp"
+#include "comparateur/comparateur.hpp"
 
 namespace comparateur {
 

@@ -1,4 +1,4 @@
-#include "comparable/comparateurPerimetre.hpp"
+#include "comparateur/comparateurPerimetre.hpp"
 
 namespace comparateur {
 

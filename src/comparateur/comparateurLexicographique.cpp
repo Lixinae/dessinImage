@@ -1,4 +1,4 @@
-#include "comparable/comparateurLexicographique.hpp"
+#include "comparateur/comparateurLexicographique.hpp"
 
 namespace comparateur {
 

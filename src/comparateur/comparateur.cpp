@@ -1,4 +1,4 @@
-#include "comparable/comparateur.hpp"
+#include "comparateur/comparateur.hpp"
 
 namespace comparateur {
 

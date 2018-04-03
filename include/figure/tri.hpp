@@ -2,7 +2,7 @@
 #define TRI_H
 
 #include "figure/figure.hpp"
-#include "comparable/comparateur.hpp"
+#include "comparateur/comparateur.hpp"
 #include <list>
 
 namespace figure {

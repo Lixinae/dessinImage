@@ -1,7 +1,7 @@
 #ifndef COMPARATEURAIRE_H
 #define COMPARATEURAIRE_H
 
-#include "comparable/comparateur.hpp"
+#include "comparateur/comparateur.hpp"
 
 namespace comparateur {
 
