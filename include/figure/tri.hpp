@@ -15,11 +15,11 @@ namespace figure {
 	public:
 
 		/**
-		 * Tri un conteneur de figures selon un comparable
+		 * Tri un conteneur de figures selon un comparateur
 		 * \param figures : conteneur de figures
-		 * \param comparable : critere de comparaison
+		 * \param comparateur : critere de comparaison
 		 */
-		static void trier(list<shared_ptr<Figure>> & figures, const Comparable & comparable);
+		static void trier(list<shared_ptr<Figure>> & figures, const Comparateur & comparateur);
 
 	};
 	

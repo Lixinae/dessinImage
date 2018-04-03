@@ -1,19 +1,19 @@
-#ifndef COMPARABLEDISTANCE_H
-#define COMPARABLEDISTANCE_H
+#ifndef COMPARATEURDISTANCE_H
+#define COMPARATEURDISTANCE_H
 
 #include "comparable/comparable.hpp"
 
 namespace comparable {
 
-    class ComparableDistance : public Comparable {
+    class ComparateurDistance : public Comparateur {
 
     public:
 
 		/**
-		 * Creer un comparable pour la distance entre un point et l'origine des figures
+		 * Creer un comparateur pour la distance entre un point et l'origine des figures
 		 * \param p : Point de comparaison pour le comparable
 		 */
-		ComparableDistance(const Point & p);
+		ComparateurDistance(const Point & p);
 
         /**
          * Compare deux figures selon leurs distance entre le point et leurs origine
@@ -26,8 +26,8 @@ namespace comparable {
         int compare(const Figure *f1, const Figure *f2) const override;
 
         /**
-         * Renvoie le comparable sous forme de chaine de caractere
-         * \return le comparable sous forme de chaine de caractere
+         * Renvoie le comparateur sous forme de chaine de caractere
+         * \return le comparateur sous forme de chaine de caractere
          */
         virtual string toString() const override;
 

@@ -1,11 +1,11 @@
-#ifndef COMPARABLEPERIMETRE_H
-#define COMPARABLEPERIMETRE_H
+#ifndef COMPARATEURPERIMETRE_H
+#define COMPARATEURPERIMETRE_H
 
 #include "comparable/comparable.hpp"
 
 namespace comparable {
 
-    class ComparablePerimetre : public Comparable {
+    class ComparateurPerimetre : public Comparateur {
 
     public:
 
@@ -20,8 +20,8 @@ namespace comparable {
         int compare(const Figure *f1, const Figure *f2) const override;
 
         /**
-         * Renvoie le comparable sous forme de chaine de caractere
-         * \return le comparable sous forme de chaine de caractere
+         * Renvoie le comparateur sous forme de chaine de caractere
+         * \return le comparateur sous forme de chaine de caractere
          */
         virtual string toString() const override;
 

@@ -2,8 +2,8 @@
 
 namespace comparable {
 
-	ostream &operator<<(ostream &os, const Comparable &comparable) {
-		return (os << comparable.toString());
+	ostream &operator<<(ostream &os, const Comparateur &comparateur) {
+		return (os << comparateur.toString());
 	};
 
 }

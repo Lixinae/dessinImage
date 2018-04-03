@@ -1,29 +1,29 @@
-#ifndef COMPARABLELEXICO_H
-#define COMPARABLELEXICO_H
+#ifndef COMPARATEURLEXICO_H
+#define COMPARATEURLEXICO_H
 
 #include "comparable/comparable.hpp"
 
 namespace comparable {
 
-    class ComparableLexicographique : public Comparable {
+    class ComparateurLexicographique : public Comparateur {
 
     public:
 
 		/**
-		 * Creer un composite de comparable selon l'ordre lexicographique
+		 * Creer un composite de comparateur selon l'ordre lexicographique
 		 * \param p : Point de comparaison pour le comparable
 		 */
-		ComparableLexicographique(Comparable * c1, Comparable * c2);
+		ComparateurLexicographique(Comparateur * c1, Comparateur * c2);
 
 		/**
           * Constructeur de copie
-          * Les pointeurs sur les comparables sont partages
-          * \param other : comparable a copier
+          * Les pointeurs sur les comparateurs sont partages
+          * \param other : comparateur a copier
           */
-		ComparableLexicographique(const ComparableLexicographique & other);
+		ComparateurLexicographique(const ComparateurLexicographique & other);
 
         /**
-         * Compare deux figures selon l'ordre lexicographique des comparables qui le compose
+         * Compare deux figures selon l'ordre lexicographique des comparateurs qui le compose
          * \param f2 : premiere figure a comparer 
          * \param f2 : deuxieme figure a comparer 
          * \return un entier positif si la premiere figure est superieur a la deuxieme,
@@ -33,23 +33,23 @@ namespace comparable {
         int compare(const Figure *f1, const Figure *f2) const override;
 
         /**
-         * Renvoie le comparable sous forme de chaine de caractere
-         * \return le comparable sous forme de chaine de caractere
+         * Renvoie le comparateur sous forme de chaine de caractere
+         * \return le comparateur sous forme de chaine de caractere
          */
         virtual string toString() const override;
         
         /**
          * Operateur d'affection
-         * Les pointeurs sur les comparables sont partages
-         * \param other : comparable a affecter
+         * Les pointeurs sur les comparateurs sont partages
+         * \param other : comparateur a affecter
          * \return l'instance courante
          */
-        ComparableLexicographique & operator=(const ComparableLexicographique &other);
+        ComparateurLexicographique & operator=(const ComparateurLexicographique &other);
 
 	private:
 	
-		Comparable * _c1;
-		Comparable * _c2;
+		Comparateur * _c1;
+		Comparateur * _c2;
 
     };
 
