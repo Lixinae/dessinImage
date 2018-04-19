@@ -3,7 +3,7 @@
 namespace figure {
 	
 	bool Figure::operator==(const Figure &f) const {
-		return (this == &f); //TODO egalite memoire ?
+		return (this == &f);
 	}
 
 	ostream &operator<<(ostream &os, const Figure &figure) {

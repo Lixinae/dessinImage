@@ -1,7 +1,7 @@
 #include <sstream>
-#include <figure/cercle.hpp>///////todo rm
-#include <figure/triangle.hpp>////////////todo rm
-#include <figure/rectangle.hpp>////////////todo rm
+#include <figure/cercle.hpp>
+#include <figure/triangle.hpp>
+#include <figure/rectangle.hpp>
 #include <figure/filtrage.hpp>
 #include <dessin/SDLdessin.hpp>
 #include <figure/serialisationJSON.hpp>
@@ -47,7 +47,7 @@ namespace figure {
 		
 		figure->dessiner(dessin);
 		dessin.attendTouche();
-		dessin.nettoie();
+        dessin.nettoie();
 		
 		Filtrage::supprimerSiProfond(figures, condition);
 		
