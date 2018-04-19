@@ -54,7 +54,7 @@ namespace figure {
     }
 
     void Rectangle::afficher(std::ostream &os) const {
-        os << "rectangle : (" << _upperLeft << ", " << _lowerRight << ")";
+        os << "rectangle : (" << _upperLeft << ", " << _lowerRight << ")" << endl;
     }
 
     const Point &Rectangle::get_upperLeft() const {

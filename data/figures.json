@@ -51,6 +51,19 @@
                         "rayon": 140
                     },
                     "nom": "cercle"
+                },
+                {
+                    "args": {
+						"lowerRight": {
+							"x": 750.0,
+							"y": 640.0
+						},
+						"upperLeft": {
+							"x": 400.0,
+							"y": 500.0
+						}
+					},
+					"nom": "rectangle"
                 }
             ],
             "origine": {

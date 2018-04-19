@@ -32,48 +32,20 @@ namespace figure {
 	}
 	
 	bool supprimerSiImage(Image * image, const Condition & condition) {
-		list<shared_ptr<Figure>> figuresImage(image->getNombre());
+		list<shared_ptr<Figure>> figuresImage;
 		for (int i = 0; i < image->getNombre(); i++) {
 			figuresImage.push_back(image->getFigure(i));
 		}
 		bool flag = Filtrage::supprimerSiProfond(figuresImage, condition);
-		//Image
+		Image newImage(image->getOrigine());
+		for (const auto figure : figuresImage) {
+			newImage.ajouter(*figure);
+		}
+		(*image) = newImage;
 		return flag;
 	}
 	
 	bool Filtrage::supprimerSiProfond(list<shared_ptr<Figure>> &figures, const Condition & condition) {
-		/*bool flag = false;
-		if (figures.empty())
-			return true;
-		auto it(figures.begin());
-		auto end(figures.end());
-		while (it != end) {
-			if (condition.verif(it->get())) {
-				flag = true;
-				it = figures.erase(it);
-			} else {
-				auto *image = dynamic_cast<Image *>(it->get());
-				if (image != 0) {
-					auto figuresImage = vector<shared_ptr<Figure>>();
-					for (int i = 0; i < image->getNombre(); i++) {
-						figuresImage.push_back(image->getFigure(i));
-					}
-					flag = Filtrage::supprimerSiProfond(figuresImage, condition);
-					it = figures.erase(it);
-					auto *nouvelle = new Image();
-					auto it2(figuresImage.begin());
-					auto end2(figuresImage.end());
-					for (; it2 != end2; ++it2) {
-						nouvelle->ajouter(**it2);
-					}
-					figures.push_back(make_shared<Image>(*nouvelle));
-				} else {
-					++it;
-				}
-			}
-		}
-		return flag;*/
-		
 		bool flag = false;
 		if (figures.empty()) {
 			return true;
